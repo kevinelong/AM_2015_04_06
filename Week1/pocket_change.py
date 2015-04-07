@@ -5,6 +5,7 @@ pocket_change = {
     "quarters": 4
 }
 
+
 def add_up(pocket_change):
     totals = {}
     # ... DO YOUR WORK HERE
@@ -12,3 +13,6 @@ def add_up(pocket_change):
 
 if __name__ == "__main__":
     print(add_up(pocket_change))
+
+#Sample output
+#{'dimes': 20, 'nickels': 15, 'all_totaled': 148, 'pennies': 13, 'quarters': 100}
