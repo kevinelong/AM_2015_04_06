@@ -57,3 +57,11 @@ For each of the following words; please answer the following three questions usi
 
 BONUS: What other python keywords can you answer these questions for?
 
+Loop:
+    -Repeat these instructions on everything passed to you.
+    -A flowchart that a call-center employee follows For each customer that calls them.
+    -When you have to do the same procedure over and over or until something change, e.g. While customer_not_happy.
+Tuple:
+    -A list that is just too cool for school and won't change for all the whiskey in Ireland.
+    -A tuple could contain the months of the year, which won't change (probably... I'm pushing for Mayvemberuary)
+    -When you want to be stubborn and immutable.
