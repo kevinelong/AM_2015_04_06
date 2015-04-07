@@ -45,7 +45,7 @@ def calculate_change1_dict(input_dict):
             denom_value = float(denomination)
             total_change += denom_value * coin_quantity
 
-    return total_change
+    return "${:,.2f}".format(total_change)
 
 
 def calculate_change2_list(input_list, change_lookup):
@@ -61,7 +61,7 @@ def calculate_change2_list(input_list, change_lookup):
             denom_value = change_lookup[i]
             total_change += denom_value * coin_quantity
 
-    return total_change
+    return "${:,.2f}".format(total_change)
 
 
 def calculate_change3_list_names(input_list, coin_lookup):
@@ -78,10 +78,10 @@ def calculate_change3_list_names(input_list, coin_lookup):
             coin_name = coin_lookup[i][0]
             denom_value = coin_lookup[i][1]
             coin_amount = denom_value * coin_quantity
-            output_dict[coin_name] = "${}".format(round(coin_amount,2))
+            output_dict[coin_name] = "${:,.2f}".format(coin_amount)
             total_change += coin_amount
 
-    output_dict["Total"] = total_change
+    output_dict["Total Change"] = "${:,.2f}".format(total_change)
 
     return output_dict
 
