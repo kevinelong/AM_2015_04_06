@@ -11,18 +11,18 @@ d = [
     }
 ]
 
-def transform(input_list, key_field):
+def transform(input_list, key_value):
     result = {}
     for item in input_list:
         result_item = []
         result_key = ''
         for key in item.keys():
-            if key == key_field:
+            if key == key_value:
                 result_key = item[key]
             else:
-                result_item.append(item)
+                result_item.append(item[key])
         result[result_key] = result_item
-        return result
+    return result
 
 
 print transform(d, 'id')
