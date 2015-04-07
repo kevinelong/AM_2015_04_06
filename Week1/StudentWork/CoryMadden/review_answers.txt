@@ -1,0 +1,81 @@
+We will:
+
+    Review Basics.
+
+    Revisit core concepts.
+
+Fog is normal.
+
+Clarity comes in waves and levels.
+
+
+Key concepts and their application is priority.
+
+Memorization of syntax comes last and only with practice.
+
+
+
+
+
+For each of the following words; please answer the following three questions using your own words.
+
+    -   What is it?
+
+    -   What real life thing is it similar to?
+
+    -   When would you use it (what problem does it solve?
+
+1. Variable
+    A variable is an object in code that represents something else, such as a number or words. It is similar to a field
+    on a form asking your age. You use it when you need another way to represent data so you can perform actions on it.
+
+2. Operator
+    An operator is the symbol in math that determines what action is taken. It is similar to addition, multiplication, etc.
+
+3. Assignment Operator
+    An assignment operator is used to make one thing equivalent to another. It is similar to the form asking your age,
+    but now age is equal to the number. You use it when you want to assign a value to a variable.
+
+4. String
+    A string is a series/array of characters. It is similar to a sentence or word. You use it when you need to save words
+    instead of numbers to a variable.
+
+5. Float
+    A float is a number with a floating decimal point such as 8.3 or 89.26. It is similar to a number with a decimal point.
+    You use it when you need a more accurate result from a mathematics equation.
+
+6. Boolean
+    Boolean is a condition that returns True or False. It's similar to stating whether something is true or not. It is
+    used when you want something to happen only if a certain condition is met.
+
+7. List
+    A list is an array of data that can hold multiple values for one variable. It is similar to a recipe ingredient list.
+    It is used when there are multiple types of data that are the same, but hold different values.
+
+8. Dict
+    A dict is a list that has key values that relate to another piece of data. It is similar to a dictionary in that you
+    look for the word/key in the dictionary and find the correlating data.
+
+9. Conditional Expression/Operator
+    A conditional expression/operator is a line of code that prevents a loop or following block of code from running
+    unless the condition is met. It is similar to a guard at a military base; unless you have the proper credentials(meet
+    the conditions) you can't continue.
+
+10. Function
+    A function is a line of code that usually returns a value. It can accept parameters with which it will do something.
+    It is similar to an algebraic equation in which you put numbers in for the letters and solve. A function is used when
+    the lines of code need to be reused.
+
+11. Argument
+    An argument is the set of data that is affected by a function. It is similar to the letters in an algebraic equation.
+    You use it when you want a function to perform certain actions.
+
+12. Return Value
+    A return value is the result of a function. It is similar to the answer to a math problem. You can use it when you want
+    to make another variable equal to the function's result, and when you want to print out the function's result.
+
+BONUS: What other python keywords can you answer these questions for?
+
+Class
+    A class is a template for objects. The class creates instances of the template that are given names and become objects.
+    You use it when you have several objects that are going to contain the same fields of information.
