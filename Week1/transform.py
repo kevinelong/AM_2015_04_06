@@ -11,18 +11,27 @@ data = [
     }
 ]
 
-key_field = "id"
-output = {}
 
-for item in data:
-    values = []
-    output_key = ""
+def transform(input_list):
+    key_field = "id"
+    output = {}
 
-    for k in item.keys():
-        if k == key_field:
-            output_key = item[k]
-        else:
-            values.append(item[k])
-    output[output_key] = values
+    for item in input_list:
+        values = []
+        output_key = ""
 
-print(output)
+        for k in item.keys():
+            if k == key_field:
+                output_key = item[k]
+            else:
+                values.append(item[k])
+        output[output_key] = values
+    return output
+
+
+result = transform(data)
+print(result)
+
+NAME = 0
+ROLE = 1
+print(result[123][NAME], result[123][ROLE])
