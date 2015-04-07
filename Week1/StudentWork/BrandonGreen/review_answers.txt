@@ -24,18 +24,36 @@ For each of the following words; please answer the following three questions usi
     -To store human words and text in order to operate on it with the computer.
 5. Float
     -A non-whole integer or number with a decimal place.
+    -A number with a decimal place, or abstract numbers (I have $14.51) instead of I have one $10 bill, four $1 bills, etc.
+    -Whenever we are doing math that should not be rounded to the nearest integer.  As much as I would love a $19.90 in change to come in a $20 bill, the restraunt wouldn't.
 6. Boolean
-
+    -A variable that must be equal to either True or False, no truthy or falsey or fence-sitting booleans.
+    -Alive or Dead, On or Off, Legal Age to Vote (age >= 18), etc.
+    -To check zero-sum situations.  Either someone is old enough to vote, or they or not.  Sarte and logical positivism have no sway here.
 7. List
-
+    -A collection of discrete values.
+    -The contents of my backpack, e.g. backpack_inventory = ['keys', 'laptop', 'pens', 'penguins']
+    -When we want to operate on a group of things, like track what is in my backpack after the penguins migrate away but I replace them with teacup pigs.
 8. Dict
-
+    -A collection of key/value pairs.
+    -A list of movie reviews, with the title as the key (e.g. 'Gladiator') to access that movie's review (e.g. 'Best movie ever, "THEN LET HIM KILL COMMODUS!"')
+    -Store a collection of objects with lots of properties but don't have a particular iterable order.
 9. Conditional Expression/Operator
-
+    -A check to perform an operation given a certain boolean state.
+    -If hungry: eat  Else: learn code
+    -Any kind of complex decision making process, e.g. I will go to the movies If raining == False && Tuesday $5 dollar movie night == True
 10. Function
-
+    -A reusable piece of code that takes argument(s) and gives back a result of acting out instructions on that argument.
+    -A microwave take a food and time argument and returns a nuked version of that food, changing my frozen_brick into delicious pot_pie
+    -Whenever you want to reuse some operation.
 11. Argument
-
+    -Objects and values that can be passed to a function.
+    -The numbers you press on a calculator and the operator you can tell them to perform, e.g. telling a calculator 4+4 gives it three arguments.  A number, the addition operation, and another number.
+    -Any procedure you can define may then be passed valid arguments for computation.
 12. Return Value
+    -The value or object that will be spit out by a function at the end of operations.
+    -The numbers you are given after passing arguments to a calculator, e.g. 4+4 will return the value 8.
+    -Saving the result of a complex function so you can then manipulate it in some other way, like passing it to another function.
 
 BONUS: What other python keywords can you answer these questions for?
+
