@@ -29,9 +29,12 @@ def transform(input_list):
     return output
 
 
-result = transform(data)
-print(result)
+if __name__ == '__main__':
+    # run tests if invoked as a script rather than a module
+    result = transform(data)
+    print(result)
 
-NAME = 0
-ROLE = 1
-print(result[123][NAME], result[123][ROLE])
+    NAME = 0
+    ROLE = 1
+    print(result[123][NAME], result[123][ROLE])
+
