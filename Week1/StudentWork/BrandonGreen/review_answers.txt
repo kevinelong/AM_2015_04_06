@@ -1,0 +1,41 @@
+For each of the following words; please answer the following three questions using your own words.
+
+    -   What is it?
+
+    -   What real life thing is it similar to?
+
+    -   When would you use it (what problem does it solve?
+
+1. Variable
+    -A variable holds a value that can change and be operated on, e.g. vrble = 0, but then vrble += 5, now vrble is 5.
+    -My bank account balance is a variable that stores the amount of money I have and changes as I operate on it by withdrawing and depositing money.
+    -We can use a variable to store an initial value and find out what it would be after performing multiple operations on it (e.g. what will my bank balance if I buy a $500 car and pay sales tax on it)
+2. Operator
+    -Designates a procedural argument that can act upon a variable, e.g. '+' means to add the following argument to the variable.
+    -Any action that can be taken to make a change, e.g. I take coffee and then make my coffee += cream and += sugar and then I have delicious_coffee.
+    -Whenever you want to change or manipulate values.
+3. Assignment Operator
+    -Designates a name that will be used to store a variable.
+    -My name, 'Brandon Green', is an assignment operator that designates my instance of the human class.
+    -When I want to use shorthand to do anything with variables, so that I don't have to repeat myself and can use a single word to access a huge set of variables like my address, phone number, blood-type, level of awesomeness.
+4. String
+    -A series of letters and characters that represent human-readable words and text.
+    -Sentences, words, punctuation, paragraphs, etc.
+    -To store human words and text in order to operate on it with the computer.
+5. Float
+    -A non-whole integer or number with a decimal place.
+6. Boolean
+
+7. List
+
+8. Dict
+
+9. Conditional Expression/Operator
+
+10. Function
+
+11. Argument
+
+12. Return Value
+
+BONUS: What other python keywords can you answer these questions for?
