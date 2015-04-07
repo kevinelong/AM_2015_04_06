@@ -1,0 +1,83 @@
+We will:
+
+    Review Basics.
+
+    Revisit core concepts.
+
+Fog is normal.
+
+Clarity comes in waves and levels.
+
+
+Key concepts and their application is priority.
+
+Memorization of syntax comes last and only with practice.
+
+
+
+
+
+For each of the following words; please answer the following three questions using your own words.
+
+    -   What is it?
+
+    -   What real life thing is it similar to?
+
+    -   When would you use it (what problem does it solve?)
+
+1. Variable:  A variable is the inconstant in whatever we are doing. It's the object that we are morphing to create what
+ it is that we are looking for. If you have an ice cream base, the flavor such as chocolate or vanilla will be the
+ variable. It's the data that we are putting in to then move around as we see fit. (redundant sentance) It solves the
+  problem of continually reentering data.
+
+2. Operator: The Operator signifies what we are doing to a set of data. In simple math terms it would be the operations
+such as +-*/. In some cases it's a comparison relating two sets of data together. Math would be my best analogy, but going
+to cooking it would be grading meat based on quality. One piece will (likely) be superior to the other. It solves the
+problem that we ask it to. Such as doing my taxes.
+
+3. Assignment Operator: An assignment operator makes a comparison between two sets of data, without actually changing the
+data significantly. It's a comparison based on similarity. In a list of steaks both ribeye and top sirloin would qualify
+as "yes", however in a list of ribeyes, top sirloin would not qualify. We use it to categorize information in a method
+that we deem best or necessary.
+
+4. String: A String is a series of some sort of related data that we are screwing with in a similar or related method.
+When making a cake we will have several non-related ingredients, but we are applying a similar method of mixing and
+heating to all of them. The same things are not necessarily happening to all of them, but similar, related things are happening.
+We use strings to keep data that belongs together, together.
+
+5. Float: Float refers to fractions and decimals; really anything that is not a whole number. A 3/4 cup of butter is
+dramatically different then a 1/4 cup of butter; in the same recipie the first could cause a collapse, and the second could
+ be the perfect amount necessary to assist with levening. Without these portions of numbers we would lose vast amounts
+ of... whatever we are working with.
+
+6. Boolean: A boolean will determine the truthiness of something (in Python). Extremely similar to how I described assignment
+operators to the extent that I think one of them may be wrong. Though again, all filet mignons are steaks (true), all steaks are
+filet mignons (false), all T-bones are filet mignons (half true). We use them to test the truthiness quotent of data. Synergy!
+
+7. List: A list is a series of data that is related somehow. A recipe is a list of things that are screwed with to make
+food. For programmers a list is a series of data that is screwed with the produce profit. We use lists to introduce information
+into whatever we are doing.
+
+8. Dict: A Dictionary is a group of data that relates directly to itself. Danford is pale, mostly blind, sarcastic and
+a cook. These descriptions all relate to Danford, they are not a series of irrelevant data. (Assuming Danford is not
+irrleveant) We use this to keep data that needs each other together.
+
+9. Conditional Expression/Operator: A Conditional expression/operator is a series of commands that will flow, one after
+the other until one applies. If my car works then I will drive home. If my car doesnt work, then I'll take the bus. If the
+ bus is broken then I'll walk. If my legs are broken, then I'll probably just cry. We use this to create options for
+ how data is moved/used.
+
+10. Function: A function is a set of commands that we have created to screw with data in a particular way. It's the popcorn
+preset on your microwave, but ideally it works. We use it to take different data and screw with it the same way, without having
+to tell it how to be screwed with again.
+
+11. Argument: A set of variables that are all being screwed with together in a function. Im mincing carrots, onions and
+celery, but essentially the same operation is happening to each. We use these to provide data for a function or whatever
+else we are using.
+
+12. Return Value: Return value is the data that we are getting back after we screw with it. We put in Leeks, Potatos, Salt,
+Pepper and Cream and our return value is vichychoisse. We need return values or really we are not doing anything terribly useful
+because data will go in and we don't get worth out of it.
+
+BONUS: What other python keywords can you answer these questions for?
+Loop. 
