@@ -1,0 +1,98 @@
+We will:
+
+    Review Basics.
+
+    Revisit core concepts.
+
+Fog is normal.
+
+Clarity comes in waves and levels.
+
+
+Key concepts and their application is priority.
+
+Memorization of syntax comes last and only with practice.
+
+
+
+
+
+For each of the following words; please answer the following three questions using your own words.
+
+    -   What is it?
+
+    -   What real life thing is it similar to?
+
+    -   When would you use it (what problem does it solve?
+
+1. Variable
+    A variable is something that is used to represent something else.
+    It's similar to traffic signs: Red means stop.
+    You would use it when you need to reuse or perform multiple operations on a value.
+
+2. Operator
+    A command that is used to modify or return a value.
+    It is similar to mathematical operations - addition, subtraction, etc.
+    You would use it in mathematical contexts.
+
+3. Assignment Operator
+    A command to apply a variable to its value.
+    It is similar to a committee setting rules about traffic signs.
+    It is used to create or modify a variable.
+
+4. String
+    Text, Letters, Words
+    It is similar to words, like someone's name.
+    It is used to represent text.
+
+5. Float
+    A number with decimals.
+    It is used to represent fractions.
+
+6. Boolean
+    A true or false value.
+    It is similar to the on/off state of a light switch (or computer transistor switches).
+    It is allows us to perform actions based on any true/false condition.
+
+7. List
+    A collection or array of data.
+    It similar to a basket of produce: apple, orange, broccoli.
+    It is used to group and act on related data.
+
+8. Dict
+    A collection of key, value pairs.
+    It is similar to the index for a book.  The key is a page number and the value is the topic.
+    It is used to represent an object, its attribute names and values.  It allows us to quickly lookup related data.
+
+9. Conditional Expression/Operator
+    Jump around to different functions or code blocks using boolean logic.
+    It is similar to basic decision making: If I am hungry, then I'll get something to eat.
+    It is used to test a condition and decide what to do if true or false.
+
+10. Function
+    A block of code that can perform a repeatable operation and may receive parameters and return a result.
+    It is similar to driving directions: How I get from one place to another.
+    It allows us to reuse code so that it is more efficient and understandable.
+
+11. Argument
+    An input value received by a function and may be acted on by that function.
+    It is similar to money put in a vending machine.
+    It is used to make functions more dynamic so you don't have to embed fixed variables in every function.
+
+12. Return Value
+    The value returned by a function.
+    It is similar to the result of basic arithmetic: 2 + 2 = *4*
+    It allows us to use functions to provide results that can be used for additional functions or provide meaning.
+
+BONUS: What other python keywords can you answer these questions for?
+
+13. Loop
+    Repeating over a collection data to perform some action on that data.
+    It is similar to going through each piece of clothing in your closet and deciding what to wear.
+    It allows us to perform actions or logic across related data.
+
+14. Object/Class
+    A data structure that has consistent functions and methods.
+    It is similar to any set of similar things, such as a car, which has parts and can be driven.
+    It allows us to represent real-world, complex things in code.
+        It also allows us to make our code more modular, efficient, and readable.
