@@ -1,0 +1,72 @@
+We will:
+
+    Review Basics.
+
+    Revisit core concepts.
+
+Fog is normal.
+
+Clarity comes in waves and levels.
+
+
+Key concepts and their application is priority.
+
+Memorization of syntax comes last and only with practice.
+
+
+
+
+
+For each of the following words; please answer the following three questions using your own words.
+
+    -   What is it?
+
+    -   What real life thing is it similar to?
+
+    -   When would you use it (what problem does it solve?
+
+1. Variable
+an argument or parameter inside of a string. I'd say life is full of constant variables. The problem it solves is
+to allow the coder to call a function.
+
+2. Operator
+this would be the plus, minus, times, division symbols, etc. They are similar to the symbols used in real life to
+achieve the same or similar answers. They would be used to add, multiply, or divide to produce a value.
+
+3. Assignment Operator
+the thing that defines what to call. In real life I'd say it would be a title.
+
+4. String
+a string is a word or series of words that can be called to create an answer. It must be properly defined in the code.
+
+5. Float
+honestly? This concept keeps slipping past me for some reason.
+
+6. Boolean
+a true or false statement. This would be used when you need to know if something is more or less than and/or equal to,
+for example 10 < 472
+
+7. List
+A list of items that can be searched. This would be similar to a list or dictionary catalog or index. It would be used
+to catalog names, items or places etc.
+
+8. Dict
+A dictionary of things that can be searched. This would be similar to a list, catalog or index. It would be used to
+store and search names, items, places etc. A collection.
+
+9. Conditional Expression/Operator
+This would be the if/else, as in, if x * y = z print z else print a
+
+10. Function
+procedure or program, ie a block of code that takes a parameter and may return a value
+
+11. Argument
+again, another concept that seems a bit slippery to me
+
+12. Return Value
+the answer! The solution one is seeking. The point of the exercise.
+
+BONUS: What other python keywords can you answer these questions for?
+raw_input, which allows you to interact with the user
+inheritance used to indicate that one class will get all or most features from a parent
+randomly, a # is also called an octothorpe
