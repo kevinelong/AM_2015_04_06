@@ -129,16 +129,21 @@ for person in ["Bob", "Carol", "Ted", "Alice"]:
 print(len("word, again"))
 print(len(str(3 * 4)))
 
-# Functions are a sequence of code instructions you can call by name to avoid copy paste modify.
-# like a useful formula
+# Functions are a named sequence of code instructions.
+# The can be called multiple times.
+# They allow code reuse.
+# They are called by name.
+# They allow one to avoid creating difficult to maintain code
+# via "copy, paste, modify".
+# They are like a chef's recipe for a specific sauce that is applied to many dishes.
 
 
-def celcius(farenheit):
-    output = ((farenheit - 32) * 5) / 9
+def celsius(fahrenheit):
+    output = ((fahrenheit - 32) * 5) / 9
     return output
 
 
-print("100 -> " + str(celcius(100)))
+print("100 -> " + str(celsius(100)))
 
 ###
 # Classes and Modules
