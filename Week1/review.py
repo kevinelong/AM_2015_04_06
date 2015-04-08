@@ -120,7 +120,22 @@ class Group(list):
             print(person_object.first_name + " " + person_object.last_name)
 
 
-g = Group()
+class GroupList():
+    def __init__(self):
+        self._list = []
+
+    def append(self, person):
+        self._list.append(person)
+
+    def getByIndex(self, index):
+        return self._list[index]
+
+    def show(self):
+        for person_object in self:
+            print(person_object.first_name + " " + person_object.last_name)
+
+
+g = GroupList()
 
 p = Person("Kevin", "Long")
 print(p.first_name)
@@ -129,5 +144,6 @@ g.append(p)
 
 g.append(Person("Ashley", "Ford"))
 
-k = g[0]
-print(k.first_name)
+# k = g[0]
+p2 = g.getByIndex(1)
+print(p2.first_name)
