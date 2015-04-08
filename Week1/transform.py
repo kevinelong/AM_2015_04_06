@@ -17,7 +17,6 @@ data = [
 #     data[1]["id"]: [data[1]["name"], data[1]["role"]],
 # }
 
-
 def transform(input_list, key_field):
     output = {}
 
