@@ -23,9 +23,8 @@ For each of the following words; please answer the following three questions usi
 
     -   What real life thing is it similar to?
 
-    -   When would you use it (what problem does it solve?
-
-1. Variable
+    -   When would you use it (what problem does it solve?)
+1. Variable:
 
 2. Operator
 
