@@ -1,0 +1,52 @@
+We will:
+
+    Review Basics.
+
+    Revisit core concepts.
+
+Fog is normal.
+
+Clarity comes in waves and levels.
+
+
+Key concepts and their application is priority.
+
+Memorization of syntax comes last and only with practice.
+
+
+
+
+
+For each of the following words; please answer the following three questions using your own words.
+
+    -   What is it?
+
+    -   What real life thing is it similar to?
+
+    -   When would you use it (what problem does it solve?
+
+1. Variable  - A variable is something that contains a specific value or object.  Similar to any object such as an apple.  You could use it in a math equation.
+
+2. Operator  - -, *, /, % +   Simular to keys on a calculator.  Use in math equation.
+
+3. Assignment Operator - =  Y = 2 (Y is 2)  assigning a name to something.  When a baby is born you assign the baby or name.
+
+4. String - A sequence of characters, much use "" around characters or ''.  A sentence in the english language.  Communicating instructions to another human what to do.
+
+5. Float - A float is a number with a decimal point i.e. 3.21.  A whole number plus a fraction of a number.  Use in a math problem.
+
+6. Boolean - A boolean is a value that can either be True or False.  Serves the purpose of answering a question.  Used to find out information about a certain subject.
+
+7. List - Lists can be used in Python to store information such as strings, numbers and just about any other data.  A grocery list.  Used to remember things.
+
+8. Dict - Data type. Dictionaries are indexed by keys if they contain only strings, numbers or tuples.  Unordered set of keys storing value and extracting value using key.  To store large databases of information.  A phonebook.
+
+9. Conditional Expression/Operator = if, else or while loop, for loop.  The always return a True or False statement.  if (some condition) start code if (some condition is True).  Else: If some condition is False.  Problem solving through a process and giving instructions what to do next.
+
+10. Function - A function is something where you put values in and get something out in return.  A function can be used by "calling it".  Giving instructions then executing the instructions.  Turning a coffee maker on, putting water and coffee in and pushing the start button.
+
+11. Argument - Data or a value passed through a function.  Ingredients of a recipe.
+
+12. Return Value- A keyword that sends data from a function back to whatever called it, whether that's another function or a variable assignment.  Use it to answer a question, giving user the information they need.
+
+BONUS: What other python keywords can you answer these questions for?  What is ==?  Equal to.  5 == 5,  len() using len (some object)returns the number or length.
