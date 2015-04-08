@@ -5,6 +5,8 @@ pocket_change = {
     "quarters": 4
 }
 
+def q("quarters"):
+
 
 def add_up(pocket_change):
     totals = {}
