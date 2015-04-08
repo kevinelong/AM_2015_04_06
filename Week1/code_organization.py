@@ -62,6 +62,6 @@ class MultiMath(object):
         for s in sums:
             print(s)
 
-
+print( MultiMath.add_pair(Pair(9,9)))
 mm = MultiMath([Pair(2, 3), Pair(6, 7)])
 mm.print_pair_sums()
