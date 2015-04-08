@@ -12,6 +12,8 @@
 #     totals = {}
     # ... DO YOUR WORK HERE
 
+# a small change
+
 def get_min_coins(amount_rem):
     coin_combinations = [1, 5, 10, 25]
     coin_list = []
