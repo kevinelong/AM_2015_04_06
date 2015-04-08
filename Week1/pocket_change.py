@@ -9,6 +9,14 @@ pocket_change = {
 def add_up(pocket_change):
     totals = {}
     # ... DO YOUR WORK HERE
+
+def main():
+    cost = input("Enter the Purchase cost of all items:")
+    tendered = input("Enter the Tendered amount:")
+    change = tendered - cost
+    change = int(change * 100)
+    a = change / 200
+
     return totals
 
 if __name__ == "__main__":
