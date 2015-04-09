@@ -15,7 +15,7 @@ def draw():
             line.append(column)
         for item in line:
             line_item += item
-        print line_item
+        print(line_item)
 
 # EXAMPLE OUTPUT
 # O..
