@@ -6,16 +6,21 @@ def kettle ();
 def faucet ();
     # faucet to be used to fill kettle
 
-def stove burner ();
+def burner ();
     # this is the stove burner used to heat the water
 
-def steeptime(raw_input);
+def mug();
+    # this is the mug the user will pour the tea into
 
-    # the amount of time the tea steeps for
-
-def tea(type[1 "Decaf" : 2 "Caf"]);
+def tea([1 "Decaf" : 2 "Caf"]);
         [ G "Ginseng" : E "Earl Grey"])
+    print "Type 1 for decaf and type 2 for caf";
+    print "Type G for Ginseng and E for Earl Gray"
     # types of tea (decaf or caf)
+
+def steeptminutes();
+    print "How many minutes do you want to steep for? Type 4 for four minutes and 6 for six minutes";
+     # number of minutes the user wants tea to steep
 
 def run_faucet[C "Cold" : H "Hot"];
     # user runs the faucet
