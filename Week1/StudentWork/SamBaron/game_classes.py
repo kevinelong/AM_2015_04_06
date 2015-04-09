@@ -34,16 +34,18 @@ class Board(object):
         Methods:
             Clear Board
             Draw Board
-            Get Positon on Board
+            Get Position on Board
     """
 
     def __init__(self, rows, columns, blank_symbol):
         self.rows = rows
         self.columns = columns
         self.blank_symbol = blank_symbol
+        self.create_positions()
 
-        self.positions = {}  #TODO Create positions in its own function
-        # Create position dictionary
+
+    def create_positions(self):
+        self.positions = {}
         for row in range(1, self.rows + 1):
             for column in range(1, self.columns + 1):
                 position_key = "{}{}".format(row, column)
