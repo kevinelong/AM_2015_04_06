@@ -22,6 +22,7 @@ def check_winX():
                 win_sum += 1
                 if win_sum == 3:
                     print "You win!"
+                    draw()
                     quit()
             else:
                 pass
@@ -44,29 +45,30 @@ class Player(object):
         self.piece = 'X'
 
     def place_piece(self, number):
-        if number in range(0, 10):
+        place_range = range(0,10)
+        if number in place_range:
             if game_state[number] == '.':
                 game_state[number] = self.piece
-            else:
-                print "That's an invalid location."
-                self.place_piece(int(raw_input("Try another spot: ")))
+        else:
+            print "That's an invalid location."
+            self.place_piece(int(raw_input("Try another spot: ")))
 
 
-Player1 = Player("Cory")
+Player1 = Player(raw_input("Player 1 name: "))
 Player2 = Player(raw_input("Player 2 name: "))
 Player2.piece = 'O'
 
 turns = 1
 while turns <= 9:
-    if ((turns % 2 != 0) or turns == 1):
-        Player1.place_piece(int(raw_input("Player1, place piece: ")))
-        check_winX()
-        draw()
-    else:
-        Player2.place_piece(int(raw_input("Player 2, place piece: ")))
-        check_winO()
-        draw()
-    turns += 1
-
-
-
+    try:
+        if ((turns % 2 != 0) or turns == 1):
+            Player1.place_piece(int(raw_input((Player1.name + " place piece: "))))
+            check_winX()
+            draw()
+        else:
+            Player2.place_piece(int(raw_input((Player2.name + " place piece: "))))
+            check_winO()
+            draw()
+        turns += 1
+    except ValueError:
+        print "Input a number between 1 and 9: "
