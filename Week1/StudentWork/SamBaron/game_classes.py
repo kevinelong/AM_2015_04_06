@@ -1,5 +1,26 @@
 __author__ = 'Sam Baron'
 
+
+class Position(object):
+    """
+        Position on Board
+
+        Properties:
+            Row - cannot be larger than board rows
+            Column - cannot be larger than board columns
+            Symbol - position's symbol
+
+        Methods:
+            Set Position Value - using player's symbol
+            Clear Position Value - setting position to board blank symbol
+    """
+
+    def __init__(self, row, column, value):
+        self.row = row
+        self.column = column
+        self.value = value
+
+
 class Board(object):
     """
         Game Board
@@ -59,26 +80,6 @@ class Board(object):
         """
         position_key = "{}{}".format(row, column)
         return self.positions[position_key]
-
-
-class Position(object):  #TODO Move above board
-    """
-        Position on Board
-
-        Properties:
-            Row - cannot be larger than board rows
-            Column - cannot be larger than board columns
-            Symbol - position's symbol
-
-        Methods:
-            Set Position Value - using player's symbol
-            Clear Position Value - setting position to board blank symbol
-    """
-
-    def __init__(self, row, column, value):
-        self.row = row
-        self.column = column
-        self.value = value
 
 
 class Player(object):
