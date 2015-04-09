@@ -22,28 +22,36 @@ class Mug:
     def __init__(self, mug, full, empty):
         self.mug.full = full mug
         self.mug.empty = empty mug
-
     # this is the mug the user will pour the tea into
 
-def teatype([1 "Decaf" : 2 "Caf"]);
+class TeaType:
+    def __init__(self, type, decaf, caf):
+        self.type.decaf = decaf
+        self.type.caf = caf
+    # user selects whether they want decaf or caf tea
 
-def teaflavor[ G "Ginseng" : E "Earl Grey"]);
-    print "Type 1 for decaf and type 2 for caf";
-    print "Type G for Ginseng and E for Earl Gray";
+class Teaflavor:
+    def __init__(self, Teaflavor, Gingseng, EarlGray):
+        self.Teaflavor.Ginseng = Ginseng
+        self.Teaflavor.Earl = Earl Gray
     # types of tea (decaf or caf)
 
-def steeptminutes(4 "four minutes" : 6 "six minutes");
-    print "How many minutes do you want to steep for? Type 4 for four minutes and 6 for six minutes";
+class Steepminutes:
+    def __init__(self, Steepminutes, 4, 6):
+        self.steepminutes.4 = 4 minute steep
+        self.steepminutes.6 = 6 minutes steep
      # number of minutes the user wants tea to steep
 
-def run_faucet[C "Cold" : H "Hot"];
-    # user runs the faucet
+class Faucet:
+    def __init__(self, faucet, cold, hot):
+        self.faucet.cold = run cold water
+        self.faucet.hot = run hot water
 
-if run_faucet[H]
+if self.faucet.hot:
     print "You must use cold water to make tea, dummy!"
     #user runs faucet in hot triggering error message
 
-if run_faucet[C]
+if self.faucet.cold:
     print "Don't let the kettle overflow!"
     #user runs Cold faucet triggering reminder to not overfill
 
