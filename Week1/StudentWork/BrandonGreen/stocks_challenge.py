@@ -39,22 +39,6 @@ def scale_stocker(stocks):
         result[key] = [stock for stock in stocks if key in stock]
     return result
 
-#print scale_stocker(test_data)
-
-DATE_INDEX = 0
-STOCK_INDEX = 1
-VALUE_INDEX = 2
 
 
-def scale_stocker_average(stocks):
-    result = {}
-    for stock in stocks:
-        key = stock[STOCK_INDEX]
-        result[key] = [stock for stock in stocks if key in stock]
-    for key in result.keys():
-        average_key = str(stock[STOCK_INDEX]) + " average:"
-        stock_values = [stock[VALUE_INDEX] for stock in stocks if key in stocks]
-        result[average_key] = sum(stock_values) / len(stock_values)
-    return result
-
-print scale_stocker_average(test_data)
+print scale_stocker(test_data)
