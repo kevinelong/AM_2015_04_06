@@ -24,7 +24,7 @@ class Board():
         for row in range(0, self.rows):
             line = []
             for column in range(0, self.columns):
-                line.append('.')
+                line.append(GameSquare(row, column).value)
             new_board.append(line)
         return new_board
 
@@ -35,6 +35,12 @@ def draw():
         for column in row:
             line += column
         print line
+
+
+def game_on(board):
+    game_over = False
+    turn = 0
+    while not game_over:
 
 
 my_board = Board(3, 3)
