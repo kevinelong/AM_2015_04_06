@@ -49,9 +49,9 @@ class Player(object):
         if number in place_range:
             if game_state[number] == '.':
                 game_state[number] = self.piece
-            else:
-                print "That's an invalid location."
-                self.place_piece(int(raw_input("Try another spot: ")))
+        else:
+            print "That's an invalid location."
+            self.place_piece(int(raw_input("Try another spot: ")))
 
 
 Player1 = Player(raw_input("Player 1 name: "))
@@ -62,11 +62,11 @@ turns = 1
 while turns <= 9:
     try:
         if ((turns % 2 != 0) or turns == 1):
-            Player1.place_piece(int(raw_input("Player1, place piece: ")))
+            Player1.place_piece(int(raw_input((Player1.name + " place piece: "))))
             check_winX()
             draw()
         else:
-            Player2.place_piece(int(raw_input("Player 2, place piece: ")))
+            Player2.place_piece(int(raw_input((Player2.name + " place piece: "))))
             check_winO()
             draw()
         turns += 1
