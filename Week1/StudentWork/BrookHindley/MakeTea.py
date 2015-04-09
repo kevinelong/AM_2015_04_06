@@ -9,19 +9,28 @@ def faucet ();
 def stove burner ();
     # this is the stove burner used to heat the water
 
-def tea(types)[1 "Decaf" : 2 "Caf"]);
+def steeptime(raw_input);
+
+    # the amount of time the tea steeps for
+
+def tea(type[1 "Decaf" : 2 "Caf"]);
+        [ G "Ginseng" : E "Earl Grey"])
     # types of tea (decaf or caf)
 
-def run_faucet[3 "Cold" : 4 "Hot"];
+def run_faucet[C "Cold" : H "Hot"];
     # user runs the faucet
 
-if run_faucet[4]
-    return "You must use cold water to make tea, dummy!"
+if run_faucet[H]
+    print "You must use cold water to make tea, dummy!"
     #user runs faucet in hot triggering error message
 
-if run_faucet[3]
-    return "Don't let the kettle overflow!"
+if run_faucet[C]
+    print "Don't let the kettle overflow!"
     #user runs Cold faucet triggering reminder to not overfill
+
+
+
+
 
 
 
