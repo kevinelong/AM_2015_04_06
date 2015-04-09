@@ -76,10 +76,9 @@ def split_stock_list(stock_list):
 
         # Append to stock dictionary
         # Test whether stock exists in dictionary
-        try:
-            stocks[stock_key].append(stock_values)
-        except KeyError:
-            stocks[stock_key] = [stock_values]
+        if stock_key not in stocks.keys():
+            stocks[stock_key] = []
+        stocks[stock_key].append(stock_values)
 
     return stocks
 
