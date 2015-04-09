@@ -99,6 +99,14 @@ class Board(object):
         return self.positions[position_key]
 
 
+    def full_board_test(self):
+        full_board = True
+        for position in self.positions:
+            if position.value == self.blank_symbol:
+                full_board = False
+                break
+        return full_board
+
 class Player(object):
     """
         Player playing game
@@ -220,7 +228,7 @@ class Game(object):
             for player in players:
                 end_game = self.player_turn(player)
 
-
+            #TODO Full board test
 
 if __name__ == "__main__":
     new_board = Board(rows=3,columns=3,blank_symbol=".")
