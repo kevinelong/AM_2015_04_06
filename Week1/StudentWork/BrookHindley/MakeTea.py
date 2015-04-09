@@ -1,7 +1,7 @@
 # Tea Kettle
 
 class Kettle:
-    def __init__(self, water, temp):
+    def __init__(self, water, cold, hot):
         self.water.cold = cold
         self.water.hot = hot
     # this is the kettle to be filled with water
@@ -11,6 +11,11 @@ class Faucet:
         self.faucet.on = faucet on
         self.faucet.off = faucet off
     # faucet to be used to fill kettle
+
+class Faucettemp:
+    def __init__(self, faucetemp, cold, hot):
+        self.faucettemp.cold = run cold water
+        self.faucettemp.hot = run hot water
 
 class Burner:
     def __init__(self, burner, on, off):
@@ -26,8 +31,8 @@ class Mug:
 
 class TeaType:
     def __init__(self, type, decaf, caf):
-        self.type.decaf = decaf
-        self.type.caf = caf
+        self.teatype.decaf = decaf
+        self.teatype.caf = caf
     # user selects whether they want decaf or caf tea
 
 class Teaflavor:
@@ -39,13 +44,8 @@ class Teaflavor:
 class Steepminutes:
     def __init__(self, Steepminutes, 4, 6):
         self.steepminutes.4 = 4 minute steep
-        self.steepminutes.6 = 6 minutes steep
+        self.steepminutes.6 = 6 minute steep
      # number of minutes the user wants tea to steep
-
-class Faucet:
-    def __init__(self, faucet, cold, hot):
-        self.faucet.cold = run cold water
-        self.faucet.hot = run hot water
 
 if self.faucet.hot:
     print "You must use cold water to make tea, dummy!"
