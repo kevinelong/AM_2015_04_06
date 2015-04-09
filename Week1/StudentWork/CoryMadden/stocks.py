@@ -8,6 +8,7 @@ test_data = [
     ["2014-06-02", "MSFT", 21.25],
     ["2014-06-03", "MSFT", 32.53],
     ["2014-06-04", "MSFT", 40.71],
+    ["2015-06-09", "GOOG", 39.21]
 ]
 
 # CREATE TWO NEW LISTS ONE FOR EACH STOCK TICKER SYMBOL e.g. APPL and MSFT
@@ -29,7 +30,7 @@ test_data = [
 
 #ONCE THAT WORKS THEN what would need to change to copy with an unknown number of stock ticker symbols?
 
-stock_symbols = ["APPL", "MSFT"]
+stock_symbols = ["APPL", "MSFT","GOOG"]
 
 sym_key = 0
 
@@ -37,6 +38,7 @@ sorted_data = {}
 temp_list = []
 
 for symbol in stock_symbols:
+    temp_list = []
     for data_item in test_data:
         if data_item[1] == symbol:
             temp_list += [data_item[0], data_item[2]]
