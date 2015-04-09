@@ -10,10 +10,12 @@ game_state = [
 def draw():
     for row in game_state:
         line = []
+        line_item = ''
         for column in row:
-            line += column
-        print line
-
+            line.append(column)
+        for item in line:
+            line_item += item
+        print line_item
 
 # EXAMPLE OUTPUT
 # O..
