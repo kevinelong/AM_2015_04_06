@@ -57,12 +57,13 @@ if self.faucet.cold:
     print "Don't let the kettle overflow!"
     #user runs Cold faucet triggering reminder to not overfill
 
-if (teatype.caf) : faucet
-
-
-
-
 #Below are the functions needed to actually make the tea
+
+def MakeTea ():
+    if
+
+
+
 
 
 # def {tea(1) and teaflavor(G) and run_faucet(C) and burner(0) and burner(f) and steepminutes(6)};
