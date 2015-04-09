@@ -57,18 +57,33 @@ class Board(object):
             Print board position symbols in rows/columns
             Use sorted dictionary
 
+
             Parameters:
-                output_type = (v) or (k)
+                output_type = (v)alue or (k)ey
         """
-        output_list = []  #TODO Need row/column headers and spaces between positions
+        output_list = []
+
+        # Print column headers
+        output_list.append("  ")
+        for n in range(1, self.columns + 1):
+            output_list.append("{} ".format(n))
+        output_list.append("\n")
+
+        # Print row headers and position data
         row_save = 1
+        output_list.append("1 ")
         for key, position in sorted(self.positions.items()):
             if position.row != row_save:
                 output_list.append("\n")
+                # Print row header
+                output_list.append("{} ".format(position.row))
+
             if output_type.lower()[0] == "k":
                 output_list.append(key)
             else:
                 output_list.append(position.value)
+            output_list.append(" ")
+
             row_save = position.row
 
         output_str = "".join(output_list)
