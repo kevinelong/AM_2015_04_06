@@ -1,24 +1,29 @@
 # Tea Kettle
 
-def kettle ();
+class Kettle:
+    def __init__(self, water, temp):
+        self.water.cold = cold
+        self.water.hot = hot
+
     # this is the kettle to be filled with water
 
 def faucet ();
     # faucet to be used to fill kettle
 
-def burner ();
+def burner (O "on" : F "off");
     # this is the stove burner used to heat the water
 
 def mug();
     # this is the mug the user will pour the tea into
 
-def tea([1 "Decaf" : 2 "Caf"]);
-        [ G "Ginseng" : E "Earl Grey"])
+def teatype([1 "Decaf" : 2 "Caf"]);
+
+def teaflavor[ G "Ginseng" : E "Earl Grey"]);
     print "Type 1 for decaf and type 2 for caf";
-    print "Type G for Ginseng and E for Earl Gray"
+    print "Type G for Ginseng and E for Earl Gray";
     # types of tea (decaf or caf)
 
-def steeptminutes();
+def steeptminutes(4 "four minutes" : 6 "six minutes");
     print "How many minutes do you want to steep for? Type 4 for four minutes and 6 for six minutes";
      # number of minutes the user wants tea to steep
 
@@ -32,6 +37,10 @@ if run_faucet[H]
 if run_faucet[C]
     print "Don't let the kettle overflow!"
     #user runs Cold faucet triggering reminder to not overfill
+
+
+def {tea(1) and teaflavor(G) and run_faucet(C) and burner(0) and burner(f) and steepminutes(6)};
+    print "Your decaf cup of Ginseng tea has been steeped for 6-minutes and is now ready!"
 
 
 
