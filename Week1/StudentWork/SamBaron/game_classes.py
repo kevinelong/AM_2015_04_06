@@ -21,7 +21,7 @@ class Board(object):
         self.columns = columns
         self.blank_symbol = blank_symbol
 
-        self.positions = {}
+        self.positions = {}  #TODO Create positions in its own function
         # Create position dictionary
         for row in range(1, self.rows + 1):
             for column in range(1, self.columns + 1):
@@ -37,7 +37,7 @@ class Board(object):
             Parameters:
                 output_type = (v) or (k)
         """
-        output_list = []
+        output_list = []  #TODO Need row/column headers and spaces between positions
         row_save = 1
         for key, position in sorted(self.positions.items()):
             if position.row != row_save:
@@ -61,7 +61,7 @@ class Board(object):
         return self.positions[position_key]
 
 
-class Position(object):
+class Position(object):  #TODO Move above board
     """
         Position on Board
 
@@ -74,13 +74,10 @@ class Position(object):
             Set Position Value - using player's symbol
             Clear Position Value - setting position to board blank symbol
     """
-    
+
     def __init__(self, row, column, value):
         self.row = row
         self.column = column
-        self.value = value
-
-    def set_value(self, value):
         self.value = value
 
 
@@ -96,7 +93,7 @@ class Player(object):
 
     def __init__(self, name, value):
         self.name = name
-        self.symbol = value
+        self.value = value
         self.wins = 0
 
     def add_win(self):
@@ -134,22 +131,41 @@ class Game(object):
                 # Row?
                 # Column?
                 # Must be on board, cannot already have a value
+            # Win Condition
 
-        # Win Condition
+        # Welcome message
+        print("Welcome to the game")
+        print("Here's the empty board")
+        self.board.draw_board()
 
+        # Loop through players
+        for player in players:
+            print("Hey {}, it's your turn".format(player.name))
+            # User Input Row        #TODO Check integer digits "x.isdigit()"
+            row = int(input("Please enter the row you want to select --> "))
+            while row < 1 or row > self.board.rows:
+                row = int(input("That row number isn't on the board.  Please enter the row you want to select --> "))
+            # User Input Column
+            column = int(input("Please enter the column you want to select --> "))
+            while column < 1 or column > self.board.columns:
+                column = int(input("That column number isn't on the board.  Please enter the column you want to select --> "))
 
+            # Get position on board
+            position = self.board.get_position(row, column)
+            # Set position on board using player value
+            position.value = player.value
 
-
-        pass
+            # Print Board
+            print("Here's the new board")
+            self.board.draw_board()
 
 
 if __name__ == "__main__":
     new_board = Board(rows=3,columns=3,blank_symbol=".")
     player1 = Player(name="John", value="X")
-    player2 = Player(name="John", value="Y")
+    player2 = Player(name="Sally", value="Y")
     players = [player1, player2]
 
     new_game = Game(board=new_board, players=players)
-
-    new_board.draw_board()
+    new_game.play_game()
 
