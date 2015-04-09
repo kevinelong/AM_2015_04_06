@@ -49,7 +49,7 @@ class Board(object):
         for row in range(1, self.rows + 1):
             for column in range(1, self.columns + 1):
                 position_key = "{}{}".format(row, column)
-                self.positions[position_key] = Position(row=row, column=column, value=blank_symbol)
+                self.positions[position_key] = Position(row=row, column=column, value=self.blank_symbol)
 
 
     def draw_board(self, output_type="v"):
