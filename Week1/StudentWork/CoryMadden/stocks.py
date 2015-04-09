@@ -18,7 +18,7 @@ test_data = [
 # msft = []
 #
 # for data_item in test_data:
-#     if data_item[1] == "APPL":
+# if data_item[1] == "APPL":
 #         appl.append(data_item)
 #     elif data_item[1] == "MSFT":
 #         msft.append(data_item)
@@ -30,7 +30,7 @@ test_data = [
 
 #ONCE THAT WORKS THEN what would need to change to copy with an unknown number of stock ticker symbols?
 
-stock_symbols = ["APPL", "MSFT","GOOG"]
+stock_symbols = ["APPL", "MSFT", "GOOG"]
 
 sym_key = 0
 
@@ -47,4 +47,4 @@ for symbol in stock_symbols:
             pass
     sorted_data.update(new_data)
 
-print sorted_data
+print sorted_data['GOOG']
