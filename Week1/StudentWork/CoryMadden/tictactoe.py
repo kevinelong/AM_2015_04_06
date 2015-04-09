@@ -72,6 +72,3 @@ while turns <= 9:
         turns += 1
     except ValueError:
         print "Input a number between 1 and 9: "
-
-
-

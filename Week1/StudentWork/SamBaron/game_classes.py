@@ -1,5 +1,26 @@
 __author__ = 'Sam Baron'
 
+
+class Position(object):
+    """
+        Position on Board
+
+        Properties:
+            Row - cannot be larger than board rows
+            Column - cannot be larger than board columns
+            Symbol - position's symbol
+
+        Methods:
+            Set Position Value - using player's symbol
+            Clear Position Value - setting position to board blank symbol
+    """
+
+    def __init__(self, row, column, value):
+        self.row = row
+        self.column = column
+        self.value = value
+
+
 class Board(object):
     """
         Game Board
@@ -13,20 +34,22 @@ class Board(object):
         Methods:
             Clear Board
             Draw Board
-            Get Positon on Board
+            Get Position on Board
     """
 
     def __init__(self, rows, columns, blank_symbol):
         self.rows = rows
         self.columns = columns
         self.blank_symbol = blank_symbol
+        self.create_positions()
 
+
+    def create_positions(self):
         self.positions = {}
-        # Create position dictionary
         for row in range(1, self.rows + 1):
             for column in range(1, self.columns + 1):
                 position_key = "{}{}".format(row, column)
-                self.positions[position_key] = Position(row=row, column=column, value=blank_symbol)
+                self.positions[position_key] = Position(row=row, column=column, value=self.blank_symbol)
 
 
     def draw_board(self, output_type="v"):
@@ -34,18 +57,33 @@ class Board(object):
             Print board position symbols in rows/columns
             Use sorted dictionary
 
+
             Parameters:
-                output_type = (v) or (k)
+                output_type = (v)alue or (k)ey
         """
         output_list = []
+
+        # Print column headers
+        output_list.append("  ")
+        for n in range(1, self.columns + 1):
+            output_list.append("{} ".format(n))
+        output_list.append("\n")
+
+        # Print row headers and position data
         row_save = 1
+        output_list.append("1 ")
         for key, position in sorted(self.positions.items()):
             if position.row != row_save:
                 output_list.append("\n")
+                # Print row header
+                output_list.append("{} ".format(position.row))
+
             if output_type.lower()[0] == "k":
                 output_list.append(key)
             else:
                 output_list.append(position.value)
+            output_list.append(" ")
+
             row_save = position.row
 
         output_str = "".join(output_list)
@@ -61,29 +99,6 @@ class Board(object):
         return self.positions[position_key]
 
 
-class Position(object):
-    """
-        Position on Board
-
-        Properties:
-            Row - cannot be larger than board rows
-            Column - cannot be larger than board columns
-            Symbol - position's symbol
-
-        Methods:
-            Set Position Value - using player's symbol
-            Clear Position Value - setting position to board blank symbol
-    """
-    
-    def __init__(self, row, column, value):
-        self.row = row
-        self.column = column
-        self.value = value
-
-    def set_value(self, value):
-        self.value = value
-
-
 class Player(object):
     """
         Player playing game
@@ -96,7 +111,7 @@ class Player(object):
 
     def __init__(self, name, value):
         self.name = name
-        self.symbol = value
+        self.value = value
         self.wins = 0
 
     def add_win(self):
@@ -134,22 +149,41 @@ class Game(object):
                 # Row?
                 # Column?
                 # Must be on board, cannot already have a value
+            # Win Condition
 
-        # Win Condition
+        # Welcome message
+        print("Welcome to the game")
+        print("Here's the empty board")
+        self.board.draw_board()
 
+        # Loop through players
+        for player in players:
+            print("Hey {}, it's your turn".format(player.name))
+            # User Input Row        #TODO Check integer digits "x.isdigit()"
+            row = int(input("Please enter the row you want to select --> "))
+            while row < 1 or row > self.board.rows:
+                row = int(input("That row number isn't on the board.  Please enter the row you want to select --> "))
+            # User Input Column
+            column = int(input("Please enter the column you want to select --> "))
+            while column < 1 or column > self.board.columns:
+                column = int(input("That column number isn't on the board.  Please enter the column you want to select --> "))
 
+            # Get position on board
+            position = self.board.get_position(row, column)
+            # Set position on board using player value
+            position.value = player.value
 
-
-        pass
+            # Print Board
+            print("Here's the new board")
+            self.board.draw_board()
 
 
 if __name__ == "__main__":
     new_board = Board(rows=3,columns=3,blank_symbol=".")
     player1 = Player(name="John", value="X")
-    player2 = Player(name="John", value="Y")
+    player2 = Player(name="Sally", value="Y")
     players = [player1, player2]
 
     new_game = Game(board=new_board, players=players)
-
-    new_board.draw_board()
+    new_game.play_game()
 
