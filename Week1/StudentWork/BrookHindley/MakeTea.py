@@ -4,16 +4,25 @@ class Kettle:
     def __init__(self, water, temp):
         self.water.cold = cold
         self.water.hot = hot
-
     # this is the kettle to be filled with water
 
-def faucet ();
+class Faucet:
+    def __init__(self, faucet, on, off):
+        self.faucet.on = faucet on
+        self.faucet.off = faucet off
     # faucet to be used to fill kettle
 
-def burner (O "on" : F "off");
+class Burner:
+    def __init__(self, burner, on, off):
+        self.burner.on = burner on
+        self.burner.off = burner off
     # this is the stove burner used to heat the water
 
-def mug();
+class Mug:
+    def __init__(self, mug, full, empty):
+        self.mug.full = full mug
+        self.mug.empty = empty mug
+
     # this is the mug the user will pour the tea into
 
 def teatype([1 "Decaf" : 2 "Caf"]);
