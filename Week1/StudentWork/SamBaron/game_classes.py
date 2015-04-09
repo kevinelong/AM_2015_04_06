@@ -107,6 +107,7 @@ class Board(object):
                 break
         return full_board
 
+
 class Player(object):
     """
         Player playing game
@@ -187,6 +188,46 @@ class Game(object):
         return self.board.full_board_test()
 
 
+    def win_condition(self, player):
+        """
+            Test player win condition
+            Use position keys (11, 12, 13, 21 . . .)
+            Two Tests (both must be true on either row or column):
+                Constant Condition
+                    Either row or column values are constant (1, 1, 1 . . .)
+                Sequential Condition
+                    Either row or column values are sequential (1, 2, 3 . . .)
+        """
+
+        row_list = []
+        column_list = []
+        constant_condition = False
+        row_sequential_condition = False
+        column_sequential_condition = False
+
+        # Loop through positions on board for player
+        for position_key, position_obj in self.board.positions.items():
+            if position_obj.value == player.value:
+                row_list.append(position_obj.row)
+                column_list.append(position_obj.column)
+
+        # Either row keys or column keys must stay constant
+        row_set = set(row_list)
+        column_set = set(column_list)
+        if len(row_set) == 1 or len(column_set) == 1:
+            constant_condition = True
+
+        # The other row keys or column keys must be sequential for number of row or columns
+        row_sum_test = sum([n for n in range(1, self.board.rows + 1)])
+        column_sum_test = sum([n for n in range(1, self.board.columns + 1)])
+        if sum(row_list) == row_sum_test:
+            row_sequential_condition = True
+        if sum(column_list) == column_sum_test:
+            column_sequential_condition = True
+
+        return constant_condition and sequential_condition
+
+
     def player_turn(self, player):
         print("Hey {}, it's your turn".format(player.name))
 
@@ -209,26 +250,14 @@ class Game(object):
             print("Board is full")
             return False
 
-        #TODO Add win condition
+        if self.win_condition(player):
+            print("Congratulations {}, you won!!!!!".format(player.name))
+            return False
 
         return True
 
+
     def play_game(self):
-
-        # Setup Game
-            # Create Players
-            # Create Board
-                # Rows?
-                # Columns?
-
-        # Play Game
-            # Player's Turn
-            # Player's Move
-                # Row?
-                # Column?
-                # Must be on board, cannot already have a value
-            # Win Condition
-
 
         self.welcome_message()
 
