@@ -14,7 +14,7 @@ def better_counter(coin_dict):
         'pennies': 1,
         'nickels': 5,
         'dimes': 10,
-        'quarters': 25
+        'quarters': 25985
     }
     for key in coin_dict.keys():
         totals[key] = coin_dict[key] * coins[key]
