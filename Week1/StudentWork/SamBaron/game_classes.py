@@ -101,7 +101,7 @@ class Board(object):
 
     def full_board_test(self):
         full_board = True
-        for position in self.positions:
+        for position in self.positions.values():
             if position.value == self.blank_symbol:
                 full_board = False
                 break
@@ -183,6 +183,10 @@ class Game(object):
             return False
 
 
+    def board_is_full(self):
+        return self.board.full_board_test()
+
+
     def player_turn(self, player):
         print("Hey {}, it's your turn".format(player.name))
 
@@ -195,13 +199,19 @@ class Game(object):
             input_column = self.input_column()
             turn_position = self.board.get_position(input_row, input_column)
 
-        #TODO Add win condition
+
         turn_position.value = player.value
 
         print("Here's the new board")
         self.display_board()
 
+        if self.board_is_full():
+            print("Board is full")
+            return False
 
+        #TODO Add win condition
+
+        return True
 
     def play_game(self):
 
@@ -223,12 +233,19 @@ class Game(object):
         self.welcome_message()
 
         end_game = False
+        player_index = 0
 
         while not end_game:
-            for player in players:
-                end_game = self.player_turn(player)
+            player = players[player_index]
+            end_game = not self.player_turn(player)
+            if player_index == len(players) - 1:
+                player_index = 0
+            else:
+                player_index += 1
 
-            #TODO Full board test
+
+        print(">>>>>>>>>>GAME OVER<<<<<<<<<<")
+
 
 if __name__ == "__main__":
     new_board = Board(rows=3,columns=3,blank_symbol=".")
