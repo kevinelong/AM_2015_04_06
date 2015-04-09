@@ -1,6 +1,10 @@
 # Tea Kettle
 
-def kettle ();
+class Kettle:
+    def __init__(self, water, temp):
+        self.water.cold = cold
+        self.water.hot = hot
+
     # this is the kettle to be filled with water
 
 def faucet ();
