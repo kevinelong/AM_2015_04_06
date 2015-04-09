@@ -131,9 +131,28 @@ class Game(object):
             Play Game
     """
 
+    output = []
+
     def __init__(self, board, players):
         self.board = board
         self.game_players = players
+
+
+    def print_output(self):
+        output_str = "".join(self.output)
+        print(output_str)
+        self.output = []
+
+
+    def display_board(self):
+        self.board.draw_board()
+
+
+    def welcome_message(self):
+        self.output.append("Welcome to the game\nHere's the empty board")
+        self.print_output()
+        self.display_board()
+
 
     def play_game(self):
 
@@ -151,10 +170,9 @@ class Game(object):
                 # Must be on board, cannot already have a value
             # Win Condition
 
-        # Welcome message
-        print("Welcome to the game")
-        print("Here's the empty board")
-        self.board.draw_board()
+
+        self.welcome_message()
+
 
         # Loop through players
         for player in players:
