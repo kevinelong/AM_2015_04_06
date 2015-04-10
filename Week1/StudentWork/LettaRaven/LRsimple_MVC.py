@@ -1,5 +1,6 @@
 __author__ = 'LettaRaven'
 # MVC: A GENERIC ARCHITECTURE FOR MAKING APPS THAT DISPLAY DATA
+# this is a note
 
 # MODEL: A LIST OF OBJECTS. TYPICALLY FROM A DATABASE
 class Model(object):
