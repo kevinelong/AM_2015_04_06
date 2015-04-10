@@ -6,19 +6,14 @@ class Order():
         self.date = date
         self.order_list = []
 
+    def add_to_order(self, line_item):
+        self.order_list.append(line_item)
+
     def get_total(self):
         total = 0
-        for item in self.order_list:
-            total += item.price * item.qty
+        for order in self.order_list:
+            total += order.item.price * order.qty
         return total
-
-
-class Cart():
-    def __init__(self, line_item):
-        self.line_item = line_item
-        self.cart_list = []
-
-    def checkout_order(self):
 
 
 class LineItem():
@@ -26,28 +21,14 @@ class LineItem():
         self.qty = qty
         self.item = item
 
-    def add_to_order(self, qty, item):
-        order = []
-        for obj in item:
-            for x in range(0, qty):
-                order.append(obj)
-
 
 class Item():
     def __init__(self, name, price):
         self.name = name
         self.price = price
 
-    def add_to_cart(self, item):
-        self.cart = []
-        self.item = item
-        for x in item:
-            self.cart.append(item)
-
-
-class Quantity():
-    def __init__(self, quantity):
-        self.quantity = quantity
+    def __str__(self):
+        return self.name
 
 
 class Buyer():
@@ -55,6 +36,9 @@ class Buyer():
         self.user_name = user_name
         self.payment = payment
         self.shipping = shipping
+
+    def __str__(self):
+        return self.user_name
 
 
 class Store():
@@ -76,4 +60,20 @@ branook = Store('BraNook')
 brandon = Buyer('spacefish', 'cash', 'UPS')
 
 e_book = Item('A Game of Classes', 7.99)
+
+branook.add_customer(brandon)
+
+branook.customer_list()
+
+my_purchase = LineItem(2, e_book)
+
+my_order = Order(brandon, 'today')
+
+my_order.add_to_order(my_purchase)
+
+print my_order.get_total()
+
+
+
+
 
