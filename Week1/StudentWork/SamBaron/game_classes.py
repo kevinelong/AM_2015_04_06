@@ -206,7 +206,7 @@ class Game(object):
         column_sequential_condition = False
 
         # Loop through positions on board for player
-        for position_key, position_obj in self.board.positions.items():
+        for position_key, position_obj in sorted(self.board.positions.items()):
             if position_obj.value == player.value:
                 row_list.append(position_obj.row)
                 column_list.append(position_obj.column)
@@ -218,14 +218,19 @@ class Game(object):
             constant_condition = True
 
         # The other row keys or column keys must be sequential for number of row or columns
-        row_sum_test = sum([n for n in range(1, self.board.rows + 1)])
-        column_sum_test = sum([n for n in range(1, self.board.columns + 1)])
-        if sum(row_list) == row_sum_test:
+        row_seq_list = [n for n in range(1, self.board.rows + 1)]
+        column_seq_list = [n for n in range(1, self.board.columns + 1)]
+        if row_list == row_seq_list:
             row_sequential_condition = True
-        if sum(column_list) == column_sum_test:
+        if column_list == column_seq_list:
             column_sequential_condition = True
 
-        return constant_condition and sequential_condition
+        if constant_condition and (row_sequential_condition or column_sequential_condition):
+            return True
+        elif row_sequential_condition and column_sequential_condition:
+            return True
+        else:
+            return False
 
 
     def player_turn(self, player):
