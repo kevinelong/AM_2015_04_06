@@ -1,17 +1,24 @@
 
 
 class Order():
-    def __init__(self, buyer, cart, date):
+    def __init__(self, buyer, date):
         self.buyer = buyer
-        self.cart = cart
         self.date = date
         self.order_list = []
+
+    def get_total(self):
+        total = 0
+        for item in self.order_list:
+            total += item.price * item.qty
+        return total
 
 
 class Cart():
     def __init__(self, line_item):
         self.line_item = line_item
         self.cart_list = []
+
+    def checkout_order(self):
 
 
 class LineItem():
@@ -48,7 +55,6 @@ class Buyer():
         self.user_name = user_name
         self.payment = payment
         self.shipping = shipping
-        self.cart = []
 
 
 class Store():
@@ -68,4 +74,6 @@ class Store():
 branook = Store('BraNook')
 
 brandon = Buyer('spacefish', 'cash', 'UPS')
+
+e_book = Item('A Game of Classes', 7.99)
 
