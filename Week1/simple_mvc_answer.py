@@ -23,7 +23,7 @@ class View(object):
             item_template = self.template
             for field in self.model.fields:
                 if field in item.keys():
-                    item_template = item_template.replace("{{" + field + "}}", item[field])
+                    item_template = item_template.replace("{{" + field + "}}", str(item[field]))
             output += item_template
         return output
 
@@ -50,26 +50,37 @@ app = Application()
 # define models (
 app.models["user"] = Model("user", ["name", "score"])
 app.models["game"] = Model("game", ["game_name", "description"])
+app.models["product"] = Model("product", ["name", "price"])
 
 # load model objects form database tables
 app.models["user"].objects = [
-    {"name": "Bob", "score": "9"},
-    {"name": "Carol", "score": "11"},
-    {"name": "Ted", "score": "15"},
-    {"name": "Alice", "score": "13"}]
+    {"name": "Bob", "score": 9},
+    {"name": "Carol", "score": 11},
+    {"name": "Ted", "score": 15},
+    {"name": "Alice", "score": 13}
+]
+# We could add another either of these two ways
+app.models["user"].create({"name": "Kevin", "score": "22"})
+app.models["user"].objects.append({"name": "Kay", "score": "33"})
 
 score_template = "\nHello <em>{{name}}</em>, your score is <strong>{{score}}</strong>.<br>\n"
 scores_view = View(score_template, app.models["user"])
 
+#products are a whole new type of model
+app.models["product"].objects = [
+    {"name": "Banana", "price": 1.45},
+    {"name": "Orange", "price": 2.45}
+]
+product_template = "\nProduct <em>{{name}}</em>, has the price of <strong>{{price}}</strong>.<br>\n"
+product_view = View(product_template, app.models["product"])
+
 app.controller.routes = {
     "/scores/": scores_view,
-    "/score/": scores_view,
+    "/product/": product_view,
 }
-
 request_path = "/scores/"
 print(app.controller.route(request_path))
 
-# TODO:
-# 1. Add a new model, view/template and route)
-# 2. call your new route and write output to a file
-# 3. open file in your browser
+f = open("output.html", "w")
+f.write(app.controller.route("/product/"))
+f.close()

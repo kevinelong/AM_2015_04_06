@@ -10,6 +10,11 @@ class Model(object):
     def create(self, item):
         self.objects.append(item)
 
+    def retrieve(self, field_name, field_value):
+        for object in self.objects:
+            if object[field_name] == field_value:
+                return object
+
 
 # VIEW: A TEMPLATE FOR A PAGE OR PAGE FRAGMENT
 class View(object):
@@ -58,18 +63,27 @@ app.models["user"].objects = [
     {"name": "Ted", "score": "15"},
     {"name": "Alice", "score": "13"}]
 
+app.models["game"].create({"game_name": "marbles", "description": "toss your marbles"})
+
+app.models["game_instance"] = Model("game_instance", ["date", "time_played"])
+app.models["game_instance"].create({
+    "date": "Today",
+    "time_played": "1 hour"
+})
+
 score_template = "\nHello <em>{{name}}</em>, your score is <strong>{{score}}</strong>.<br>\n"
 scores_view = View(score_template, app.models["user"])
+
+game_play_template = "\n<h4>{{date}}, you played for <strong>{{time_played}}</strong>.</h4><br>\n"
+game_play_view = View(game_play_template, app.models["game_instance"])
 
 app.controller.routes = {
     "/scores/": scores_view,
     "/score/": scores_view,
+    "/gameplay/": game_play_view
 }
 
-request_path = "/scores/"
-print(app.controller.route(request_path))
-
-# TODO:
-# 1. Add a new model, view/template and route)
-# 2. call your new route and write output to a file
-# 3. open file in your browser
+request_path = "/gameplay/"
+html_output = app.controller.route(request_path)
+with open("output.html", "w") as f:
+    f.write(html_output)

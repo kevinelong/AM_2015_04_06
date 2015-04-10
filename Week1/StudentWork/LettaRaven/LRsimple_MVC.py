@@ -1,3 +1,4 @@
+__author__ = 'LettaRaven'
 # MVC: A GENERIC ARCHITECTURE FOR MAKING APPS THAT DISPLAY DATA
 
 # MODEL: A LIST OF OBJECTS. TYPICALLY FROM A DATABASE
@@ -50,16 +51,20 @@ app = Application()
 # define models (
 app.models["user"] = Model("user", ["name", "score"])
 app.models["game"] = Model("game", ["game_name", "description"])
+app.models["note"] = Model("note", ["memo", "missive"])
 
 # load model objects form database tables
 app.models["user"].objects = [
     {"name": "Bob", "score": "9"},
     {"name": "Carol", "score": "11"},
     {"name": "Ted", "score": "15"},
-    {"name": "Alice", "score": "13"}]
+    {"name": "Alice", "score": "13"},
+    {"name": "Anna", "score": "19"}]
 
 score_template = "\nHello <em>{{name}}</em>, your score is <strong>{{score}}</strong>.<br>\n"
 scores_view = View(score_template, app.models["user"])
+note_template = "\nCongratulations ,em>{{name<em>, you WON!<br>\n"
+note_view = View(note_template, app.models["user"])
 
 app.controller.routes = {
     "/scores/": scores_view,
@@ -67,6 +72,10 @@ app.controller.routes = {
 }
 
 request_path = "/scores/"
+print(app.controller.route(request_path))
+
+app.controller.routes = { "/note/": note_template }
+request_path = "/note/"
 print(app.controller.route(request_path))
 
 # TODO:
