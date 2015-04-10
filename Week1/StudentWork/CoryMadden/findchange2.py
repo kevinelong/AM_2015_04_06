@@ -14,5 +14,6 @@ for coin in change.keys():
     total += float(change[coin][QUANTITY]*change[coin][VALUE])
     # print (coin + " : " + str(change[coin][QUANTITY]) + " = $" + str(((float(change[coin][QUANTITY]*change[coin][VALUE]))/100)))
     coin_list.append(coin + " : " + str(change[coin][QUANTITY]) + " = $" + str(((float(change[coin][QUANTITY]*change[coin][VALUE]))/100)))
+
 print("$" + str(total/100))
 print coin_list
