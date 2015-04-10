@@ -1,8 +1,8 @@
 # tic tac toe
 
-# What are the things/nouns in the game?
-# What are the actions/verbs?
-# What properties and parameters for each?
+# What are the things/nouns in the game? board, x's, o's, blanks, lines
+# What are the actions/verbs? whose turn it is, piece being added, next person's turn
+# What properties and parameters for each? location, type added, result(win or whatnot)
 
 # How can we support any board size?
 # How can we support any number of players and symbols?

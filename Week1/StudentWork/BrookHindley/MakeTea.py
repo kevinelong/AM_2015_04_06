@@ -1,46 +1,73 @@
-# Tea Kettle
+# Making Tea
+
+#Below are the classes needed for the user to make tea
 
 class Kettle:
-    def __init__(self, water, temp):
+    def __init__(self, water, cold, hot):
         self.water.cold = cold
         self.water.hot = hot
-
     # this is the kettle to be filled with water
 
-def faucet ();
+class Faucet:
+    def __init__(self, faucet, on, off):
+        self.faucet.on = faucet on
+        self.faucet.off = faucet off
     # faucet to be used to fill kettle
 
-def burner (O "on" : F "off");
+class Faucettemp:
+    def __init__(self, faucetemp, cold, hot):
+        self.faucettemp.cold = run cold water
+        self.faucettemp.hot = run hot water
+
+class Burner:
+    def __init__(self, burner, on, off):
+        self.burner.on = burner on
+        self.burner.off = burner off
     # this is the stove burner used to heat the water
 
-def mug();
+class Mug:
+    def __init__(self, mug, full, empty):
+        self.mug.full = full mug
+        self.mug.empty = empty mug
     # this is the mug the user will pour the tea into
 
-def teatype([1 "Decaf" : 2 "Caf"]);
+class TeaType:
+    def __init__(self, type, decaf, caf):
+        self.teatype.decaf = decaf
+        self.teatype.caf = caf
+    # user selects whether they want decaf or caf tea
 
-def teaflavor[ G "Ginseng" : E "Earl Grey"]);
-    print "Type 1 for decaf and type 2 for caf";
-    print "Type G for Ginseng and E for Earl Gray";
+class Teaflavor:
+    def __init__(self, Teaflavor, Gingseng, EarlGray):
+        self.Teaflavor.Ginseng = Ginseng
+        self.Teaflavor.Earl = Earl Gray
     # types of tea (decaf or caf)
 
-def steeptminutes(4 "four minutes" : 6 "six minutes");
-    print "How many minutes do you want to steep for? Type 4 for four minutes and 6 for six minutes";
+class Steepminutes:
+    def __init__(self, Steepminutes, 4, 6):
+        self.steepminutes.4 = 4 minute steep
+        self.steepminutes.6 = 6 minute steep
      # number of minutes the user wants tea to steep
 
-def run_faucet[C "Cold" : H "Hot"];
-    # user runs the faucet
-
-if run_faucet[H]
+if self.faucet.hot:
     print "You must use cold water to make tea, dummy!"
     #user runs faucet in hot triggering error message
 
-if run_faucet[C]
+if self.faucet.cold:
     print "Don't let the kettle overflow!"
     #user runs Cold faucet triggering reminder to not overfill
 
+#Below are the functions needed to actually make the tea
 
-def {tea(1) and teaflavor(G) and run_faucet(C) and burner(0) and burner(f) and steepminutes(6)};
-    print "Your decaf cup of Ginseng tea has been steeped for 6-minutes and is now ready!"
+def MakeTea ():
+    if
+
+
+
+
+
+# def {tea(1) and teaflavor(G) and run_faucet(C) and burner(0) and burner(f) and steepminutes(6)};
+#     print "Your decaf cup of Ginseng tea has been steeped for 6-minutes and is now ready!"
 
 
 
