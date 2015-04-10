@@ -25,7 +25,7 @@ class View(object):
             item_template = self.template
             for field in self.model.fields:
                 if field in item.keys():
-                    item_template = item_template.replace("{{" + field + "}}", item[field])
+                    item_template = item_template.replace("{{" + field + "}}", str(item[field]))
             output += item_template
         return output
 
@@ -70,7 +70,7 @@ app.models['adventures'].objects = [
 
 # 1. Add a new model, view/template and route)
 
-level_template = "\nHail, {{user_name}}!  Current level: {{level}}  Thanks for playing Adventure {{acct_type}} Edition!\n"
+level_template = "<div>\nHail, {{user_name}}!  Current level: {{level}}  Thanks for playing Adventure {{acct_type}} Edition!\n</div>"
 
 level_view = View(level_template, app.models['players'])
 
@@ -83,7 +83,10 @@ app.controller.routes = {
 
 request_path = '/home/'
 
-print app.controller.route(request_path)
+f = open('page.html', 'w')
+f.write(app.controller.route(request_path))
+f.close()
+
 
 # 3. open file in your browser
 
