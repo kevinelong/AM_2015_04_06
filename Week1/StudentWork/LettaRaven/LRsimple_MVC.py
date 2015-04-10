@@ -1,5 +1,6 @@
 __author__ = 'LettaRaven'
 # MVC: A GENERIC ARCHITECTURE FOR MAKING APPS THAT DISPLAY DATA
+# this is a note
 
 # MODEL: A LIST OF OBJECTS. TYPICALLY FROM A DATABASE
 class Model(object):
@@ -24,7 +25,7 @@ class View(object):
             item_template = self.template
             for field in self.model.fields:
                 if field in item.keys():
-                    item_template = item_template.replace("{{" + field + "}}", item[field])
+                    item_template = item_template.replace("{{" + field + "}}", str(item[field]))
             output += item_template
         return output
 
@@ -74,9 +75,9 @@ app.controller.routes = {
 request_path = "/scores/"
 print(app.controller.route(request_path))
 
-app.controller.routes = { "/note/": note_template }
-request_path = "/note/"
-print(app.controller.route(request_path))
+f = open("output.html", "w")
+f.write(app.controller.route("/note/"))
+f.close()
 
 # TODO:
 # 1. Add a new model, view/template and route)

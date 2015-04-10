@@ -73,3 +73,19 @@ print(app.controller.route(request_path))
 # 1. Add a new model, view/template and route)
 # 2. call your new route and write output to a file
 # 3. open file in your browser
+
+class Model(object):
+    def __init__(self, age, height)
+        self.age = age
+        self.height = height
+        self.objects
+
+    def create (self, item):
+        self.object.append(item)
+
+class View(object):
+    def __init__(self, template, model):
+
+
+
+
