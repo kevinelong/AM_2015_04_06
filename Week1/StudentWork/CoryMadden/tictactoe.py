@@ -20,6 +20,7 @@ def check_win(sym):
                 if win_sum == 3:
                     print "You win!"
                     draw()
+                    play_again()
                     quit()
             else:
                 pass
@@ -32,29 +33,45 @@ class Player(object):
     def place_piece(self, number):
         place_range = range(0, 10)
         if number in place_range:
-            if game_state[number] == '.':
-                game_state[number] = self.piece
-            else:
-                print "That's an invalid location."
-                self.place_piece(int(raw_input("Try another spot: ")))
-
+            game_state[number] == '.'
+            game_state[number] = self.piece
+        else:
+            print "That's an invalid location."
+            self.place_piece(int(raw_input("Try another spot: ")))
 
 Player1 = Player(raw_input("Player 1 name: "))
 Player2 = Player(raw_input("Player 2 name: "))
 Player2.piece = 'O'
 
-turns = 1
-while turns <= 9:
+def tic_tac():
+    turns = 1
+    while turns <= 9:
+        try:
+            if ((turns % 2 != 0) or turns == 1):
+                Player1.place_piece(int(raw_input((Player1.name + " place piece: "))))
+                check_win('X')
+                draw()
+                turns += 1
+            else:
+                Player2.place_piece(int(raw_input((Player2.name + " place piece: "))))
+                check_win('O')
+                draw()
+                turns += 1
+        except ValueError:
+            print "Input a number between 1 and 9: "
+
+def play_again():
+    answer = raw_input("Would you like to play again(Y/N)?")
     try:
-        if ((turns % 2 != 0) or turns == 1):
-            Player1.place_piece(int(raw_input((Player1.name + " place piece: "))))
-            check_win('X')
-            draw()
-            turns += 1
-        else:
-            Player2.place_piece(int(raw_input((Player2.name + " place piece: "))))
-            check_win('O')
-            draw()
-            turns += 1
-    except ValueError:
-        print "Input a number between 1 and 9: "
+        if answer.upper('y'):
+            for x in game_state:
+                game_state[x] = '.'
+                tic_tac()
+        elif answer.upper('n'):
+            print "Have a nice day!"
+            quit()
+    except:
+        print "Please enter Y or N only."
+        play_again()
+
+tic_tac()
