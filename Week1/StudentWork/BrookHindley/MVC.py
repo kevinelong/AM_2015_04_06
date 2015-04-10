@@ -1,3 +1,4 @@
+__author__ = 'coder'
 # MVC: A GENERIC ARCHITECTURE FOR MAKING APPS THAT DISPLAY DATA
 
 # MODEL: A LIST OF OBJECTS. TYPICALLY FROM A DATABASE
@@ -74,6 +75,10 @@ print(app.controller.route(request_path))
 # 2. call your new route and write output to a file
 # 3. open file in your browser
 
+#Here is Brook's attempt at completing 1 - 3
+
+#build model
+
 class Model(object):
     def __init__(self, age, height)
         self.age = age
@@ -83,8 +88,25 @@ class Model(object):
     def create (self, item):
         self.object.append(item)
 
+# view template
+
 class View(object):
     def __init__(self, template, model):
+        self.template = template
+        self.model = model
+
+    def render(self):
+        output = ""
+        for item in self.model.objects:
+            item_template = self.template
+            for field in self.model.fields:
+                if field in item.keys():
+                    item_template = item_template.replace("{{" + field + "}}", item[field])
+            output += item_template
+            return output
+
+ # controller routes message
+
 
 
 

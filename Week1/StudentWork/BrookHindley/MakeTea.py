@@ -10,43 +10,43 @@ class Kettle:
 
 class Faucet:
     def __init__(self, faucet, on, off):
-        self.faucet.on = faucet on
-        self.faucet.off = faucet off
+        self.on = faucet on
+        self.off = faucet off
     # faucet to be used to fill kettle
 
 class Faucettemp:
     def __init__(self, faucetemp, cold, hot):
-        self.faucettemp.cold = run cold water
-        self.faucettemp.hot = run hot water
+        self.cold = cold water
+        self.hot = hot water
 
 class Burner:
-    def __init__(self, burner, on, off):
-        self.burner.on = burner on
-        self.burner.off = burner off
+    def __init__(self, on, off):
+        self.on = on
+        self.off = off
     # this is the stove burner used to heat the water
 
 class Mug:
-    def __init__(self, mug, full, empty):
-        self.mug.full = full mug
-        self.mug.empty = empty mug
+    def __init__(self, full, empty):
+        self.full = full
+        self.empty = empty
     # this is the mug the user will pour the tea into
 
 class TeaType:
-    def __init__(self, type, decaf, caf):
-        self.teatype.decaf = decaf
-        self.teatype.caf = caf
+    def __init__(self, decaf, caf):
+        self.decaf = decaf
+        self.caf = caf
     # user selects whether they want decaf or caf tea
 
 class Teaflavor:
-    def __init__(self, Teaflavor, Gingseng, EarlGray):
-        self.Teaflavor.Ginseng = Ginseng
-        self.Teaflavor.Earl = Earl Gray
+    def __init__(self, gingseng, earlgray):
+        self.ginseng = ginseng
+        self.Earl = earl Gray
     # types of tea (decaf or caf)
 
 class Steepminutes:
-    def __init__(self, Steepminutes, 4, 6):
-        self.steepminutes.4 = 4 minute steep
-        self.steepminutes.6 = 6 minute steep
+    def __init__(self, four, six):
+        self.four = 4 minute steep
+        self.six = 6 minute steep
      # number of minutes the user wants tea to steep
 
 if self.faucet.hot:
@@ -59,8 +59,16 @@ if self.faucet.cold:
 
 #Below are the functions needed to actually make the tea
 
-def MakeTea ():
-    if
+def MakeTea if (
+    self.faucet.on :
+    self.water.cold :
+    self.teatype.decaf == self.teatype.caf :
+    self.teaflavor.g == self.teaflavor.e
+    self.steepminutes.4 == self.steepminutes6 :
+    print "You have just made a cup of %teatype %teaflavor tea which %steepminutes. Enjoy!"
+
+
+)
 
 
 
