@@ -1,32 +1,76 @@
 __author__ = 'coder'
 
+class Product:
+    'Common base class for all Products'
+    productCount
+
+def __init__(self, product, quantity):
+    self.product = product name
+    self.quantity = product quantity
+
 class Buyer:
     'Common base class for all buyers'
     buyerCount = 0
 
 def __init__(self, name, address):
-    self.name = name
-    self.address = address
+    self.name = buyer name
+    self.address = buyer address
+
+class Cart:
+    "Common base class for buyer cart"
+    buyerCart = 0
+
+def __init__(self, add, remove, purchase):
+    self.add = add product
+    self.remove = remove product
+    self.purchase = purchase item
+
+class Checkout:
+    "Common class for checkout step"
+    checkout = true
+
+def init
+
 
 class Order:
     "Common base class for all orders"
+    orderNumber = 0
+
+def __init__(self, order, orderNumber):
+    self.order = order
+    self.ordernumber = order orderNumber
+
+class Store():
 
 
+store = Store("amazon")
 
-   class Employee:
-   'Common base class for all employees'
-   empCount = 0
+item = Item("PC Game Programming Explorer", 39.99)
+store.products.append(item)
 
-   def __init__(self, name, salary):
-      self.name = name
-      self.salary = salary
-      Employee.empCount += 1
+buyer = Buyer("kevin")
+store.customers.append(buyer)
 
-   def displayCount(self):
-     print "Total Employee %d" % Employee.empCount
+line = Line(2, store.products[0])
+buyer.cart.lines.append(line)
 
-   def displayEmployee(self):
-      print "Name : ", self.name,  ", Salary: ", self.salary
+print(buyer.cart.total())
+
+
+   # class Employee:
+   # 'Common base class for all employees'
+   # empCount = 0
+   #
+   # def __init__(self, name, salary):
+   #    self.name = name
+   #    self.salary = salary
+   #    Employee.empCount += 1
+   #
+   # def displayCount(self):
+   #   print "Total Employee %d" % Employee.empCount
+   #
+   # def displayEmployee(self):
+   #    print "Name : ", self.name,  ", Salary: ", self.salary
 
 # AN EXERCISE IN APPLYING OBJECT ORIENTED DESIGN - A Shopping Cart
 # ===
