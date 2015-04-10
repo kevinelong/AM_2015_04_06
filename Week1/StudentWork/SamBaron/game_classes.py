@@ -160,7 +160,8 @@ class Game(object):
     def welcome_message(self):
         self.output.append(">>>>>>>>>>START GAME<<<<<<<<<<\n")
         self.output.append("Welcome to the game\n")
-        self.output.append("The goal is to get a sequential row, column, or diagonal\n")
+        self.output.append("The goal is to get a full row, column, or diagonal\n")
+        self.output.append("Type 'exit' to quit the game at any time\n")
         self.output.append("Here's the empty board")
         self.print_output()
         self.display_board()
@@ -171,16 +172,24 @@ class Game(object):
         self.print_output()
 
 
+    def valid_row_test(self, row):
+        return row.isdigit() and int(row) >= 1 and int(row) <= self.board.rows
+    
+    
+    def valid_column_test(self, column):
+        return column.isdigit() and int(column) >= 1 and int(column) <= self.board.columns
+
+
     def input_row(self):
         input_row = input("Please enter the row you want to select --> ")
-        while input_row.isdigit() == False or int(input_row) < 1 or int(input_row) > self.board.rows:
+        while not self.valid_row_test(input_row) and str(input_row).lower() != "exit":
             input_row = input("That row number isn't on the board.  Please enter the row you want to select --> ")
         return input_row
 
 
     def input_column(self):
         input_column = input("Please enter the column you want to select --> ")
-        while input_column.isdigit() == False or int(input_column) < 1 or int(input_column) > self.board.columns:
+        while not self.valid_column_test(input_column) and str(input_column).lower() != "exit":
             input_column = input("That column number isn't on the board.  Please enter the column you want to select --> ")
         return input_column
 
@@ -245,7 +254,13 @@ class Game(object):
         print("Hey {}, it's your turn".format(player.name))
 
         input_row = self.input_row()
+        if str(input_row).lower() == "exit":
+            return False
+
         input_column = self.input_column()
+        if str(input_column).lower() == "exit":
+            return False
+
         turn_position = self.board.get_position(input_row, input_column)
         while not self.position_is_empty(turn_position):
             print("THAT POSITION IS NOT EMPTY")
@@ -290,7 +305,7 @@ class Game(object):
 
 
 if __name__ == "__main__":
-    new_board = Board(rows=4,columns=4,blank_symbol=".")
+    new_board = Board(rows=4,columns=3,blank_symbol=".")
     player1 = Player(name="John", value="X")
     player2 = Player(name="Sally", value="Y")
     players = [player1, player2]

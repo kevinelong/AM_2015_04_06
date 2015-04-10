@@ -17,7 +17,7 @@ class Item():
 class Line():
     def __init__(self, qty, item):
         self.qty = qty
-        self.line_item = item
+        self.item = item
 
     def extension(self):
             return self.qty * self.item.price
