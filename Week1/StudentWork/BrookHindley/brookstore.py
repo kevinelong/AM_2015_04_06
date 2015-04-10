@@ -2,9 +2,7 @@ __author__ = 'coder'
 
 class Store:
     "Common base class for Store"
-    store.name = "Brook's Store":
-
-    def displayStore(self):
+    store.name("Brook's Store")
     print store.name:
 
 class Product:
@@ -15,8 +13,6 @@ def __init__(self, product, quantity):
     self.product = product
     self.quantity = quantity
 
-        def displayEmployee(self):
-      print "Name : ", self.name,  ", Salary: ", sel
 class ProductSearch:
 
 def __init__(self, productSearch, searchResults, selectItem):
