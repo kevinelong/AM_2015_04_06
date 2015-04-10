@@ -56,21 +56,35 @@ app.models['adventures'] = Model('adventure', ['adventure_name', 'challenge_rati
 
 # load model objects form database tables
 app.models['players'].objects = [
-    {'user_name': 'spacefish', 'level': 9000, 'acct_type': 'Premium'},
-    {'user_name': 'redrosid999', 'level': 5, 'acct_type': 'Free'},
-    {'user_name': 'brian7ls', 'level': 155, 'acct_type': 'Premium'},
-    {'user_name': 'spam_and_eggs_bot', 'level': 1, 'acct_type': 'Trial'}
+    {'user_name': 'spacefish', 'level': '9000', 'acct_type': 'Premium'},
+    {'user_name': 'redrosid999', 'level': '5', 'acct_type': 'Free'},
+    {'user_name': 'brian7ls', 'level': '155', 'acct_type': 'Premium'},
+    {'user_name': 'spam_and_eggs_bot', 'level': '1', 'acct_type': 'Trial'}
 ]
 
 app.models['adventures'].objects = [
-    {'adventure_name': 'Treasure Island', 'challenge_rating': 10},
-    {'adventure_name': 'The Direlands', 'challenge_rating': 99},
-    {'adventure_name': 'Sellwood Forest', 'challenge_rating': 1}
+    {'adventure_name': 'Treasure Island', 'challenge_rating': '10'},
+    {'adventure_name': 'The Direlands', 'challenge_rating': '99'},
+    {'adventure_name': 'Sellwood Forest', 'challenge_rating': '1'}
 ]
 
-# TODO:
 # 1. Add a new model, view/template and route)
+
+level_template = "\nHail, {{user_name}}!  Current level: {{level}}  Thanks for playing Adventure {{acct_type}} Edition!\n"
+
+level_view = View(level_template, app.models['players'])
+
+app.controller.routes = {
+    '/home/': level_view,
+    '/level/': level_view,
+    '/character/': level_view
+}
 # 2. call your new route and write output to a file
+
+request_path = '/home/'
+
+print app.controller.route(request_path)
+
 # 3. open file in your browser
 
 
