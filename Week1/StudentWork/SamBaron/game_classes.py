@@ -160,7 +160,7 @@ class Game(object):
     def welcome_message(self):
         self.output.append(">>>>>>>>>>START GAME<<<<<<<<<<\n")
         self.output.append("Welcome to the game\n")
-        self.output.append("The goal is to get a sequential row, column, or diagonal\n")
+        self.output.append("The goal is to get a full row, column, or diagonal\n")
         self.output.append("Here's the empty board")
         self.print_output()
         self.display_board()
@@ -290,7 +290,7 @@ class Game(object):
 
 
 if __name__ == "__main__":
-    new_board = Board(rows=4,columns=4,blank_symbol=".")
+    new_board = Board(rows=4,columns=3,blank_symbol=".")
     player1 = Player(name="John", value="X")
     player2 = Player(name="Sally", value="Y")
     players = [player1, player2]
