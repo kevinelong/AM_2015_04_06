@@ -251,12 +251,12 @@ class Game(object):
         print("Here's the new board")
         self.display_board()
 
-        if self.board_is_full():
-            print("Board is full")
-            return False
-
         if self.win_condition(player):
             print("Congratulations {}, you won!!!!!".format(player.name))
+            return False
+
+        if self.board_is_full():
+            print("Board is full")
             return False
 
         return True
