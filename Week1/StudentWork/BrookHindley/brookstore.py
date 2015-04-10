@@ -2,12 +2,10 @@ __author__ = 'coder'
 
 class Store:
     "Common base class for Store"
-    Store = "Brook's Store":
+    store.name = "Brook's Store":
 
-def __init__(self, productSearch, searchResults, selectItem):
-    self.productSearch = search
-    self.searchResults = search results
-    self.selectItem = select item
+    def displayStore(self):
+    print store.name:
 
 class Product:
     'Common base class for all Products'
@@ -16,6 +14,15 @@ class Product:
 def __init__(self, product, quantity):
     self.product = product
     self.quantity = quantity
+
+        def displayEmployee(self):
+      print "Name : ", self.name,  ", Salary: ", sel
+class ProductSearch:
+
+def __init__(self, productSearch, searchResults, selectItem):
+    self.productSearch = search
+    self.searchResults = search results
+    self.selectItem = select item
 
 class Buyer:
     'Common base class for all buyers'
@@ -34,14 +41,6 @@ def __init__(self, add, remove, purchase):
     self.remove = remove frm cart
     self.purchase = purchase
 
-class Checkout:
-    "Common class for checkout step"
-    checkout = true
-
-def __init__(self, total, purchase)
-    self.total = confirm total
-    self.purchase = checkout
-
 class Order:
     "Common base class for all orders"
     orderNumber = 0
@@ -50,9 +49,16 @@ def __init__(self, order, orderNumber):
     self.order = order
     self.ordernumber = order orderNumber
 
+class Checkout:
+    "Common class for checkout step"
+    checkout = true
 
- # def displayEmployee(self):
- #      print "Name : ", self.name,  ", Salary: ", self.salary
+def __init__(self, total, purchase)
+    self.total = confirm total
+    self.purchase = checkout
+
+
+ f.salary
 store = Store("amazon")
 
 item = Item("PC Game Programming Explorer", 39.99)
