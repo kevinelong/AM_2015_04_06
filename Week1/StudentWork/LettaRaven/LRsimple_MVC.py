@@ -64,8 +64,8 @@ app.models["user"].objects = [
 
 score_template = "\nHello <em>{{name}}</em>, your score is <strong>{{score}}</strong>.<br>\n"
 scores_view = View(score_template, app.models["user"])
-note_template = "\nCongratulations ,em>{{name<em>, you WON!<br>\n"
-note_view = View(note_template, app.models["user"])
+# note_template = "\nCongratulations ,em>{{name<em>, you WON!<br>\n"
+# note_view = View(note_template, app.models["user"])
 
 app.controller.routes = {
     "/scores/": scores_view,
@@ -75,9 +75,9 @@ app.controller.routes = {
 request_path = "/scores/"
 print(app.controller.route(request_path))
 
-app.controller.routes = { "/note/": note_template }
-request_path = "/note/"
-print(app.controller.route(request_path))
+# app.controller.routes = { "/note/": note_template }
+# request_path = "/note/"
+# print(app.controller.route(request_path))
 
 # TODO:
 # 1. Add a new model, view/template and route)
