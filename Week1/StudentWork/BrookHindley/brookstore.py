@@ -1,60 +1,51 @@
 __author__ = 'coder'
 
-class Store:
-    "Common base class for Store"
-    store.name("Brook's Store")
-    print store.name:
+class Store("Widgetland"):
+    def __init__ (self, name)
+        self.name = Store
+            print Store
 
-class Product:
-    'Common base class for all Products'
-    productCount = 0
+class Product("Widget"):
+    def __init__(self, product, quantity):
+        self.product = []
+        self.quantity = []
 
-def __init__(self, product, quantity):
-    self.product = product
-    self.quantity = quantity
-
-class ProductSearch:
+class ProductSearch():
 
 def __init__(self, productSearch, searchResults, selectItem):
     self.productSearch = search
     self.searchResults = search results
     self.selectItem = select item
 
-class Buyer:
+class Buyer():
     'Common base class for all buyers'
-    buyerCount = 0
+    buyerCount = []
 
 def __init__(self, name, address):
     self.name = buyer
     self.address = address
 
-class Cart:
+class Cart():
     "Common base class for buyer cart"
-    buyerCart = 0
+    buyerCart = []
 
 def __init__(self, add, remove, purchase):
     self.add = add to cart
     self.remove = remove frm cart
     self.purchase = purchase
 
-class Order:
-    "Common base class for all orders"
-    orderNumber = 0
+class Order():
+    def __init__(self, order, orderNumber):
+        self.order = order
+        self.ordernumber = orderNumber
 
-def __init__(self, order, orderNumber):
-    self.order = order
-    self.ordernumber = order orderNumber
-
-class Checkout:
-    "Common class for checkout step"
-    checkout = true
-
-def __init__(self, total, purchase)
-    self.total = confirm total
-    self.purchase = checkout
+class Checkout():
+  def __init__(self, total, purchase)
+        self.total = confirm total
+        self.purchase = checkout
 
 
- f.salary
+
 store = Store("amazon")
 
 item = Item("PC Game Programming Explorer", 39.99)
