@@ -58,14 +58,18 @@ app.models["user"].objects = [
     {"name": "Ted", "score": "15"},
     {"name": "Alice", "score": "13"}]
 
+score_template = "\nHello <em>{{name}}</em>, your score is <strong>{{score}}</strong>.<br>\n"
+scores_view = View(score_template, app.models["user"])
+
 app.controller.routes = {
-    "/scores/": View("\nHello <em>{{name}}</em>, your score is <strong>{{score}}</strong>.<br>\n", app.models["user"])
+    "/scores/": scores_view,
+    "/score/": scores_view,
 }
 
 request_path = "/scores/"
 print(app.controller.route(request_path))
 
-#TODO:
+# TODO:
 # 1. Add a new model, view/template and route)
 # 2. call your new route and write output to a file
 # 3. open file in your browser
