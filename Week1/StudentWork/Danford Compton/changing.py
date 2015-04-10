@@ -28,7 +28,8 @@ print total
 #     "totals" = sum("d", "n", "p", "q")
 # if __name__ == "__main__":
 #     print(add_up(pocket_change))
-# #
+
+# # do this but change type to quantity and that would have been awesome!
 # pocket_change = {
 #     "Pennies"{type: "Pennies", value: 1},
 #     "Nickels"{type: "Nickels", value: 5},

@@ -1,4 +1,6 @@
-# Tea Kettle
+# Making Tea
+
+#Below are the classes needed for the user to make tea
 
 class Kettle:
     def __init__(self, water, cold, hot):
@@ -55,9 +57,17 @@ if self.faucet.cold:
     print "Don't let the kettle overflow!"
     #user runs Cold faucet triggering reminder to not overfill
 
+#Below are the functions needed to actually make the tea
 
-def {tea(1) and teaflavor(G) and run_faucet(C) and burner(0) and burner(f) and steepminutes(6)};
-    print "Your decaf cup of Ginseng tea has been steeped for 6-minutes and is now ready!"
+def MakeTea ():
+    if
+
+
+
+
+
+# def {tea(1) and teaflavor(G) and run_faucet(C) and burner(0) and burner(f) and steepminutes(6)};
+#     print "Your decaf cup of Ginseng tea has been steeped for 6-minutes and is now ready!"
 
 
 
