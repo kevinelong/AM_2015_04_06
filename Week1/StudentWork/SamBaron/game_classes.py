@@ -158,9 +158,17 @@ class Game(object):
 
 
     def welcome_message(self):
-        self.output.append("Welcome to the game\nHere's the empty board")
+        self.output.append(">>>>>>>>>>START GAME<<<<<<<<<<\n")
+        self.output.append("Welcome to the game\n")
+        self.output.append("The goal is to get a sequential row, column, or diagonal\n")
+        self.output.append("Here's the empty board")
         self.print_output()
         self.display_board()
+
+
+    def closing_message(self):
+        self.output.append(">>>>>>>>>>GAME OVER<<<<<<<<<<")
+        self.print_output()
 
 
     def input_row(self):
@@ -278,11 +286,11 @@ class Game(object):
                 player_index += 1
 
 
-        print(">>>>>>>>>>GAME OVER<<<<<<<<<<")
+        self.closing_message()
 
 
 if __name__ == "__main__":
-    new_board = Board(rows=3,columns=3,blank_symbol=".")
+    new_board = Board(rows=4,columns=4,blank_symbol=".")
     player1 = Player(name="John", value="X")
     player2 = Player(name="Sally", value="Y")
     players = [player1, player2]
