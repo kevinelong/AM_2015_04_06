@@ -35,6 +35,7 @@ class Store(object):
         output.append(">>>>>>>>>>{} Item Inventory<<<<<<<<<<\n".format(self.name))
         for item_name, quantity in self.inventory.items():
             output.append("{} - {}\n".format(item_name, quantity))
+
         output = "".join(output)
         print(output)
 
@@ -88,6 +89,8 @@ class Order(object):
             output.append("     {}. {}     {}     ${:,.2f}     ${:,.2f}\n".format(
                 row_number, line_item, line_quantity, line_price, line_ext_price))
             row_number += 1
+        output.append("     Total Sale     ${:,.2f}\n".format(self.total_sale()))
+
         output = "".join(output)
         print(output)
 
