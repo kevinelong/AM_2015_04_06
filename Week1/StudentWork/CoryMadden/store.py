@@ -34,7 +34,7 @@ class Cart():
                     if item == item_num:
                         del item
 
-    def sub_total(self):
+    def item_total(self):
         item_count = 1
         for item in self.cart_list:
             if item in self.sub_total_dict:
@@ -46,6 +46,12 @@ class Cart():
                 temp_dict = {item:item_count}
                 self.sub_total_dict.update(temp_dict)
         return self.sub_total_dict
+
+    def cart_total(self):
+        cart_value = 0
+        for item in self.sub_total_dict.keys():
+            cart_value += item_dict[item]["price"] * self.sub_total_dict[item]
+        return cart_value
 
 
 
@@ -66,4 +72,5 @@ new_item(1414,56,"Potato",3)
 User1.add_item(1414)
 print User1.total
 print User1.cart_list
-print User1.sub_total()
+print User1.item_total()
+print User1.cart_total()
