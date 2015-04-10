@@ -5,34 +5,28 @@ class Store("Widgetland"):
         self.name = Store
             print Store
 
-class Product("Widget"):
+class Product("RoundWidget"):
     def __init__(self, product, quantity):
         self.product = []
         self.quantity = []
+            print
 
-class ProductSearch():
+class ProductSearch("Widget"):
+    def __init__(self, productSearch, searchResults, selectItem):
+        self.productSearch = search
+        self.searchResults = search results
+        self.selectItem = select item
 
-def __init__(self, productSearch, searchResults, selectItem):
-    self.productSearch = search
-    self.searchResults = search results
-    self.selectItem = select item
-
-class Buyer():
-    'Common base class for all buyers'
-    buyerCount = []
-
-def __init__(self, name, address):
-    self.name = buyer
-    self.address = address
+class Buyer("Xan"):
+    def __init__(self, name, address):
+        self.name = buyer
+        self.address = address
 
 class Cart():
-    "Common base class for buyer cart"
-    buyerCart = []
-
-def __init__(self, add, remove, purchase):
-    self.add = add to cart
-    self.remove = remove frm cart
-    self.purchase = purchase
+    def __init__(self, add, remove, purchase):
+        self.add = add to cart
+        self.remove = remove frm cart
+        self.purchase = purchase
 
 class Order():
     def __init__(self, order, orderNumber):
@@ -40,9 +34,10 @@ class Order():
         self.ordernumber = orderNumber
 
 class Checkout():
-  def __init__(self, total, purchase)
+    def __init__(self, total, purchase)
         self.total = confirm total
         self.purchase = checkout
+            print self.total
 
 
 
