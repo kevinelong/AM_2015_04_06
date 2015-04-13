@@ -28,7 +28,7 @@ def nearest_starbucks(input_data, selected_point):
         x_test = data_point[0]
         y_test = data_point[1]
         distance_key = data_point[2]
-        distance = math.sqrt((abs(x_coord - x_test) ^ 2) + (abs(y_coord - y_test) ^ 2))
+        distance = math.sqrt((abs(x_coord - x_test) ** 2) + (abs(y_coord - y_test) ** 2))
         if selected_key not in data_point:
             distances_list.append([distance, distance_key])
 
