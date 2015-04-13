@@ -24,7 +24,7 @@ Y_COORD_INDEX = 1
 KEY_INDEX = 2
 
 
-def nearest_starbucks(input_data, selection):
+def nearest_starbucks(input_data, selection, nearby_count):
 
     input_keys = [item[KEY_INDEX] for item in input_data]
 # Check if selection is in input_data
@@ -49,7 +49,7 @@ def nearest_starbucks(input_data, selection):
             distances_list.append([distance, distance_key])
 
     sorted_distances = sorted(distances_list, key=lambda l: l[0])
-    result = sorted_distances[0:5]
+    result = sorted_distances[0:int(nearby_count)]
     result_keys = []
 
     for data_point in result:
@@ -73,4 +73,4 @@ def nearest_starbucks(input_data, selection):
     f.close()
 
 
-nearest_starbucks(data, 'H')
+nearest_starbucks(data, 'H', 5)
