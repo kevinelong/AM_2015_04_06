@@ -57,4 +57,4 @@ def nearest_starbucks(input_data, selected_point, nearby_count):
     f.close()
 
 
-nearest_starbucks(data, data[7], 5)
+nearest_starbucks(data, data[8], 5)
