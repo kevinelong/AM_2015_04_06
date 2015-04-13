@@ -13,7 +13,7 @@ class permissions():
         self.permissions = self.permissions & ~permission
 
     def can(self, permission):
-        return permission & self.permissions
+        return (permission & self.permissions) != 0
 
     def __str__(self):
         return format(self.permissions,"#010b")
@@ -21,21 +21,26 @@ class permissions():
 
 p = permissions()
 print(p)
+print(p.can(p.READ))
 
 p.allow(p.READ)
 print(p)
+
 p.allow(p.WRITE)
 print(p)
+
 p.allow(p.EXECUTE)
 print(p)
+
 p.revoke(p.WRITE)
 print(p)
 
-print(p)
+print(p.can(p.READ))
 # OUTPUTS:
 # 0b00000000
+# False
 # 0b00000100
 # 0b00000110
 # 0b00000111
 # 0b00000101
-# 0b00000101
+# True
