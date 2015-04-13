@@ -44,7 +44,7 @@ def nearest_starbucks(input_data, selected_point, nearby_count):
     f.write(style)
     f.write('<div id="box" style="width:{0}px;height:{0}px;">\n'.format(square_size))
 
-    for item in data:
+    for item in input_data:
         item_key = item[2]
         if item_key in result_keys:
             f.write('<span style="left:{x}px; top:{y}px; background-color: yellow; color: black"> {v} </span>'.format(x=item[0], y=item[1], v=item[2]))
