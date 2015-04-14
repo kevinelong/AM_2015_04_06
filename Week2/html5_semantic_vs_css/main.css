@@ -1,0 +1,73 @@
+
+body {
+    margin: 0;
+    padding: 5em 0 0 0;
+    position: relative;
+    font-family: trebuchet, "trebuchet MS", "trebuchet ms1", sans-serif;
+    background-color: #DDDDDD;
+    box-sizing: border-box;
+}
+table {
+  border-collapse: collapse;
+
+}
+th{
+    text-align: left;
+}
+th,td{
+    padding: 1em 2em;
+    border: solid 1px #999;
+}
+header, footer {
+    background-color: rgba(0,0,0,0.65);
+    color: white;
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    z-index: 1000;
+}
+
+header {
+    top: 0;
+}
+
+footer {
+    bottom: 0;
+}
+nav{
+    text-align: center;
+}
+nav a {
+    background-color: #666666;
+    color: #eeeeee;
+    padding: 1em;
+    margin: 1em;
+}
+
+aside {
+    padding: 1em;
+    position: absolute;
+    right: 1em;
+    background-color: gold;
+    /*height: 100%;*/
+    top: 1em;
+    bottom: 1em;
+    width: 35%;
+}
+
+section {
+    margin: 1em 0;
+    padding: 1em;
+    display: block;
+}
+
+article {
+    padding: 1em 20% 1em 1em;
+    margin: 1em;
+    position: relative;
+    width: 25%;
+    display: inline-block;
+    background-color: #eeeeee;
+    vertical-align: top;
+}
