@@ -3,14 +3,17 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+
     <style>
-        *{
-            margin:0;padding:0;
+        * {
+            margin: 0;
+            padding: 0;
             overflow: hidden;
             background-color: #000000;
             color: #ffffff;
         }
-        #a, #b{
+
+        #a, #b {
             height: 2000px;
             width: 49%;
             display: inline-block;
@@ -22,33 +25,55 @@
     </style>
 </head>
 <body>
+<!-- LIKE A VIEW/TEMPLATE -->
 <div id="a" onclick="handleClick(0)"></div>
 <div id="b" onclick="handleClick(1)"></div>
 <script>
-    var players = [];
-    function Player(name){
-        return{
-            name: name,
-            score: 0,
-            increment: function(){
-                this.score++;
-            }
-        }
+    //TO BE CALLED WHEN THE DOM IS LOADED
+    function setup() {
+        updateDisplay();
     }
-    function updateDisplay(){
+
+    //Like a VIEW
+    function updateDisplay() {
         document.getElementById("a").textContent = players[0].score;
         document.getElementById("b").textContent = players[1].score;
+    }
+
+    //Like a MODEL
+    var players = [];
+
+    function Player(name) {
+        this.name = name;
+        function increment(){
+            this.score++;
+        }
+        var instance = {
+            name: this.name,
+            score: 0,
+            increment: increment
+        };
+        return instance;
     }
 
     players.push(new Player("A"));
     players.push(new Player("B"));
 
-    updateDisplay();
+    //Like a CONTROLLER/ROUTES
 
-    function handleClick(playerIndex){
+    function handleClick(playerIndex) {
         players[playerIndex].increment();
         updateDisplay();
     }
+
+    //MORE CLEAR
+    document.addEventListener("DOMContentLoaded", function () {
+        setup();
+    });
+
+    //MORE CONCISE
+    //document.addEventListener("DOMContentLoaded", setup);
+
 </script>
 </body>
 </html>

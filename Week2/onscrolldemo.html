@@ -6,31 +6,44 @@
     <!--<script src="jquery.js"></script>-->
     <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
     <script>
-        function scrolling(event){
+
+        function scrolling(event) {
             var target = document.getElementById("header");
-            target.innerHTML = window.pageYOffset;
+            target.innerHTML = "<b>---" + window.pageYOffset + "---</b>";
 
             //TODO move tortoise and hare as you scroll
 
             var tortoise = document.getElementById("tortoise");
-            tortoise.style.top = window.pageYOffset / 8 + "px";
+            var offset = window.pageYOffset;
+            var rateOfSpeed = 0.2;
+            var nextTop = offset * rateOfSpeed;
+            tortoise.style.top = nextTop + "px";
 
             //HARE with Jquery
-            //("#hare")[0].style.top = window.pageYOffset / 4 + "px";
+            //$("#hare")[0].style.top = window.pageYOffset / 4 + "px";
+
+            //HARE with JavaScript in one line
+            //document.getElementById("hare").style.top = window.pageYOffset / 4 + "px";
 
             //HARE without Jquery
             var hare = document.getElementById("hare");
             hare.style.top = window.pageYOffset / 4 + "px";
+
         }
-        window.onscroll = scrolling;
+        // Using named function rather than anonymous function
+        document.addEventListener("scroll", scrolling);
+        //window.onscroll = scrolling;
+
+
     </script>
     <style>
-        body{
+        body {
             margin: 0;
             padding: 0;
             background-color: darkseagreen;
             background-image: url("grass.jpg");
         }
+
         header,
         footer {
             position: fixed;
@@ -39,22 +52,26 @@
             text-align: center;
             color: gold;
         }
-        header{
-            top:0;
+
+        header {
+            top: 0;
             background-color: darkgreen;
         }
-        footer{
-            bottom:0;
+
+        footer {
+            bottom: 0;
             background-color: darkgreen;
         }
-        #tortoise{
+
+        #tortoise {
             position: fixed;
             top: 0px;
             right: 100px;
             background-color: #393;
             padding: 36px;
         }
-        #hare{
+
+        #hare {
             position: fixed;
             top: 0px;
             left: 100px;
