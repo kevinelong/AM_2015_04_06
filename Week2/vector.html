@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    for (var i = 0; i < 12; i++) {
+        var s = document.createElement("span");
+        s.innerHTML = String.fromCharCode(i + 65);
+        s.classList.add("insect");
+        var x = parseInt(Math.random() * window.innerWidth, 10);
+        var y = parseInt(Math.random() * window.innerHeight, 10);
+        s.style.display = "block";
+        s.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+        s.style.transition = "transform 1s ease-in-out";
+        document.body.appendChild(s);
+    }
+
+    var insects = document.getElementsByClassName("insect");
+
+    //jquery would be like this
+    //var insects = $(".insect");
+
+    function nextCycle() {
+        for (var i = 0; i < insects.length; i++) {
+            var s = insects[i];
+            var x = parseInt(Math.random() * window.innerWidth, 10);
+            var y = parseInt(Math.random() * window.innerHeight, 10);
+            s.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+        }
+        //Now that we are done we should call oursleves back after one second.
+        setTimeout(nextCycle, 1000);
+    }
+
+    //make initial call to nextCycle to get things started
+    nextCycle();
+
+</script>
+</body>
+</html>

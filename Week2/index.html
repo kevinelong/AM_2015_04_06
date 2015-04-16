@@ -2,77 +2,83 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Kevin</title>
+    <title></title>
     <style>
-
-        body {
-            margin: 5em 0 0 0;
-            padding: 0;
+        #box {
+            background: blue;
             position: relative;
         }
 
-        header, footer {
-            background-color: black;
-            color: white;
-            padding: 1em;
-            position: fixed;
-            width: 100%;
-            text-align: center;
-        }
-
-        header {
-            top: 0;
-        }
-
-        footer {
-            bottom: 0;
-        }
-
-        nav a {
-            background-color: green;
-            color: yellow;
-            padding: 1em;
-            margin: 1em;
-        }
-
-        aside {
-            padding: 1em;
+        span {
+            color: silver;
             position: absolute;
-            right: 1em;
-            background-color: gold;
-            /*height: 100%;*/
-            top: 0;
-            bottom: 0;
-        }
-
-        section {
-            margin: 1em 0;
-            padding: 1em;
-        }
-
-        article {
-            margin: 1em;
-            padding: 1em;
         }
     </style>
+
 </head>
 <body>
-<header>
-    Header
-</header>
-<nav>
-    <a href="#">Nav Menu Item</a>
-    <a href="#">Nav Menu Item</a>
-</nav>
-<section>
-    Section
-    <article>
-        Article
-        <aside>
-            Aside
-        </aside>
-    </article>
-</section>
-<footer>Footer</footer>
+Target:
+<div id="target"></div>
+<script>
+
+    var data = [[531, 408, 'A'], [225, 52, 'B'], [594, 242, 'C'], [351, 102, 'D'], [371, 15, 'E'], [569, 353, 'F'],
+        [342, 39, 'G'], [218, 304, 'H'], [428, 260, 'I'], [329, 158, 'J'], [585, 530, 'K'], [71, 114, 'L'],
+        [587, 88, 'M'], [347, 180, 'N'], [180, 332, 'O'], [250, 522, 'P'], [88, 475, 'Q'], [260, 128, 'R'],
+        [328, 505, 'S'], [381, 201, 'T'], [360, 192, 'U'], [414, 313, 'V'], [525, 293, 'W'], [240, 563, 'X'],
+        [117, 546, 'Y'], [507, 127, 'Z']];
+
+    var square_size = 610
+
+    function distance(p1, p2) {
+        return Math.sqrt( (p2[0]-p1[0])*(p2[0]-p1[0]) + (p2[1]-p1[1])*(p2[1]-p1[1]) );
+    }
+
+    letter_dict = {};
+    data.forEach(function (d) {
+        var letter = d[2];
+        letter_dict[ letter ] = d;
+    });
+
+    function compare(a, b) {
+        if (a[3] < b[3]) {
+            return -1;
+        } else if (a[3] > b[3]) {
+            return 1;
+        } else {
+            return 0;        // a must be equal to
+        }
+    }
+
+    //# for arbitrary value e.g. "J" find the nearest N items e.g. 5
+    function get_top(letter, top_n) {
+        var selected = letter_dict[letter];
+        Object.keys(letter_dict).forEach(function (k) {
+            var v = letter_dict[k];
+            v.push(distance(v, selected));
+        });
+        data.sort(compare);
+        return data.slice(0, top_n);
+    }
+
+    var top_pins = get_top("J", 5);
+
+    var html = [];
+    html.push('<div id="box" style="width:' + square_size + 'px;height:' + square_size + 'px;">\n');
+    var i = 0;
+    data.forEach(function (item) {
+        var left = item[0];
+        var y = item[1];
+        var v = item[2];
+        var c = '';
+        if(i<15) {
+            c = 'color:yellow;';
+        }
+        html.push('<span style="left:' + left + 'px; top:' + y + 'px;' + c + '"> ' + v + ' </span>');
+        i++;
+    });
+    var target = document.getElementById("target");
+    target.innerHTML = html.join('\n');
+
+</script>
 </body>
 </html>

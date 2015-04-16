@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;padding:0;
+            overflow: hidden;
+            background-color: #000000;
+            color: #ffffff;
+        }
+        #a, #b{
+            height: 2000px;
+            width: 49%;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top;
+            font-size: 33em;
+        }
+
+    </style>
+</head>
+<body>
+<div id="a" onclick="handleClick(0)"></div>
+<div id="b" onclick="handleClick(1)"></div>
+<script>
+    var players = [];
+    function Player(name){
+        return{
+            name: name,
+            score: 0,
+            increment: function(){
+                this.score++;
+            }
+        }
+    }
+    function updateDisplay(){
+        document.getElementById("a").textContent = players[0].score;
+        document.getElementById("b").textContent = players[1].score;
+    }
+
+    players.push(new Player("A"));
+    players.push(new Player("B"));
+
+    updateDisplay();
+
+    function handleClick(playerIndex){
+        players[playerIndex].increment();
+        updateDisplay();
+    }
+</script>
+</body>
+</html>

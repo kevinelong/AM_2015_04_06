@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <!--<script src="jquery.js"></script>-->
+    <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>-->
+    <script>
+        function scrolling(event){
+            var target = document.getElementById("header");
+            target.innerHTML = window.pageYOffset;
+
+            //TODO move tortoise and hare as you scroll
+
+            var tortoise = document.getElementById("tortoise");
+            tortoise.style.top = window.pageYOffset / 8 + "px";
+
+            //HARE with Jquery
+            //("#hare")[0].style.top = window.pageYOffset / 4 + "px";
+
+            //HARE without Jquery
+            var hare = document.getElementById("hare");
+            hare.style.top = window.pageYOffset / 4 + "px";
+        }
+        window.onscroll = scrolling;
+    </script>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: darkseagreen;
+            background-image: url("grass.jpg");
+        }
+        header,
+        footer {
+            position: fixed;
+            padding: 18px;
+            width: 100%;
+            text-align: center;
+            color: gold;
+        }
+        header{
+            top:0;
+            background-color: darkgreen;
+        }
+        footer{
+            bottom:0;
+            background-color: darkgreen;
+        }
+        #tortoise{
+            position: fixed;
+            top: 0px;
+            right: 100px;
+            background-color: #393;
+            padding: 36px;
+        }
+        #hare{
+            position: fixed;
+            top: 0px;
+            left: 100px;
+            background-color: #999;
+            padding: 36px;
+        }
+    </style>
+</head>
+<body>
+<header id="header">Scroll Down</header>
+<div id="tortoise">tortoise</div>
+<div id="hare">hare</div>
+<div id="scroll_box" style="height: 10000px">
+
+</div>
+<footer>(C)2014</footer>
+</body>
+</html>
