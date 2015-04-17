@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .list {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            box-shadow: inset 0 0 1em black;
+            overflow: hidden;
+            display: block;
+        }
+
+        .item {
+            width: 200px;
+            height: 200px;
+            margin: 20px;
+            box-shadow: 0 0 1em black;
+            transition: all 600ms ease-in-out;
+            display: inline-block;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+
+        .item, .item * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        .item.add {
+            border: 1px dashed lightgray;
+            box-shadow: none;
+        }
+
+        .item.transitional {
+            width: 0px;
+            height: 200px;
+            margin-left: 0;
+            margin-right: 0;
+            box-shadow: 0 0 0em black;
+            opacity: 0;
+        }
+
+        .item .name {
+            position: absolute;
+            top: 45%;
+            width: 100%;
+            left: 0;
+            white-space: nowrap;
+
+        }
+
+        .item .remove {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .item .insert {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+
+        .template {
+            display: none;
+        }
+    </style>
+    <script>
+        var CC = {};
+
+        CC.ItemList = function () {
+            var count = 0;
+
+            function make(templateItem) {
+                var item = templateItem.cloneNode(true);
+                item.classList.remove("template");
+                item.classList.add("transitional");
+                var r = item.getElementsByClassName("remove")[0];
+                r.addEventListener("click", remove);
+                var i = item.getElementsByClassName("insert")[0];
+                i.addEventListener("click", insert);
+                return item;
+            }
+
+            function append() {
+                console.log("append");
+                __addBefore(CC.templateItem)
+            }
+
+            function __addBefore(selected) {
+                var item = make(CC.templateItem);
+                CC.list.insertBefore(item, selected);
+                setTimeout(function () {
+                    item.classList.remove("transitional")
+                }, 0);
+            }
+
+            function insert(event) {
+                __addBefore(event.target.parentElement);
+            }
+
+            function remove(event) {
+                console.log("remove");
+                console.log(event);
+                event.target.parentElement.classList.add("transitional");
+                setTimeout(function () {
+                    event.target.parentElement.remove();
+                }
+                , 3000);
+            }
+
+            return {
+                append: append,
+                insert: insert,
+                remove: remove
+            }
+        }();
+
+        window.addEventListener("load", function () {
+            CC.list = document.getElementById("list");
+            CC.templateItem = document.getElementsByClassName("template")[0];
+        });
+
+    </script>
+</head>
+<body>
+
+<div id="list" class="list">
+
+    <div id="item-template" class="item template">
+        <span class="name" contenteditable="true">Item Template</span>
+        <span class="remove">[ X ]</span>
+        <span class="insert">[ + ]</span>
+    </div>
+
+    <div class="item add" onclick="CC.ItemList.append();">
+        <span class="name">Add Item</span>
+    </div>
+
+</div>
+
+</body>
+</html>
