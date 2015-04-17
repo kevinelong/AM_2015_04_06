@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .insect{
+            display : block;
+            transform : translate3d(0, 0, 0);
+            transition : transform 1s ease-in-out;
+            background: url("insect.png") no-repeat;
+            width: 48px; height: 48px;
+            color: yellow;
+            text-shadow: 0 0 3px black;
+        }
+        body{
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="insect">XXX</div>
+<div class="insect">YYY</div>
+<div class="insect">ZZZ</div>
+<script>
+    for (var i = 0; i < 12; i++) {
+        var s = document.createElement("span");
+        s.innerHTML = String.fromCharCode(i + 65);
+        s.classList.add("insect");
+        var y = i * 48;
+        s.style.transform = "translate3d(0, " + y + "px, 0)";
+
+        document.body.appendChild(s);
+    }
+
+    var insects = document.getElementsByClassName("insect");
+
+    //jquery would be like this
+    //var insects = $(".insect");
+
+    function nextCycle() {
+        for (var i = 0; i < insects.length; i++) {
+            var s = insects[i];
+            var x = parseInt(Math.random() * window.innerWidth );
+            var y = parseInt(Math.random() * window.innerHeight );
+            s.innerHTML = x + ", " + y;
+            s.style.transform = "translate3d(" + x + "px, " + y + "px, 500px)";
+        }
+        //Now that we are done we should call oursleves back after one second.
+        setTimeout(nextCycle, 1000);
+    }
+
+    //make initial call to nextCycle to get things started
+    setTimeout(nextCycle, 1000);
+
+</script>
+</body>
+</html>

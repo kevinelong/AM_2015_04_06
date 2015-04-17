@@ -1,0 +1,19 @@
+<script>
+    //OLD WRONG WAY - Depends on script tag
+    document.write("Hello");
+
+    //NEW WAY - Only depends on the document having been loaded.
+    var element = document.createElement("span");
+    //NOTE: innerHTML can include html tags
+    element.innerHTML = "<b>World</b>";
+    document.body.appendChild(element);
+
+    //WITH STYLES
+    var d = document.createElement("div");
+    d.style.backgroundColor = "black";
+    d.style.color = "white";
+    d.style.textAlign = "center";
+    d.style.width = "300px"
+    d.innerHTML = "text";
+    document.body.appendChild(d);
+</script>

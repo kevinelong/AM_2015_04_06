@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .menu ul li {
+            position: relative;
+            color: white;
+            background-color: black;
+            text-align: center;
+            overflow: visible;
+            vertical-align: top;
+            border-bottom: 1px solid gray;
+            padding: 0.5em;
+            font-family: "Gotham", "lucida grande", "Segoe UI", arial, verdana, "lucida sans unicode", tahoma, sans-serif;
+        }
+
+        .menu li a {
+            color: white;
+            background-color: black;
+            height: 3em;
+            width: 24em;
+            padding: 1px;
+            text-decoration: none;
+        }
+
+        .menu li a:hover {
+            color: yellow;
+            text-decoration: underline;
+        }
+
+        .menu ul li ul {
+            position: absolute;
+            left: 0;
+            top: 100%;
+            display: none;
+        }
+
+        .menu ul li:hover > ul,
+        .menu ul li ul:hover {
+            display: block;
+        }
+
+        .menu ul li {
+            display: inline-block;
+        }
+
+        .menu ul li ul li {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li>
+            <p>Menu One</p>
+            <ul>
+                <li>
+                    <a href="#">Item One</a>
+                </li>
+                <li>
+                    <a href="#">Item Two</a>
+                </li>
+            </ul>
+        </li>
+        <li>
+            <p>Menu Two</p>
+            <ul>
+                <li>
+                    <a href="#">Item Three</a>
+                </li>
+                <li>
+                    <a href="#">Item Four</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
