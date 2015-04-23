@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+    <script>
+
+
+        //DOM fully loaded and parsed
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            /**
+             * TODO:
+             * 1. Add Validation to other inputs
+             * Extra Credit
+             * 2. Add a phone input
+             * 3. Display Errors
+             * 4. Make sure phone number has at least 10 digits but ignore dashes and dots
+             *    e.g. 503.555.1212 or 503-555-1212 or 5035551212 or 503 555 1212 are all valid.
+             */
+            var f = document.getElementById('registration');
+            f.addEventListener("submit", function (e) {
+
+                var errors = [];
+
+                var email = document.getElementById('email');
+
+                if (email.value.length < 1) {
+                    email.classList.add("error");
+                    errors.push("Email is a required field.");
+                    var d = document.createElement("div");
+                    d.innerHTML = "Email is a required field.";
+                    email.parentElement.appendChild(d)
+                }
+
+                if (email.value.indexOf("@") == -1) {
+                    email.classList.add("error");
+                    errors.push("Email must contain an @ symbol.");
+                }
+
+                if (errors.length > 0) {
+                    e.preventDefault();
+                    console.log(errors);
+                }
+                var phone = document.getElementById('phone');
+
+                if (phone.value.length < 1) {
+                    phone.classList.add("error");
+                    errors.push("Phone is a required field.");
+                }
+
+                //python "<br>".join(errors)
+                document.getElementById("errors").innerHTML = errors.join("<br>")
+
+            });
+        });
+    </script>
+    <style>
+        .error {
+            border: 2px solid red;
+        }
+
+        label {
+            display: block;
+            margin: 0 0 1em 0;
+        }
+
+        input {
+            width: 200px;
+        }
+
+        fieldset {
+            display: inline-block;
+            width: auto;
+            padding: 1em;
+        }
+
+        label div {
+            width: 150px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<form id="registration">
+    <div id="errors"></div>
+    <fieldset>
+        <label>
+            <div> Email:</div>
+            <input name="email" id="email"> </label>
+        <label>
+            <div> Phone:</div>
+            <input name="phone" id="phone"> </label>
+        <label>
+            <div> First Name:</div>
+            <input name="first_name" id="first_name"> </label>
+        <label>
+            <div> Last Name:</div>
+            <input name="last_name" id="last_name"> </label>
+        <br>
+
+        <div style="text-align: right">
+            <input type="submit" value="Register">
+        </div>
+    </fieldset>
+</form>
+
+</body>
+</html>
