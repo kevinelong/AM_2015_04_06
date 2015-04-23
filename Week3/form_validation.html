@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+    <script>
+
+
+        //DOM fully loaded and parsed
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            /**
+             * TODO:
+             * 1. Add Validation to other inputs
+             * Extra Credit
+             * 2. Add a phone input
+             * 3. Display Errors
+             * 4. Make sure phone number has at least 10 digits but ignore dashes and dots
+             *    e.g. 503.555.1212 or 503-555-1212 or 5035551212 or 503 555 1212 are all valid.
+             */
+            var f = document.getElementById('registration');
+            f.onsubmit = function (e) {
+
+                var errors = [];
+                var email = document.getElementById('email');
+
+                if( email.value.length < 1){
+                    email.classList.add("error");
+                    errors.push("Email is a required field.");
+                }
+
+                if( email.value.indexOf("@") < 0){
+                    email.classList.add("error");
+                    errors.push("Email must contain an app.");
+                }
+
+                if(errors.length > 0){
+                    e.preventDefault();
+                    console.log(errors);
+                }
+
+            }
+        });
+    </script>
+    <style>
+        .error{
+            border: 2px solid red;
+            /*background-color: #ffcccc;*/
+        }
+    </style>
+</head>
+<body>
+<form id="registration">
+    <fieldset>
+
+        <label for="email">
+            Email:
+        </label>
+        <br>
+        <input name="email" id="email">
+        <br>
+        <label for="first_name">
+            First Name:
+        </label>
+        <br>
+        <input name="first_name" id="first_name">
+        <br>
+        <label for="last_name">
+            Last Name:
+        </label>
+        <br>
+        <input name="last_name" id="last_name">
+        <br>
+
+        <input type="submit" value="Register">
+    </fieldset>
+</form>
+
+</body>
+</html>

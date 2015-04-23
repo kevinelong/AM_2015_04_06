@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>
+        Angular
+    </title>
+</head>
+<body>
+<div class="container" ng-app="myApp" ng-controller="beersCtrl">
+    <table>
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Brewery</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="beer in beers">
+            <td>{{beer.name}}</td>
+            <td>{{beer.description}}</td>
+            <td>{{beer.brewery.name}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src='angular.js'></script>
+<script>
+    var myApp = angular.module("myApp", []);
+    function beersCtrl($scope, $http) {
+        $http.get('beers.json').
+                success(function (data, status, headers, config) {
+                    $scope.beers = data;
+                }).
+                error(function (data, status, headers, config) {
+                    // called asynchronously if an error occurs
+                    // or server returns response with an error status.
+                });
+    }
+</script>
+
+</body>
+</html>
