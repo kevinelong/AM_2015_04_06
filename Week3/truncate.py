@@ -18,11 +18,11 @@ def truncate_smart(text, limit):
         i = limit
 
         while i > 0 and example[i].isalpha():
-            i = i - 1
+            i -= 1
     c = i
 
     while c > 0 and not example[c - 1].isalpha():
-        c = c - 1
+        c -= 1
 
     return text[:c] + "..."
 

@@ -27,16 +27,29 @@ app = {
             "cid": 0,
             "uid": 123,
             "note": "",
+            "amount": 333.33
+        },
+        {
+            "id": 0,
+            "cid": 0,
+            "uid": 123,
+            "note": "",
+            "amount": 222.22
+        },
+        {
+            "id": 0,
+            "cid": 1,
+            "uid": 123,
+            "note": "",
             "amount": 111.11
         }
     ],
-
 }
 
-app["transactions"].append({"uid": 123, "cid": 1, "amount": 999.99})
-app["transactions"].append({"uid": 123, "cid": 0, "amount": 222.22})
-app["transactions"].append({"uid": 123, "cid": 0, "amount": 222.22})
-app["transactions"].append({"uid": 123, "cid": 0, "amount": 222.22})
+# app["transactions"].append({"uid": 123, "cid": 1, "amount": 999.99})
+# app["transactions"].append({"uid": 123, "cid": 0, "amount": 222.22})
+# app["transactions"].append({"uid": 123, "cid": 0, "amount": 222.22})
+# app["transactions"].append({"uid": 123, "cid": 0, "amount": 222.22})
 
 current_category_name = ""
 totals = {}
