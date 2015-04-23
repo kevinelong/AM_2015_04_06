@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Form Validator</title>
+    <script>
+
+
+        //DOM fully loaded and parsed
+        document.addEventListener("DOMContentLoaded", function (event) {
+
+            /**
+             * TODO:
+             * 1. Add Validation to other inputs
+             * Extra Credit
+             * 2. Add a phone input
+             * 3. Display Errors
+             * 4. Make sure phone number has at least 10 digits but ignore dashes and dots
+             *    e.g. 503.555.1212 or 503-555-1212 or 5035551212 or 503 555 1212 are all valid.
+             */
+            var f = document.getElementById('registration');
+            f.onsubmit = function (e) {
+
+                var errors = [];
+                var email = document.getElementById('email');
+
+                if( email.value.length < 1){
+                    email.classList.add("error");
+                    errors.push("Email is a required field.");
+                }
+
+                if( email.value.indexOf("@") == -1){
+                    email.classList.add("error");
+                    errors.push("Email must contain an @ symbol.");
+                }
+
+                var first_name = document.getElementById('first_name');
+
+                if( first_name.value.length < 1) {
+                    first_name.classList.add("error");
+                    errors.push("First name is a required field.");
+                }
+
+                if( ! /^[-A-Z ]+$/i.test(first_name.value) ) {
+                    //Use regex to check if name is not only letters, -, or space
+                    errors.push("You must enter a valid name (e.g. 'Bob, 'Sarah-Marie', 'Django");
+                    first_name.classList.add("error");
+                }
+
+                var last_name = document.getElementById('last_name');
+
+                if( last_name.value.length < 1) {
+                    last_name.classList.add("error");
+                    errors.push("Last name is a required field.");
+                }
+
+                if( ! /^[-A-Z ]+$/i.test(last_name.value) ) {
+                    //Use regex to check if name is not only letters, -, or space
+                    errors.push("You must enter a valid name (e.g. 'Waserman-Schultz, 'ibn Rasan', 'Smith");
+                    last_name.classList.add("error");
+                }
+
+                var phone = document.getElementById('phone');
+
+                if( phone.value.length < 1) {
+                    phone.classList.add("error");
+                    errors.push("Phone number is a required field.")
+                }
+
+                var phone_list = [];
+
+                for (i = 0; i < phone.value.length; i++) {
+                    phone_list[i] = phone[i];
+                }
+
+                var phone_test = phone_list.filter(function(i) {
+                    return (i != '.' && i != '-')
+                });
+
+                if(phone_test.length <= 10) {
+                    phone.classList.add("error");
+                    errors.push("Not my kind of phone number.")
+                }
+
+                if(errors.length > 0){
+                    e.preventDefault();
+                    console.log(errors);
+                }
+
+            }
+        });
+    </script>
+    <style>
+        .error{
+            border: 2px solid red;
+            /*background-color: #ffcccc;*/
+        }
+    </style>
+</head>
+<body>
+<form id="registration">
+    <fieldset>
+
+        <label for="email">
+            Email:
+        </label>
+        <br>
+        <input name="email" id="email">
+        <br>
+        <label for="first_name">
+            First Name:
+        </label>
+        <br>
+        <input name="first_name" id="first_name">
+        <br>
+        <label for="last_name">
+            Last Name:
+        </label>
+        <br>
+        <input name="last_name" id="last_name">
+        <br>
+        <label for="phone">
+            Phone:
+        </label>
+        <br>
+        <input name="phone" id="phone">
+        <br>
+
+        <input type="submit" value="Register">
+    </fieldset>
+</form>
+
+</body>
+</html>
