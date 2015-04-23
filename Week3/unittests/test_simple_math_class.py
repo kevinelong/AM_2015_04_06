@@ -1,4 +1,10 @@
 __author__ = 'kevin'
+# UNIT TESTS
+# TDD - TEST DRIVEN DEVELOPMENT
+# CI - CONTINUOUS INTEGRATION
+# BDD - Behavior Driven development
+# Specifications that are executable
+
 import unittest
 import simple_math_class
 

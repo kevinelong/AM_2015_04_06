@@ -27,14 +27,17 @@
 <script>
     var myApp = angular.module("myApp", []);
     function beersCtrl($scope, $http) {
-        $http.get('beers.json').
-                success(function (data, status, headers, config) {
-                    $scope.beers = data;
-                }).
-                error(function (data, status, headers, config) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
-                });
+
+        function onsuccess(data, status, headers, config) {
+            $scope["beers"] = data;
+            $scope.beers = data;
+            console.log(data);
+            console.log(status);
+            console.log(headers);
+            console.log(config);
+        }
+
+        $http.get('beers.json').success(onsuccess);
     }
 </script>
 

@@ -7,7 +7,7 @@ def truncate(text, limit):
     return text[:limit] + "..."
 
 
-print truncate(example, 12)
+print(truncate(example, 12))
 
 
 def truncate_smart(text, limit):
@@ -27,9 +27,10 @@ def truncate_smart(text, limit):
     return text[:c] + "..."
 
 
-print truncate_smart(example, 12)
+print(truncate_smart(example, 12))
+
 e = "one. two. three. nice thing to blah."
-f = e.rfind(".", 0, 22)
-print e[:f + 1]
+f = e.rfind(".", 0, 12)
+print(e[:f + 1])
 
 
