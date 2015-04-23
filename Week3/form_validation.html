@@ -29,9 +29,9 @@
                     errors.push("Email is a required field.");
                 }
 
-                if( email.value.indexOf("@") < 0){
+                if( email.value.indexOf("@") == -1){
                     email.classList.add("error");
-                    errors.push("Email must contain an app.");
+                    errors.push("Email must contain an @ symbol.");
                 }
 
                 if(errors.length > 0){
