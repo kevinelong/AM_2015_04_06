@@ -1,0 +1,29 @@
+<body>
+<script>
+    //AJAX - ASYNC JAVASCRIPT AND XML
+    //XMLHTTPRequest is the JavaScript Command
+    //NOT XML - Usually JSON
+
+    var request = new XMLHttpRequest();
+
+    function drawTime(time) {
+        document.body.innerHTML = time + "<br>\n" + document.body.innerHTML;
+    }
+
+    function onRequestChange() {
+        console.log(request.readyState, request.status);
+        if ((request.readyState == 4) && (request.status == 200)) {
+            var data = JSON.parse(request.responseText);
+            drawTime(data["milliseconds_since_epoch"]+" "+data["time"]+" "+data["date"]);
+        }
+    }
+
+    function fetchDateTime() {
+        request.onreadystatechange = onRequestChange;
+        request.open("GET", "http://date.jsontest.com/", true);
+        request.send();
+        setTimeout(fetchDateTime, 1000)
+    }
+    fetchDateTime();
+</script>
+</body>
