@@ -9,12 +9,15 @@ class Database():
         self.criteria = []
         self.matches = {}
         self.node_dict = {}
-        for n in self.node_list:
-            self.node_dict[n["id"]] = n
-        self.build_relationships()
         self.hops = 0
         self.max_hops = 0
         self.depth = 0
+
+        for n in self.node_list:
+            n_id = n["id"]
+            self.node_dict[n_id] = n
+
+        self.build_relationships()
 
     def build_relationships(self):
         for r in self.relationships:
@@ -38,13 +41,13 @@ class Database():
 
     def query_node(self, node):
         self.depth += 1
-        match_count = 0
+        criterion_match_count = 0
 
         for c in self.criteria:
             if self.evaluate_criterion(node, c):
-                match_count += 1
+                criterion_match_count += 1
 
-        if match_count == len(self.criteria):
+        if criterion_match_count == len(self.criteria):
             self.matches[node["id"]] = node
 
         if self.depth < self.max_hops:
@@ -104,7 +107,7 @@ db = Database([
 
 db.query(
     [
-        ["population", 100, ">"],
+        ["population", 200, ">"],
         ["population", 5900, "<"],
     ],
     db.node_list[0],
