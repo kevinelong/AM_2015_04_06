@@ -10,7 +10,7 @@
         document.addEventListener("DOMContentLoaded", function (event) {
 
             /**
-             * TODO:
+             *
              * 1. Add Validation to other inputs
              * Extra Credit
              * 2. Add a phone input
@@ -22,6 +22,7 @@
             f.onsubmit = function (e) {
 
                 var errors = [];
+
                 var email = document.getElementById('email');
 
                 if( email.value.length < 1){
@@ -38,11 +39,16 @@
 
                 if( first_name.value.length < 1) {
                     first_name.classList.add("error");
-                    errors.push("First name is a required field.");
+                    errors.push("First name is a required field;.");
+                    var errorNode = document.createElement('div');
+                    var errorTextNode = document.createTextNode('First name is a required field.');
+                    errorNode.appendChild(errorTextNode);
+                    first_name.parentElement.appendChild(errorNode);
+//                    first_name.appendChild(errorNode);
                 }
 
-                if( ! /^[-A-Z ]+$/i.test(first_name.value) ) {
-                    //Use regex to check if name is not only letters, -, or space
+                if( ! /^[-A-Z\W]+$/i.test(first_name.value) ) {
+                    //Use regex to check if name is only letters, -, or space
                     errors.push("You must enter a valid name (e.g. 'Bob, 'Sarah-Marie', 'Django");
                     first_name.classList.add("error");
                 }
@@ -54,8 +60,8 @@
                     errors.push("Last name is a required field.");
                 }
 
-                if( ! /^[-A-Z ]+$/i.test(last_name.value) ) {
-                    //Use regex to check if name is not only letters, -, or space
+                if( ! /^[-A-Z\W]+$/i.test(last_name.value) ) {
+                    //Use regex to check if name is only letters, -, or space
                     errors.push("You must enter a valid name (e.g. 'Waserman-Schultz, 'ibn Rasan', 'Smith");
                     last_name.classList.add("error");
                 }
@@ -74,7 +80,7 @@
                 }
 
                 var phone_test = phone_list.filter(function(i) {
-                    return (i != '.' && i != '-')
+                    return (i != '.' && i != '-' && i != ' ')
                 });
 
                 if(phone_test.length <= 10) {
@@ -107,12 +113,14 @@
         <br>
         <input name="email" id="email">
         <br>
+        <div>
         <label for="first_name">
             First Name:
         </label>
         <br>
         <input name="first_name" id="first_name">
         <br>
+        </div>
         <label for="last_name">
             Last Name:
         </label>
