@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div {
+            margin: 1em;
+            padding: 1em;
+            border: 1px solid black;
+            font-family: sans-serif;
+            display: inline-block;
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="target"></div>
+<script>
+    //AJAX - ASYNC JAVASCRIPT AND XML
+    //XMLHTTPRequest is the JavaScript Command
+    //NOT XML - Usually JSON
+
+    var request = new XMLHttpRequest();
+    var target = document.getElementById("target");
+
+    function draw(data) {
+        var listElement = document.createElement("div");
+        for (var i = 0; i < data.length; i++) {
+            var item = data[i];
+            var itemElement = document.createElement("div");
+            itemElement.innerHTML = item.title + "<br>";
+            listElement.appendChild(itemElement)
+        }
+        target.innerHTML = ""; //Clear Loading message
+        target.appendChild(listElement);
+    }
+
+    function onRequestChange() {
+        console.log(request.readyState, request.status);
+        if ((request.readyState == 4) && (request.status == 200)) {
+            var data = JSON.parse(request.responseText);
+            draw(data);
+        }
+    }
+
+    function fetch() {
+        request.onreadystatechange = onRequestChange;
+        request.open("GET", "/rango/data_all/", true);
+        request.send();
+    }
+
+    target.innerHTML = "Loading..."; //Set Loading message
+    //Fake being slow to load
+    setTimeout(fetch, 1000);
+</script>
+</body>
+</html>

@@ -29,8 +29,11 @@
     function beersCtrl($scope, $http) {
 
         function onsuccess(data, status, headers, config) {
+            //Either this
             $scope["beers"] = data;
+            //or this
             $scope.beers = data;
+
             console.log(data);
             console.log(status);
             console.log(headers);

@@ -5,6 +5,16 @@
     <title>Form Validator</title>
     <script>
 
+        function isValidPhoneNumber(phone) {
+            var count = 0;
+            for (var i = 0; i < phone.length; i++) {
+                var character = phone[i];
+                if ('1234567890'.hasOwnProperty(character)) {
+                    count++;
+                }
+            }
+            return (count >= 9 && count <= 11);
+        }
 
         //DOM fully loaded and parsed
         document.addEventListener("DOMContentLoaded", function (event) {
@@ -47,6 +57,10 @@
                 if (phone.value.length < 1) {
                     phone.classList.add("error");
                     errors.push("Phone is a required field.");
+                }
+                if (!isValidPhoneNumber(phone)) {
+                    phone.classList.add("error");
+                    errors.push("Phone must have 7 to 10 digits.");
                 }
 
                 //python "<br>".join(errors)
