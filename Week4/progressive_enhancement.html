@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    button, input {
+        font: sans-serif;
+        background-color: blue;
+        color: yellow;
+        font-size: 6em;
+        /*width: 2em;*/
+    }
+</style>
+<script>
+
+
+    var progressive_enhancement = function () {
+        var form = document.getElementById("form");
+        form.addEventListener("submit", function (e) {
+                    e.preventDefault();
+                }
+        );
+
+        var door = document.getElementById("door");
+        door.style.display = "none";
+        //console.log(door);
+        for (var i = 0; i < door.children.length; i++) {
+            var option = door.children[i];
+            var text = option.innerHTML;
+            var id = option.attributes.id.value;
+            var button = document.createElement("button");
+            button.id = "button_" + id;
+            button.innerHTML = text;
+
+            button.addEventListener("click", function () {
+
+                var number = this.id.split("_")[1];
+                console.log(number);
+                document.getElementById("output").innerHTML += this.id + this.innerHTML;
+            });
+
+            form.appendChild(button);
+        }
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+                progressive_enhancement();
+            }
+    );
+
+</script>
+<div id="output">&nbsp;</div>
+<form id="form">
+    <label>
+        Pick a door:
+        <select id="door" size="3">
+            <option id="111">
+                Apple
+            </option>
+            <option id="2222">
+                Banana
+            </option>
+            <option id="33333">
+                Cherry
+            </option>
+        </select>
+    </label>
+</form>
+</body>
+</html>
