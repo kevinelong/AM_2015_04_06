@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style scoped="scoped">
+    button {
+        font-family: sans-serif;
+        font-size: 3em;
+        background-color: blue;
+        color: yellow;
+        margin: 0.5em;
+        padding: 1em;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault()
+        });
+
+
+        function numberify(className) {
+            var elementList = document.getElementsByClassName(className);
+            for (var t = 0; t < elementList.length; t++) {
+                var targetElement = elementList[t];
+//                targetElement.style.display = "none";
+                var min = parseInt(targetElement.getAttribute("min"));
+                var max = parseInt(targetElement.getAttribute("max"));
+                var step = parseInt(targetElement.getAttribute("step"));
+                var component = document.createElement("div");
+
+                for (var i = min; i <= max; i += step) {
+                    var button = document.createElement("button");
+                    button.innerHTML = i.toString();
+                    button.setAttribute("data-value", i.toString());
+                    button.setAttribute("data-target", targetElement);
+
+                    button.addEventListener("click", function (e) {
+                        console.log(e);
+                        var targetElement = e.currentTarget.parentElement.nextElementSibling;
+                        var v = parseInt(e.currentTarget.getAttribute("data-value"));
+                        targetElement.value = v;
+                    });
+                    component.appendChild(button);
+                }
+                var parent = targetElement.parentElement;
+                parent.insertBefore(component, targetElement)
+            }
+        }
+
+        numberify("numberify");
+    });
+
+</script>
+<form id="form">
+    <label>
+        <span>
+            Number A:
+        </span>
+        <input class="numberify" type="number" value="1" min="1" max="5" step="1">
+    </label>
+    <label>
+        <span>
+            Number B:
+        </span>
+        <input class="numberify" type="number" value="0" min="0" max="60" step="15">
+    </label>
+</form>
+</body>
+</html>
