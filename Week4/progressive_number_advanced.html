@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style scoped="scoped">
+    body {
+        background-color: blue;
+        color: #eeeeee;
+        font-size: 100%;
+        font-family: "OCR extended", Courier, sans-serif;
+    }
+
+    #form {
+        text-align: center;
+        display: block;
+        margin: 1em auto;
+        width: 50%;
+    }
+
+    #form label {
+        display: block;
+        margin: 1em auto;
+    }
+
+    #form label span {
+        display: block;
+    }
+
+    input.bigTouchNumber {
+        font-size: 1em;
+        background-color: silver;
+        color: #333;
+        text-align: right;
+        border: none;
+    }
+
+    .bigTouchNumber-component {
+        font-size: 1em;
+        /*width: 12em;*/
+    }
+
+    .bigTouchNumber-component button.selected {
+        background-color: yellow;
+        color: darkblue;
+    }
+
+    .bigTouchNumber-component button {
+        width: 27%;
+        font-size: 1em;
+        background-color: darkblue;
+        color: yellow;
+        margin: 3%;
+        padding: 3%;
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        document.getElementById("form").addEventListener("submit", function (e) {
+            e.preventDefault()
+        });
+
+        function makeButton(displayText, onclick) {
+            var button = document.createElement("button");
+            button.innerHTML = displayText;
+            button.setAttribute("data-value", displayText);
+            button.addEventListener("click", onclick);
+            return button;
+        }
+
+        function bigTouchNumberAll(className) {
+            var elementList = document.getElementsByClassName(className);
+            for (var t = 0; t < elementList.length; t++) {
+                bigTouchNumberOne(elementList[t]);
+            }
+        }
+
+        function canStep(min, max, step) {
+            return !(isNaN(min) || isNaN(max) || isNaN(step));
+        }
+
+        function clickNumber(e) {
+            var t = e.currentTarget;
+            var dv = t.getAttribute("data-value");
+            var elementList = t.parentElement.childNodes;
+
+            for (childIndex in elementList) {
+                var c = elementList[childIndex]
+                console.log(c);
+                if (c.hasOwnProperty("classList")) {
+                    c.classList.remove("selected");
+                }
+            }
+            e.currentTarget.classList.add("selected");
+            e.currentTarget.parentElement.previousElementSibling.value = dv;
+
+        }
+
+        function clickNumberAdd(e) {
+            var dv = e.currentTarget.getAttribute("data-value");
+            e.currentTarget.parentElement.previousElementSibling.value += dv;
+        }
+
+        function clickNumberRemove(e) {
+            var dv = e.currentTarget.parentElement.previousElementSibling.value;
+            e.currentTarget.parentElement.previousElementSibling.value = dv.substr(0, dv.length - 1);
+        }
+
+        function clickNumberClear(e) {
+            var dv = e.currentTarget.getAttribute("data-value");
+            e.currentTarget.parentElement.previousElementSibling.value = "";
+        }
+
+        function bigTouchNumberOne(targetElement) {
+//            targetElement.style.display = "none";
+            var min = parseInt(targetElement.getAttribute("min"));
+            var max = parseInt(targetElement.getAttribute("max"));
+            var step = parseInt(targetElement.getAttribute("step"));
+            var component = document.createElement("div");
+            component.classList.add("bigTouchNumber-component");
+            if (!canStep(min, max, step)) {
+                for (var i = 1; i <= 9; i++) {
+                    component.appendChild(makeButton(i.toString(), clickNumberAdd));
+                }
+                component.appendChild(makeButton("X", clickNumberClear));
+                component.appendChild(makeButton("0", clickNumberAdd));
+                component.appendChild(makeButton("<-", clickNumberRemove));
+            } else {
+                for (var i = min; i <= max; i += step) {
+                    component.appendChild(makeButton(i.toString(), clickNumber));
+                }
+            }
+            var parent = targetElement.parentElement;
+            parent.appendChild(component);
+
+//            parent.insertBefore(component, targetElement);
+
+        }
+
+        bigTouchNumberAll("bigTouchNumber");
+    });
+
+</script>
+<form id="form">
+    <label>
+        <span>
+            Number 0 - One of six:
+        </span>
+        <input class="bigTouchNumber" type="number" value="1" min="1" max="6" step="1">
+    </label>
+    <label>
+        <span>
+            Number 1 - Minutes by quarter hour:
+        </span>
+        <input class="bigTouchNumber" type="number" value="0" min="0" max="60" step="15">
+    </label>
+    <label>
+        <span>
+            Number 3 - No Limits like calculator:
+        </span>
+        <input class="bigTouchNumber" value="1234567890">
+    </label>
+</form>
+</body>
+</html>
