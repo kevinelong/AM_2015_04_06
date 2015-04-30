@@ -115,23 +115,23 @@
         }
 
         function bigTouchNumberOne(targetElement) {
-//            targetElement.style.display = "none";
+            targetElement.style.display = "none";
             var min = parseInt(targetElement.getAttribute("min"));
             var max = parseInt(targetElement.getAttribute("max"));
             var step = parseInt(targetElement.getAttribute("step"));
             var component = document.createElement("div");
             component.classList.add("bigTouchNumber-component");
-            if (!canStep(min, max, step)) {
+            if (canStep(min, max, step)) {
+                for (var i = min; i <= max; i += step) {
+                    component.appendChild(makeButton(i.toString(), clickNumber));
+                }
+            } else {
                 for (var i = 1; i <= 9; i++) {
                     component.appendChild(makeButton(i.toString(), clickNumberAdd));
                 }
                 component.appendChild(makeButton("X", clickNumberClear));
                 component.appendChild(makeButton("0", clickNumberAdd));
                 component.appendChild(makeButton("<-", clickNumberRemove));
-            } else {
-                for (var i = min; i <= max; i += step) {
-                    component.appendChild(makeButton(i.toString(), clickNumber));
-                }
             }
             var parent = targetElement.parentElement;
             parent.appendChild(component);
