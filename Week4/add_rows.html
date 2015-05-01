@@ -5,7 +5,7 @@
     <title></title>
 </head>
 <body>
-<table id="table">
+<table id="table" border="1" cellspacing="0" cellpadding="10">
     <tr>
         <th> Name:</th>
         <th> Day:</th>
@@ -13,17 +13,34 @@
     </tr>
 </table>
 <script>
+    // Whole-script strict mode syntax
+    "use strict";
+
+    var data = [
+        {name: "Kevin", day: "1/1/2111", rate: 123},
+        {name: "Ben", day: "1/1/2111", rate: 123}
+    ];
+
     var table = document.getElementById("table");
 
-    function addRow(object) {
+    for (var i = 0; i < data.length; i++) {
+
+        var object = data[i];
+
+        //Create a TR(table row) element using createElement,
+        // so it can be appended.
         var row = document.createElement("tr");
-        row.innerHTML = "<td>" + object.name + "</td>" +
-        "<td>" + object.day + "</td>" +
-        "<td>" + object.rate + "</td>";
-        table.appendChild(row)
+
+        //Add three td(table data) elements and their content all at once,
+        // using innerHTML instead of calling createElement for each
+        row.innerHTML =
+                "<td>" + object.name + "</td>" +
+                "<td>" + object.day + "</td>" +
+                "<td>" + object.rate + "</td>";
+
+        table.appendChild(row);
     }
-    addRow({name: "Kevin", day: "1/1/2111", rate: 123});
-    addRow({name: "Ben", day: "1/1/2111", rate: 123});
+
 </script>
 </body>
 </html>
