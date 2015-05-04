@@ -10,7 +10,19 @@ int main()
     printf("Original length = %d\n",length);
     int size = sizeof(s);
     printf("Original size = %d\n",size);
-    char* ptr = (char *)calloc(length, sizeof(char));
+    char* ptr = (char *)calloc(length*2+1, sizeof(char));
+
+
+    /* Check to see if we were successful */
+    if (ptr == NULL)
+    {
+        /* We were not so display a message */
+        printf("Could not allocate required memory\n");
+
+        /* And exit */
+        exit(1);
+    }
+
     strncpy(ptr, s, length);
     strncpy((ptr + length), s, size);
     ptr[length-1]=32;
