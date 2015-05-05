@@ -9,6 +9,8 @@
 </style>
 <canvas id="c"></canvas>
 <script>
+//    var c = document.getElementById("c");
+
     var w = c.width = window.innerWidth,
             h = c.height = window.innerHeight,
             ctx = c.getContext('2d'),
@@ -28,15 +30,19 @@
         this.size = rand(size);
         this.x = Math.random() * w;
         this.y = -this.size * 2;
-        this.vy = this.size / 10;
+        this.vy = this.size / 100;
         this.vx = Math.random() * 6 - 3;
-        this.ay = this.size / 5000;
+        this.ay = this.size / 100000;
         this.shine = 0;
         this.shineDir = rand(shineDir);
         this.color = 'hsla(hue, 80%, brightness%, .15)'.replace('hue', frame % 360);
         this.rot = Math.random() * 2 * Math.PI;
         this.omega = rand(angSpeed);
         if (Math.random() < .5) this.omega *= -1;
+
+//        this.use = function(){
+//            //...
+//        }
     }
     Star.prototype.use = function () {
         this.x += this.vx;
