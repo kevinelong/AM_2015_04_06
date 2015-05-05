@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /* TODO Items in order
+         0. Check out the code as is and watch the console
+         1. set internal countdown variable based on user inputs.
+         2. update user inputs while counting down.
+         3. allow the user to pause and resume the countdown by keeping the timer id and using clearTimeout.
+         4. stop countdown when it reaches zero.
+         5. play a sound when timer reaches zero using html5 audio object.
+         */
+
+        var ticker = 0;
+
+        function tick() {
+            var milliseconds = 1000;
+            setTimeout(tick, milliseconds);
+            ticker++;
+            console.log(ticker);
+            var now = new Date();
+            console.log(now);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var go = document.getElementById("go");
+            var pause = document.getElementById("pause");
+
+            pause.style.display = "none";
+
+            go.addEventListener("click", function (event) {
+                console.log(event);
+                console.log(this);
+                tick();
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <input id="hh" type="number" value="0" min="0" max="99" step="1">
+    :
+    <input id="mm" type="number" value="1" min="0" max="59" step="1">
+    :
+    <input id="ss" type="number" value="0" min="0" max="59" step="15">
+    &nbsp;
+    <input id="go" type="button" value="GO!">
+    &nbsp;
+    <input id="pause" type="button" value="Pause">
+</div>
+</body>
+</html>
