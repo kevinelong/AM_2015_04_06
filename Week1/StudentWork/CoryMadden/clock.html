@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /* TODO Items in order
+         0. Check out the code as is and watch the console
+         1. set internal countdown variable based on user inputs.
+         2. update user inputs while counting down.
+         3. allow the user to pause and resume the countdown by keeping the timer id and using clearTimeout.
+         4. stop countdown when it reaches zero.
+         5. play a sound when timer reaches zero using html5 audio object.
+         */
+
+        var ticker = 0;
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var go = document.getElementById("go");
+            var pause = document.getElementById("pause");
+
+            go.addEventListener("click", function (event) {
+                console.log(event);
+                console.log(this);
+                tick();
+            });
+            pause.addEventListener("click", function(event){
+                clearTimeout(window.timer);
+            })
+        });
+        function tick() {
+            var seconds = ss.value;
+            var minutes = mm.value;
+            var hours = hh.value;
+            window.timer = setTimeout(tick, 1000);
+            if(mm.value > 0 && ss.value == 0 && mm.value==0){
+                hh.value = hours -1;
+                mm.value += 1;
+            }
+            if(ss.value==0 && mm.value !=0) {
+                ss.value = 60;
+                mm.value = minutes - 1;
+            } else if(ss.value != 0){
+                ss.value = seconds - 1;
+            }
+            if(mm.value == 0 && ss.value == 0 && hh.value == 0){
+                clearTimeout(window.timer);
+                var sound = document.getElementById("doneCounting");
+                sound.play();
+            }
+            ticker++;
+            console.log(ticker);
+            var now = new Date();
+            console.log(now);
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input id="hh" type="number" value="0" min="0" max="99" step="1">
+    :
+    <input id="mm" type="number" value="1" min="0" max="59" step="1">
+    :
+    <input id="ss" type="number" value="0" min="0" max="59" step="15">
+    &nbsp;
+    <input id="go" type="button" value="GO!">
+    &nbsp;
+    <input id="pause" type="button" value="Pause">
+</div>
+<audio id="doneCounting"><source src="../Week1/StudentWork/CoryMadden/horse.mp3" type="audio/mp3"></audio>
+</body>
+</html>
