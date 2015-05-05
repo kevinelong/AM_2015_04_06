@@ -14,13 +14,15 @@
          */
 
         var ticker = 0;
+        var now = new Date();
+
 
         function tick() {
             var milliseconds = 1000;
             setTimeout(tick, milliseconds);
             ticker++;
             console.log(ticker);
-            var now = new Date();
+            now = new Date();
             console.log(now);
         }
 
