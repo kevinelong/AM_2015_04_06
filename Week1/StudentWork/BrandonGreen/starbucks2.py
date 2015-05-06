@@ -64,13 +64,18 @@ def nearest_starbucks(input_data, selection, nearby_count):
         item_key = item[KEY_INDEX]
         if item_key in result_keys:
             f.write('<span style="left:{x}px; top:{y}px; background-color:yellow; color:black; > {v} </span>'.format(x=item[0], y=item[1], v=item[2]))
+            print(item_key, 'result')
         elif item_key in selected_key:
             f.write('<span style="left:{x}px; top:{y}px; background-color:green; > {v} </span>'.format(x=item[0], y=item[1], v=item[2]))
+            print(item_key, 'selected')
         else:
             f.write('<span style="left:{x}px; top:{y}px;"> {v} </span>'.format(x=item[0], y=item[1], v=item[2]))
+            print(item_key)
 
     f.write("</div>\n")
     f.close()
 
+    print(result_keys)
 
-nearest_starbucks(data, 'H', 5)
+
+nearest_starbucks(data, 'I', 5)
