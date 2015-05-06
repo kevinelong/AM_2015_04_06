@@ -3574,9 +3574,9 @@
         if ( typeof div.style.zoom !== strundefined ) {
             // Support: IE<8
             // Check if natively block-level elements act like inline-block
-            // elements when setting their display to 'inline' and giving
+            // elements when setting their countdown_display to 'inline' and giving
             // them layout
-            div.style.cssText = "display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1";
+            div.style.cssText = "countdown_display:inline;margin:0;border:0;padding:1px;width:1px;zoom:1";
 
             support.inlineBlockNeedsLayout = val = div.offsetWidth === 3;
             if ( val ) {
@@ -4096,7 +4096,7 @@
         // isHidden might be called from jQuery#filter function;
         // in that case, element will be second argument
         elem = el || elem;
-        return jQuery.css( elem, "display" ) === "none" || !jQuery.contains( elem.ownerDocument, elem );
+        return jQuery.css( elem, "countdown_display" ) === "none" || !jQuery.contains( elem.ownerDocument, elem );
     };
 
 
@@ -6000,7 +6000,7 @@
         elemdisplay = {};
 
     /**
-     * Retrieve the actual display of a element
+     * Retrieve the actual countdown_display of a element
      * @param {String} name nodeName of the element
      * @param {Object} doc Document object
      */
@@ -6024,7 +6024,7 @@
     }
 
     /**
-     * Try to determine the default display value of an element
+     * Try to determine the default countdown_display value of an element
      * @param {String} nodeName
      */
     function defaultDisplay( nodeName ) {
@@ -6051,7 +6051,7 @@
                 iframe.detach();
             }
 
-            // Store the correct default display
+            // Store the correct default countdown_display
             elemdisplay[ nodeName ] = display;
         }
 
@@ -6088,12 +6088,12 @@
             // Support: IE6
             // Check if elements with layout shrink-wrap their children
             if ( typeof div.style.zoom !== strundefined ) {
-                // Reset CSS: box-sizing; display; margin; border
+                // Reset CSS: box-sizing; countdown_display; margin; border
                 div.style.cssText =
                     // Support: Firefox<29, Android 2.3
                     // Vendor-prefix box-sizing
                     "-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
-                    "box-sizing:content-box;display:block;margin:0;border:0;" +
+                    "box-sizing:content-box;countdown_display:block;margin:0;border:0;" +
                     "padding:1px;width:1px;zoom:1";
                 div.appendChild( document.createElement( "div" ) ).style.width = "5px";
                 shrinkWrapBlocksVal = div.offsetWidth !== 3;
@@ -6333,7 +6333,7 @@
                 // Support: Firefox<29, Android 2.3
                 // Vendor-prefix box-sizing
                 "-webkit-box-sizing:border-box;-moz-box-sizing:border-box;" +
-                "box-sizing:border-box;display:block;margin-top:1%;top:1%;" +
+                "box-sizing:border-box;countdown_display:block;margin-top:1%;top:1%;" +
                 "border:1px;padding:1px;width:4px;position:absolute";
 
             // Support: IE<9
@@ -6353,12 +6353,12 @@
                 // WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
                 contents = div.appendChild( document.createElement( "div" ) );
 
-                // Reset CSS: box-sizing; display; margin; border; padding
+                // Reset CSS: box-sizing; countdown_display; margin; border; padding
                 contents.style.cssText = div.style.cssText =
                     // Support: Firefox<29, Android 2.3
                     // Vendor-prefix box-sizing
                     "-webkit-box-sizing:content-box;-moz-box-sizing:content-box;" +
-                    "box-sizing:content-box;display:block;margin:0;border:0;padding:0";
+                    "box-sizing:content-box;countdown_display:block;margin:0;border:0;padding:0";
                 contents.style.marginRight = contents.style.width = "0";
                 div.style.width = "1px";
 
@@ -6368,14 +6368,14 @@
 
             // Support: IE8
             // Check if table cells still have offsetWidth/Height when they are set
-            // to display:none and there are still other visible table cells in a
+            // to countdown_display:none and there are still other visible table cells in a
             // table row; if so, offsetWidth/Height are not reliable for use when
             // determining if an element has been hidden directly using
-            // display:none (it is still safe to use offsets if a parent element is
+            // countdown_display:none (it is still safe to use offsets if a parent element is
             // hidden; don safety goggles and see bug #4512 for more information).
             div.innerHTML = "<table><tr><td></td><td>t</td></tr></table>";
             contents = div.getElementsByTagName( "td" );
-            contents[ 0 ].style.cssText = "margin:0;border:0;padding:0;display:none";
+            contents[ 0 ].style.cssText = "margin:0;border:0;padding:0;countdown_display:none";
             reliableHiddenOffsetsVal = contents[ 0 ].offsetHeight === 0;
             if ( reliableHiddenOffsetsVal ) {
                 contents[ 0 ].style.display = "";
@@ -6415,8 +6415,8 @@
         ralpha = /alpha\([^)]*\)/i,
         ropacity = /opacity\s*=\s*([^)]*)/,
 
-    // swappable if display is none or starts with table except "table", "table-cell", or "table-caption"
-    // see here for display values: https://developer.mozilla.org/en-US/docs/CSS/display
+    // swappable if countdown_display is none or starts with table except "table", "table-cell", or "table-caption"
+    // see here for countdown_display values: https://developer.mozilla.org/en-US/docs/CSS/countdown_display
         rdisplayswap = /^(none|table(?!-c[ea]).+)/,
         rnumsplit = new RegExp( "^(" + pnum + ")(.*)$", "i" ),
         rrelNum = new RegExp( "^([+-])=(" + pnum + ")", "i" ),
@@ -6468,13 +6468,13 @@
             values[ index ] = jQuery._data( elem, "olddisplay" );
             display = elem.style.display;
             if ( show ) {
-                // Reset the inline display of this element to learn if it is
+                // Reset the inline countdown_display of this element to learn if it is
                 // being hidden by cascaded rules or not
                 if ( !values[ index ] && display === "none" ) {
                     elem.style.display = "";
                 }
 
-                // Set elements which have been overridden with display: none
+                // Set elements which have been overridden with countdown_display: none
                 // in a stylesheet to whatever the default browser style is
                 // for such an element
                 if ( elem.style.display === "" && isHidden( elem ) ) {
@@ -6489,7 +6489,7 @@
             }
         }
 
-        // Set the display of most of the elements in a second loop
+        // Set the countdown_display of most of the elements in a second loop
         // to avoid the constant reflow
         for ( index = 0; index < length; index++ ) {
             elem = elements[ index ];
@@ -6738,8 +6738,8 @@
             get: function( elem, computed, extra ) {
                 if ( computed ) {
                     // certain elements can have dimension info if we invisibly show them
-                    // however, it must have a current display style that would benefit from this
-                    return rdisplayswap.test( jQuery.css( elem, "display" ) ) && elem.offsetWidth === 0 ?
+                    // however, it must have a current countdown_display style that would benefit from this
+                    return rdisplayswap.test( jQuery.css( elem, "countdown_display" ) ) && elem.offsetWidth === 0 ?
                         jQuery.swap( elem, cssShow, function() {
                             return getWidthOrHeight( elem, name, extra );
                         }) :
@@ -6810,7 +6810,7 @@
         function( elem, computed ) {
             if ( computed ) {
                 // WebKit Bug 13343 - getComputedStyle returns wrong value for margin-right
-                // Work around by temporarily setting element display to inline-block
+                // Work around by temporarily setting element countdown_display to inline-block
                 return jQuery.swap( elem, { "display": "inline-block" },
                     curCSS, [ elem, "marginRight" ] );
             }
@@ -7144,11 +7144,11 @@
             // overflowY are set to the same value
             opts.overflow = [ style.overflow, style.overflowX, style.overflowY ];
 
-            // Set display property to inline-block for height/width
+            // Set countdown_display property to inline-block for height/width
             // animations on inline elements that are having width/height animated
             display = jQuery.css( elem, "display" );
 
-            // Test default display if display is currently "none"
+            // Test default countdown_display if countdown_display is currently "none"
             checkDisplay = display === "none" ?
             jQuery._data( elem, "olddisplay" ) || defaultDisplay( elem.nodeName ) : display;
 
@@ -7192,7 +7192,7 @@
                 }
                 orig[ prop ] = dataShow && dataShow[ prop ] || jQuery.style( elem, prop );
 
-                // Any non-fx value stops us from restoring the original display value
+                // Any non-fx value stops us from restoring the original countdown_display value
             } else {
                 display = undefined;
             }
@@ -7237,7 +7237,7 @@
                 }
             }
 
-            // If this is a noop like .hide().hide(), restore an overwritten display value
+            // If this is a noop like .hide().hide(), restore an overwritten countdown_display value
         } else if ( (display === "none" ? defaultDisplay( elem.nodeName ) : display) === "inline" ) {
             style.display = display;
         }
@@ -9423,7 +9423,7 @@
         // Opera reports offsetWidths and offsetHeights less than zero on some elements
         return elem.offsetWidth <= 0 && elem.offsetHeight <= 0 ||
         (!support.reliableHiddenOffsets() &&
-        ((elem.style && elem.style.display) || jQuery.css( elem, "display" )) === "none");
+        ((elem.style && elem.style.display) || jQuery.css( elem, "countdown_display" )) === "none");
     };
 
     jQuery.expr.filters.visible = function( elem ) {
