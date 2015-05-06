@@ -77,5 +77,11 @@ def nearest_starbucks(input_data, selection, nearby_count):
 
     print(result_keys)
 
+<<<<<<< HEAD
 
 nearest_starbucks(data, 'I', 5)
+=======
+nearest_starbucks(data, 'H', 5)
+
+# Test Pushing
+>>>>>>> dce481137a57caaa673b96d37aed0ea34fba61dd

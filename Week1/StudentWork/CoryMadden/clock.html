@@ -14,31 +14,47 @@
          */
 
         var ticker = 0;
-        var now = new Date();
 
-
-        function tick() {
-            var milliseconds = 1000;
-            setTimeout(tick, milliseconds);
-            ticker++;
-            console.log(ticker);
-            now = new Date();
-            console.log(now);
-        }
 
         document.addEventListener("DOMContentLoaded", function () {
 
             var go = document.getElementById("go");
             var pause = document.getElementById("pause");
 
-            pause.style.display = "none";
-
             go.addEventListener("click", function (event) {
                 console.log(event);
                 console.log(this);
                 tick();
             });
+            pause.addEventListener("click", function(event){
+                clearTimeout(window.timer);
+            })
         });
+        function tick() {
+            var seconds = ss.value;
+            var minutes = mm.value;
+            var hours = hh.value;
+            window.timer = setTimeout(tick, 1000);
+            if(mm.value > 0 && ss.value == 0 && mm.value==0){
+                hh.value = hours -1;
+                mm.value += 1;
+            }
+            if(ss.value==0 && mm.value !=0) {
+                ss.value = 60;
+                mm.value = minutes - 1;
+            } else if(ss.value != 0){
+                ss.value = seconds - 1;
+            }
+            if(mm.value == 0 && ss.value == 0 && hh.value == 0){
+                clearTimeout(window.timer);
+                var sound = document.getElementById("doneCounting");
+                sound.play();
+            }
+            ticker++;
+            console.log(ticker);
+            var now = new Date();
+            console.log(now);
+        }
     </script>
 </head>
 <body>
@@ -53,5 +69,6 @@
     &nbsp;
     <input id="pause" type="button" value="Pause">
 </div>
+<audio id="doneCounting"><source src="../Week1/StudentWork/CoryMadden/horse.mp3" type="audio/mp3"></audio>
 </body>
 </html>
