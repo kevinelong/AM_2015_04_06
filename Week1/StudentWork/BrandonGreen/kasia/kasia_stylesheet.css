@@ -91,3 +91,12 @@ footer {
 footer span {
     text-align: center;
 }
+
+#signup {
+    text-align: center;
+}
+
+#signup>* {
+    display: inline-block;
+    margin: .25em;
+}
