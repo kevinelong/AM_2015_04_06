@@ -1,8 +1,8 @@
 var COUNTDOWN = 0;
 
+var countdown_display = document.getElementById("countdown_display");
 var go = document.getElementById("go");
 var pause = document.getElementById("pause");
-var countdown_display = document.getElementById("countdown_display")
 
 var hours = document.getElementById("hh");
 var minutes = document.getElementById("mm");
@@ -38,9 +38,11 @@ var ticker = 0;
     function tick() {
         update_counter();
         setTimeout(tick, 1000);
+
         ticker++;
-        COUNTDOWN -= 1000;
         console.log(ticker);
+        COUNTDOWN -= 1000;
+        console.log(COUNTDOWN);
         var now = new Date();
         console.log(now);
 }
