@@ -27,7 +27,6 @@ function convert_time() {
     var hours_str = hours_left.toString().concat(" : ");
     var minutes_str = minutes_left.toString().concat(" : ");
     var seconds_str = seconds_left.toString();
-    console.log("Seconds Left : ", seconds_str);
 
     return "".concat(hours_str, minutes_str, seconds_str);
 }
@@ -51,8 +50,6 @@ var ticker = 0;
         console.log(COUNTDOWN);
         var now = new Date();
         console.log(now);
-        console.log(minutes_left);
-        console.log(seconds_left);
 }
 
     go.addEventListener("click", function (event) {
