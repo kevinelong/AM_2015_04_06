@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Extra Special Timer</title>
+    <style>
+
+        body * {
+            font-family: Helvetica, sans-serif;
+
+        }
+
+        .time-input {
+            margin: 25px;
+        }
+
+        .time-input * {
+            padding: 5px;
+            margin-top: 10px;
+            font-size: 25px;
+        }
+
+        .time-input input {
+            text-align: center;
+        }
+
+        #countdown {
+            font-size: 150px;
+            text-align: center;
+        }
+
+        .count-inprogress {
+            color: darkred;
+        }
+
+        .count-paused {
+            color: orangered;
+        }
+
+        .count-complete {
+            color: green;
+        }
+
+    </style>
+    <script>
+        /* TODO Items in order
+         0. Check out the code as is and watch the console
+         1. set internal countdown variable based on user inputs.
+         2. update user inputs while counting down.
+         3. allow the user to pause and resume the countdown by keeping the timer id and using clearTimeout.
+         4. stop countdown when it reaches zero.
+         5. play a sound when timer reaches zero using html5 audio object.
+         */
+
+        var tickerSeconds = 0;
+        var limitSeconds = 0;
+        var countdownSeconds = 0;
+        var paused = false;
+        var timer;
+        var sound;
+        var countdown;
+
+        function convertSeconds(hours, minutes, seconds) {
+            var secHours = parseInt(hours) * 3600;
+            var secMinutes = parseInt(minutes) * 60;
+            var secSeconds = parseInt(seconds);
+            return secHours + secMinutes + secSeconds
+        }
+
+        function tick() {
+
+            // Next step
+            if (tickerSeconds >= limitSeconds) {
+                console.log("DONE");
+                sound.play();
+                pause.style.display = "none";
+                countdown.innerHTML = "DONE";
+                countdown.setAttribute("class","");
+                countdown.classList.add("count-complete");
+            } else if (paused == true) {
+                console.log("PAUSED at " + countdownSeconds);
+                limitSeconds = countdownSeconds;
+                countdown.setAttribute("class","");
+                countdown.classList.add("count-paused");
+            } else {
+                // Print ticker countdown
+                console.log("Countdown (Seconds) = " + countdownSeconds);
+                // Update countdown div
+                countdown.innerHTML = countdownSeconds;
+                countdown.setAttribute("class","");
+                countdown.classList.add("count-inprogress");
+                // Increment global ticker variable and decrement countdown
+                tickerSeconds++;
+                countdownSeconds--;
+                // Implement recursive timeout
+                timer = setTimeout(tick, 1000);
+            }
+        }
+
+        // Wait until document loaded
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Go button
+            var go = document.getElementById("go");
+            // Pause button
+            var pause = document.getElementById("pause");
+            // Hours input
+            var inputHours = document.getElementById("hh");
+            // Minutes input
+            var inputMinutes = document.getElementById("mm");
+            // Seconds button
+            var inputSeconds = document.getElementById("ss");
+            // Embedded audio
+            sound = document.getElementById("end-sound");
+            // Countdown div
+            countdown = document.getElementById("countdown");
+
+            // Pause button starts hidden
+            pause.style.display = "none";
+
+            // Set click event on Go button
+            go.addEventListener("click", function (event) {
+
+                // Stop tick function
+                clearTimeout(timer);
+
+                if (paused == false) {
+                    // Set milliseconds limit
+                    limitSeconds = convertSeconds(inputHours.value, inputMinutes.value, inputSeconds.value);
+                    // Unhide pause button
+                    pause.style.display = "";
+                } else {
+                    paused = false
+                }
+
+                // Reset ticker
+                tickerSeconds = 0;
+                // Set countdown
+                countdownSeconds = limitSeconds;
+
+
+                setTimeout(2000);
+                console.log("Starting Timer, Seconds Limit = " + limitSeconds);
+
+                // Run tick function
+                tick();
+            });
+
+            // Set click event on Pause
+            pause.addEventListener("click", function (event) {
+                paused = true
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="time-input">
+    <label for="hh">Hours:</label>
+    <input id="hh" type="number" value="0" min="0" max="99" step="1">
+    <br>
+    <label for="mm">Minutes:</label>
+    <input id="mm" type="number" value="0" min="0" max="59" step="1">
+    <br>
+    <label for="ss">Seconds:</label>
+    <input id="ss" type="number" value="10" min="0" max="59" step="15">
+    <br>
+    <br>
+    <input id="go" type="button" value="GO!">
+    &nbsp;
+    <input id="pause" type="button" value="Pause">
+</div>
+<div id="countdown"></div>
+
+<audio id="end-sound" src="clock_sound.wav"></audio>
+
+</body>
+</html>

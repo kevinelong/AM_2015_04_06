@@ -1,0 +1,104 @@
+header {
+    vertical-align: middle;
+    height: 5em;
+}
+
+header img:first-child {
+    margin-left: 4em;
+}
+
+header div {
+    float: right;
+    margin-right: 2em;
+}
+
+header div img {
+    margin: .25em;
+}
+
+header div span {
+    vertical-align: text-top;
+    display: block;
+}
+
+section {
+    background: #b4ddb4; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #b4ddb4 0%, #b4ddb4 0%, #83c783 13%, #52b152 24%, #008a00 67%, #005700 83%, #002400 100%); /* FF3.6+ */
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#b4ddb4), color-stop(0%,#b4ddb4), color-stop(13%,#83c783), color-stop(24%,#52b152), color-stop(67%,#008a00), color-stop(83%,#005700), color-stop(100%,#002400)); /* Chrome,Safari4+ */
+    background: -webkit-radial-gradient(center, ellipse cover,  #b4ddb4 0%,#b4ddb4 0%,#83c783 13%,#52b152 24%,#008a00 67%,#005700 83%,#002400 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-radial-gradient(center, ellipse cover,  #b4ddb4 0%,#b4ddb4 0%,#83c783 13%,#52b152 24%,#008a00 67%,#005700 83%,#002400 100%); /* Opera 12+ */
+    background: -ms-radial-gradient(center, ellipse cover,  #b4ddb4 0%,#b4ddb4 0%,#83c783 13%,#52b152 24%,#008a00 67%,#005700 83%,#002400 100%); /* IE10+ */
+    background: radial-gradient(ellipse at center,  #b4ddb4 0%,#b4ddb4 0%,#83c783 13%,#52b152 24%,#008a00 67%,#005700 83%,#002400 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    color: #DDDDDD;
+    padding: 1.5em;
+    text-align: center;
+    vertical-align: middle;
+    height: 250%;
+}
+
+section span {
+    margin-left: 2em;
+    vertical-align: middle;
+    display: inline-block;
+    font-size: 1.5em;
+}
+
+section div {
+    width: 35em;
+    margin: auto;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+section img {
+    vertical-align: middle;
+    display: inline-block;
+}
+
+article {
+    text-align: center;
+}
+
+article img {
+    display: inline-block;
+    margin-left: 5em;
+    margin-right: 5em;
+
+}
+
+article span {
+    display: inline-block;
+    margin: 1em;
+    width: 25%;
+    height: 400%;
+    vertical-align: text-top;
+}
+
+footer {
+    background-color: #999999;
+    color: #DDDDDD;
+    height: 2em;
+    padding: .75em;
+    text-align: center;
+}
+
+footer span {
+    text-align: center;
+}
+
+#signup {
+    text-align: center;
+}
+
+#signup>* {
+    display: inline-block;
+    margin: .25em;
+}
+
+#btn {
+    border-right: 5px;
+    background-color: #008a00;
+    color: #eeeeee;
+}
