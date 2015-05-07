@@ -12,27 +12,47 @@
          4. stop countdown when it reaches zero.
          5. play a sound when timer reaches zero using html5 audio object.
          */
+
         document.addEventListener("DOMContentLoaded", function () {
-            var cc_timer = function () {
+            var cc_timer = (function () {
                 var ticker = 10000;
                 var now = new Date();
+
                 var go = document.getElementById("go");
                 var pause = document.getElementById("pause");
+
+                var hh = document.getElementById("hh");
+                var mm = document.getElementById("mm");
+                var ss = document.getElementById("ss");
 
                 pause.style.display = "none";
 
                 var timer_id;
 
+                function log(obj) {
+                    console.log(obj);
+//                    body.innerHTML += obj.toString() || "";
+                }
+
+                function show(element) {
+                    element.style.display = "inline-block";
+                }
+
+                function hide(element) {
+                    element.style.display = "none";
+                }
+
                 function tick() {
-                    var milliseconds = 1000;
-                    timer_id = setTimeout(tick, milliseconds);
-                    ticker -= 1000;
-                    console.log(ticker);
+                    var oneSecondInMilliseconds = 1000;
+                    timer_id = setTimeout(tick, oneSecondInMilliseconds);
+                    ticker -= oneSecondInMilliseconds;
+                    log(ticker);
                     now = new Date();
-                    console.log(now);
+                    log(now);
                     if (ticker <= 0) {
                         stop();
-                        ticker=0;
+//                        alarm();
+                        ticker = 0;
                         go.style.display = "inline-block";
                         pause.style.display = "none";
                     }
@@ -45,9 +65,6 @@
                 }
 
                 function getInput() {
-                    var hh = document.getElementById("hh");
-                    var mm = document.getElementById("mm");
-                    var ss = document.getElementById("ss");
                     var ms = 0;
                     ms += hh.value * 60 * 60 * 1000;
                     ms += mm.value * 60 * 1000;
@@ -56,44 +73,48 @@
                 }
 
                 function setInput(ms) {
-                    console.log(ms);
-                    var hh = document.getElementById("hh");
-                    var mm = document.getElementById("mm");
-                    var ss = document.getElementById("ss");
+                    log(ms);
                     var h = Math.floor(ms / (60 * 60 * 1000));
                     ms -= h * 60 * 60 * 1000;
-                    console.log(ms);
+                    log(ms);
                     var m = Math.floor(ms / (60 * 1000));
                     ms -= m * 60 * 1000;
-                    console.log(ms);
+                    log(ms);
                     var s = Math.floor(ms / 1000);
-                    console.log(h, m, s);
+                    log(h, m, s);
                     hh.value = h;
                     mm.value = m;
                     ss.value = s;
 
-                    console.log(ms);
+                    log(ms);
                 }
 
 
                 go.addEventListener("click", function (event) {
-                    console.log(event);
-                    console.log(this);
+//                    log(event);
+                    log(this);
                     ticker = getInput();
-                    go.style.display = "none";
-                    pause.style.display = "inline-block";
-
+                    hide(go);
+                    show(pause);
                     tick();
                 });
 
                 pause.addEventListener("click", function (event) {
-                    console.log(event);
-                    console.log(this);
-                    go.style.display = "inline-block";
-                    pause.style.display = "none";
+                    log(event);
+                    log(this);
+                    hide(pause);
+                    show(go);
                     stop();
                 });
-            }();
+                //PUBLIC METHODS AND VARIABLES
+                return {
+                    "ticker": ticker,
+                    "tick": tick
+                }
+            })();
+//            console.log("cc_timer.ticker");
+//            console.log(cc_timer.ticker);
+//            cc_timer.tick();
         });
 
     </script>
