@@ -1,0 +1,100 @@
+<script>
+    /**
+     * OOP Object Oriented JavaScript
+     **/
+
+    /**
+     * Every function is an class/object.
+     *
+     *    It is customary to use a capital letter to name
+     *   functions that will be used as classes
+     */
+
+    function Dude(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    d = new Dude("Bob", 21);
+    console.log(d);
+
+    /**
+     They can have functions/methods
+     as well as variables/properties
+     declaring functions here can be faster when called,
+     but use more memory and can make instances slower to create.
+     **/
+    function Car(speed) {
+        this.speed = speed;
+        this.distance = 0;
+        this.drive = function () {
+            this.distance += this.speed;
+        }
+    }
+
+    c = new Car(55);
+    c.drive();
+    c.drive();
+    console.log(c.distance);
+
+    /**
+     * functions/methods declared on the prototype
+     * are shared by all instances, this is more memory efficient
+     **/
+    function Product(name, price) {
+        this.name = name;
+        this.price = price;
+    }
+    Product.prototype.taxRate = 0.08;
+    Product.prototype.getTax = function () {
+        return this.price * this.taxRate;
+    };
+    p = new Product("widget", 100.00);
+    console.log(p.getTax());
+
+    /**
+     * A factory is any class/function that returns an object
+     **/
+    function ModelTFord() {
+        this.color = "black";
+    }
+    function ModelTFordFactory() {
+        this.build = function () {
+            return new ModelTFord();
+        }
+    }
+    mtff = new ModelTFordFactory();
+    m = mtff.build();
+    console.log(m.color);
+
+    /**
+     * A factory is often used to a list/array
+     * containing more than one object especially from an API
+     **/
+    function Shirt(color, size) {
+        this.color = color;
+        this.size = size;
+    }
+    function ShirtFactory() {
+        var colors = ["Red", "Black"];
+        var sizes = ["Small", "Medium", "Large"];
+
+        //This need not be on prototype as you will only have one factory
+        this.getAll = function () {
+            var list = [];
+            for (var c = 0; c < colors.length; c++) {
+                for (var s = 0; s < sizes.length; s++) {
+                    list.push(new Shirt(colors[c], sizes[s]))
+                }
+            }
+            return list;
+        }
+    }
+    sf = new ShirtFactory();
+    shirtList = sf.getAll();
+    console.log(shirtList);
+
+    /**
+     * See closures_and_iife.html for more advanced objects
+     */
+</script>
