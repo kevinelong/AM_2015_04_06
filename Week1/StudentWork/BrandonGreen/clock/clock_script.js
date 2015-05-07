@@ -12,9 +12,12 @@ var seconds = document.getElementById("ss");
 
 
 function counter() {
-    COUNTDOWN += (hours.value * 3600000);
-    COUNTDOWN += (minutes.value * 60000);
-    COUNTDOWN += (seconds.value * 1000);
+    //COUNTDOWN += (hours.value * 3600000);
+    //COUNTDOWN += (minutes.value * 60000);
+    //COUNTDOWN += (seconds.value * 1000);
+
+    COUNTDOWN = 0;
+    COUNTDOWN = ((hours.value * 3600000) + (minutes.value * 60000) + (seconds.value * 1000));
 }
 
 
