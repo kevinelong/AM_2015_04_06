@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var hours = document.getElementById("hh");
     var minutes = document.getElementById("mm");
     var seconds = document.getElementById("ss");
+    //var number_inputs = document.getElementsByTagName("input");
 
 
     var COUNTDOWN = 0;
@@ -163,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (go.style.display == "none") {
             toggle_button();
         }
-    })
+    });
 
 
 });
