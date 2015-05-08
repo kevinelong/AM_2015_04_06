@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var COUNTDOWN = 0;
 
 
+    pause.style.display = "none";
+
+
     function convert_time() {
         var hours_left = Math.floor(((COUNTDOWN / (1000*60*60)) % 24));
         var minutes_left = Math.floor(((COUNTDOWN / (1000*60)) % 60));
@@ -27,13 +30,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function toggle_display(element) {
-        if (element.display == "none") {
-            element.display = "inline-block";
+    function toggle_display() {
+        if (go.style.display == "none") {
+            go.style.display = "inline-block";
+            pause.style.display = "none";
         } else {
-            element.display = "none";
+            pause.style.display = "inline-block";
+            go.style.display = "none";
         }
     }
+
 
 
     var incrementer = 16;
@@ -69,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (COUNTDOWN == 0) {
             call_flash();
+            toggle_display();
         }
 
         COUNTDOWN -= 1000;
@@ -86,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(this);
         COUNTDOWN += ((hours.value * 3600000) + (minutes.value * 60000) + (seconds.value * 1000));
         tick();
+        toggle_display();
 
     })
 });
