@@ -13,6 +13,7 @@ h1 {
     color: #FF9900;
     margin-top: .5em;
     font-size: 400%;
+    margin-left: 5em;
 }
 
 input {
@@ -21,6 +22,10 @@ input {
     border: #000000;
     font-weight: bold;
     font-size: 3em;
+}
+
+input:first-of-type {
+    margin-left: 5em;
 }
 
 input[button], h1 {
