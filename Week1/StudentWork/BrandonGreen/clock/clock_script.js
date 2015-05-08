@@ -54,9 +54,13 @@ document.addEventListener("DOMContentLoaded", function () {
         var minutes_left = Math.floor(((COUNTDOWN / (1000*60)) % 60));
         var seconds_left = (COUNTDOWN / 1000) % 60;
 
-        hours.value = hours_left;
-        minutes.value = minutes_left;
-        seconds.value = seconds_left;
+        var hours_str = hours_left.toString();
+        var minutes_str = minutes_left.toString();
+        var seconds_str = seconds_left.toString();
+
+        hours.value = pad(hours_str);
+        minutes.value = pad(minutes_str);
+        seconds.value = pad(seconds_str);
     }
 
 
