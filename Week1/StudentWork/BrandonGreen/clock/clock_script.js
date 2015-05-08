@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var pause = document.getElementById("pause");
     var reset = document.getElementById("reset");
     var engage_audio = document.getElementById("engage_audio");
-    var done_audio = document.getElementById("done_audio");
-    var reset_audio = document.getElementById("reset_audio");
     var pause_audio = document.getElementById("pause_audio");
+    var reset_audio = document.getElementById("reset_audio");
+    var red_alert_audio = document.getElementById("red_alert_audio");
     var hours = document.getElementById("hh");
     var minutes = document.getElementById("mm");
     var seconds = document.getElementById("ss");
@@ -113,7 +113,7 @@ document.addEventListener("DOMContentLoaded", function () {
             update_inputs();
         }
         if (COUNTDOWN == 0) {
-            done_audio.play();
+            red_alert_audio.play();
             call_flash();
             toggle_button();
             update_inputs();
@@ -151,7 +151,6 @@ document.addEventListener("DOMContentLoaded", function () {
         update_inputs();
         toggle_button();
     });
-
 
     reset.addEventListener("click", function (event) {
         reset_audio.play();
