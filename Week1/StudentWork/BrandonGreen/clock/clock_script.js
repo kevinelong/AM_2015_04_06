@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+
     var countdown_display = document.getElementById("countdown_display");
     var go = document.getElementById("go");
     var pause = document.getElementById("pause");
@@ -27,6 +29,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function update_counter() {
         countdown_display.innerHTML = (convert_time(COUNTDOWN));
+    }
+
+
+    function update_inputs() {
+
+        var hours_left = Math.floor(((COUNTDOWN / (1000*60*60)) % 24));
+        var minutes_left = Math.floor(((COUNTDOWN / (1000*60)) % 60));
+        var seconds_left = (COUNTDOWN / 1000) % 60;
+
+        hours.value = hours_left;
+        minutes.value = minutes_left;
+        seconds.value = seconds_left;
+
     }
 
 
@@ -76,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (COUNTDOWN == 0) {
             call_flash();
             toggle_display();
+            update_inputs();
         }
 
         COUNTDOWN -= 1000;
@@ -88,6 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(now);
     }
 
+
     go.addEventListener("click", function (event) {
         console.log(event);
         console.log(this);
@@ -95,5 +112,12 @@ document.addEventListener("DOMContentLoaded", function () {
         tick();
         toggle_display();
 
-    })
+    });
+
+
+    pause.addEventListener("click", function (event) {
+        console.log(event);
+        console.log(this);
+        toggle_display();
+    });
 });
