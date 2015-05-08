@@ -44,9 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
             incrementer--;
 
             if (incrementer % 2 != 0) {
-                document.body.classList.add("flashy");
+                countdown_display.classList.add("flashy");
             } else {
-                document.body.classList.remove("flashy");
+                countdown_display.classList.remove("flashy");
             }
 
             if (incrementer > 0) {

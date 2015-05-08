@@ -2,11 +2,16 @@
     text-align: center;
 }
 
+body {
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 section {
     font-size: 48pt;
     margin: 3em;
 }
 
 .flashy {
-    background: #D0E01F;
+    background: #FF9900;
 }
