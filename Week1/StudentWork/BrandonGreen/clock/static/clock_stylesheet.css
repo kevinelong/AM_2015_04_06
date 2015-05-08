@@ -1,5 +1,6 @@
 * {
     text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
 }
 
 body {
@@ -7,12 +8,31 @@ body {
     background-size: cover;
 }
 
+h1 {
+    color: #FF9900;
+    margin-top: .5em;
+    font-size: 400%;
+}
+
+input {
+    border-radius: 24em;
+    background-color: #CC6666;
+    border: #000000;
+    font-weight: bold;
+    font-size: 1.5em;
+
+}
+
+input[button], h1 {
+    font-family: 'Playfair Display SC', serif;
+}
+
 body>div {
     margin-top: 12em;
 }
 
 section {
-    font-size: 48pt;
+    font-size: 4em;
     margin: 3em;
 }
 
