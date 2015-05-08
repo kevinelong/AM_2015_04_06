@@ -40,8 +40,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         hours.value = hours_left;
         minutes.value = minutes_left;
-        seconds.value = seconds_left;
 
+        if (COUNTDOWN >= 1) {
+            seconds.value = seconds_left + 1;
+        } else {
+            seconds.value = seconds_left;
+        }
     }
 
 
@@ -51,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    function toggle_display() {
+    function toggle_button() {
         if (go.style.display == "none") {
             go.style.display = "inline-block";
             pause.style.display = "none";
@@ -60,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
             go.style.display = "none";
         }
     }
-
 
 
     var incrementer = 16;
@@ -84,12 +87,12 @@ document.addEventListener("DOMContentLoaded", function () {
     var ticker = 0;
     function tick() {
         if (COUNTDOWN >= 0) {
-            setTimeout(tick, 1000);
+            paused = setTimeout(tick, 1000);
             update_counter();
         }
         if (COUNTDOWN == 0) {
             call_flash();
-            toggle_display();
+            toggle_button();
             update_inputs();
         }
 
@@ -107,9 +110,9 @@ document.addEventListener("DOMContentLoaded", function () {
     go.addEventListener("click", function (event) {
         console.log(event);
         console.log(this);
-        COUNTDOWN += ((hours.value * 3600000) + (minutes.value * 60000) + (seconds.value * 1000));
+        COUNTDOWN = ((hours.value * 3600000) + (minutes.value * 60000) + (seconds.value * 1000));
         tick();
-        toggle_display();
+        toggle_button();
 
     });
 
@@ -118,7 +121,8 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(event);
         console.log(this);
         pause_counter();
-        toggle_display();
+        update_inputs();
+        toggle_button();
     });
 
 
