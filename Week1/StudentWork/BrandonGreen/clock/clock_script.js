@@ -21,6 +21,17 @@ document.addEventListener("DOMContentLoaded", function () {
     var paused;
 
 
+    function pad(time_unit) {
+        var preppender = "0";
+
+        if (time_unit.length < 10) {
+            return preppender.concat(time_unit);
+        } else {
+            return time_unit;
+        }
+    }
+
+
     function convert_time() {
         var hours_left = Math.floor(((COUNTDOWN / (1000*60*60)) % 24));
         var minutes_left = Math.floor(((COUNTDOWN / (1000*60)) % 60));
@@ -28,10 +39,22 @@ document.addEventListener("DOMContentLoaded", function () {
         var hours_str = hours_left.toString().concat(" : ");
         var minutes_str = minutes_left.toString().concat(" : ");
         var seconds_str = seconds_left.toString();
+        var preppender = "0";
+
+        if (hours_left < 10) {
+            hours_str = preppender.concat(hours_str);
+        }
+
+        if (minutes_left < 10) {
+            minutes_str = preppender.concat(minutes_str);
+        }
+
+        if (seconds_left < 10) {
+            seconds_str = preppender.concat(seconds_str);
+        }
 
         return "".concat(hours_str, minutes_str, seconds_str);
     }
-
 
     function update_counter() {
         countdown_display.innerHTML = (convert_time(COUNTDOWN));
