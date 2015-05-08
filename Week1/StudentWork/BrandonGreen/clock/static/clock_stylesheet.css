@@ -1,6 +1,7 @@
 * {
     text-align: center;
     font-family: 'PT Sans Narrow', sans-serif;
+    position: relative;
 }
 
 body {
@@ -43,7 +44,6 @@ span {
 #countdown_display {
     font-size: 4em;
     margin-top: 5em;
-    width: 20em;
     margin-left: 5em;
     border-radius: 24em;
 }
