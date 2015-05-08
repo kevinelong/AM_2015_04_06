@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     pause.style.display = "none";
+    var paused;
 
 
     function convert_time() {
@@ -33,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     function update_inputs() {
-
         var hours_left = Math.floor(((COUNTDOWN / (1000*60*60)) % 24));
         var minutes_left = Math.floor(((COUNTDOWN / (1000*60)) % 60));
         var seconds_left = (COUNTDOWN / 1000) % 60;
@@ -42,6 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
         minutes.value = minutes_left;
         seconds.value = seconds_left;
 
+    }
+
+
+    function pause_counter() {
+        clearTimeout(paused);
+        update_inputs();
     }
 
 
@@ -61,33 +67,26 @@ document.addEventListener("DOMContentLoaded", function () {
     function call_flash() {
 
         function flash() {
-
             incrementer--;
-
             if (incrementer % 2 != 0) {
                 countdown_display.classList.add("flashy");
             } else {
                 countdown_display.classList.remove("flashy");
             }
-
             if (incrementer > 1) {
                 setTimeout(call_flash, 250);
             }
         }
-
         flash();
-
     }
 
 
     var ticker = 0;
     function tick() {
-
         if (COUNTDOWN >= 0) {
             setTimeout(tick, 1000);
             update_counter();
         }
-
         if (COUNTDOWN == 0) {
             call_flash();
             toggle_display();
@@ -118,6 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
     pause.addEventListener("click", function (event) {
         console.log(event);
         console.log(this);
+        pause_counter();
         toggle_display();
     });
+
+
 });
