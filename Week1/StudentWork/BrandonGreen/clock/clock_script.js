@@ -27,6 +27,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    function toggle_display(element) {
+        if (element.display == "none") {
+            element.display = "inline-block";
+        } else {
+            element.display = "none";
+        }
+    }
+
+
     var incrementer = 15;
     function call_flash() {
 
