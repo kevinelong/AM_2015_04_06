@@ -31,6 +31,11 @@ body>div {
     margin-top: 12em;
 }
 
+span {
+    color: #FF9900;
+    font-size: 4em;
+}
+
 section {
     font-size: 4em;
     margin: 3em;

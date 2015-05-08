@@ -40,12 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         hours.value = hours_left;
         minutes.value = minutes_left;
-
-        if (COUNTDOWN >= 1) {
-            seconds.value = seconds_left + 1;
-        } else {
-            seconds.value = seconds_left;
-        }
+        seconds.value = seconds_left;
     }
 
 
@@ -89,6 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (COUNTDOWN >= 0) {
             paused = setTimeout(tick, 1000);
             update_counter();
+            update_inputs();
         }
         if (COUNTDOWN == 0) {
             call_flash();
