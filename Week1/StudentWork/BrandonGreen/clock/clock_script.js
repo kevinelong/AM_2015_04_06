@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var countdown_display = document.getElementById("countdown_display");
     var go = document.getElementById("go");
     var pause = document.getElementById("pause");
+    var reset = document.getElementById("reset");
     var hours = document.getElementById("hh");
     var minutes = document.getElementById("mm");
     var seconds = document.getElementById("ss");
@@ -126,6 +127,19 @@ document.addEventListener("DOMContentLoaded", function () {
         update_inputs();
         toggle_button();
     });
+
+
+    reset.addEventListener("click", function (event) {
+        console.log(event);
+        console.log(this);
+        COUNTDOWN = 0;
+        pause_counter();
+        update_counter();
+
+        if (go.style.display == "none") {
+            toggle_button();
+        }
+    })
 
 
 });
