@@ -36,16 +36,12 @@ span {
     font-size: 4em;
 }
 
-section {
-    font-size: 4em;
-    margin: 3em;
-}
-
 .flashy {
     background: #FF9900;
 }
 
 #countdown_display {
+    font-size: 4em;
     margin-top: 5em;
     width: 20em;
     margin-left: 5em;

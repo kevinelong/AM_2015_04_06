@@ -1,38 +1,57 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="en">
+
     <meta charset="UTF-8">
     <title>Stopwatch</title>
     <link rel="stylesheet" href="static/clock_stylesheet.css">
     <link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow' rel='stylesheet' type='text/css'>
+
 </head>
 
+
 <body background="static/background_pic.gif">
-<h1>STOPWATCH TREK</h1>
-<div>
-    <input id="hh" type="number" value="0" min="0" max="99" step="1">
-    <span>:</span>
-    <input id="mm" type="number" value="0" min="0" max="59" step="1">
-    <span>:</span>
-    <input id="ss" type="number" value="0" min="0" max="59" step="1">
-    &nbsp;
-    <input id="go" type="button" value="ENGAGE">
-    &nbsp;
-    <input id="pause" type="button" value="PAUSE">
-    &nbsp;
-    <input id="reset" type="button" value="RESET">
-</div>
 
-<section id="countdown_display" class="flashy">
-</section>
+    <section>
 
-<audio src="static/done.mp3" id="done_audio"></audio>
-<audio src="static/engage.mp3" id="engage_audio"></audio>
-<audio src="static/reset.mp3" id="reset_audio"></audio>
-<audio src="static/pause.mp3" id="pause_audio"></audio>
+        <h1>STOPWATCH TREK</h1>
 
-<script type="text/javascript" src="clock_script.js"></script>
+        <div>
+            <input id="hh" type="number" value="0" min="0" max="99" step="1">
+            <span>:</span>
+            <input id="mm" type="number" value="0" min="0" max="59" step="1">
+            <span>:</span>
+            <input id="ss" type="number" value="0" min="0" max="59" step="1">
+            &nbsp;
+            <input id="go" type="button" value="ENGAGE">
+            &nbsp;
+            <input id="pause" type="button" value="PAUSE">
+            &nbsp;
+            <input id="reset" type="button" value="RESET">
+        </div>
+
+    </section>
+
+
+    <section>
+
+        <section id="countdown_display" class="flashy">
+        </section>
+
+    </section>
+
+
+    <audio src="static/done.mp3" id="done_audio"></audio>
+    <audio src="static/engage.mp3" id="engage_audio"></audio>
+    <audio src="static/reset.mp3" id="reset_audio"></audio>
+    <audio src="static/pause.mp3" id="pause_audio"></audio>
+
+    <script type="text/javascript" src="clock_script.js"></script>
+
 
 </body>
+
+
 </html>
