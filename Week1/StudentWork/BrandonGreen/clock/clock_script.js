@@ -119,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(event);
         console.log(this);
         COUNTDOWN = ((hours.value * 3600000) + (minutes.value * 60000) + (seconds.value * 1000));
+        incrementer = 16;
         tick();
         toggle_button();
 
