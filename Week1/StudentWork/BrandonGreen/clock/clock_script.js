@@ -50,6 +50,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    function stupid_pause_bug() {
+        COUNTDOWN += 1000;
+    }
+
+
     function toggle_button() {
         if (go.style.display == "none") {
             go.style.display = "inline-block";
@@ -117,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(event);
         console.log(this);
         pause_counter();
+        stupid_pause_bug();
         update_inputs();
         toggle_button();
     });
