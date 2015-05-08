@@ -1,0 +1,131 @@
+<script>
+    /**
+     * OOP Object Oriented JavaScript
+     **/
+
+
+    function Vector(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    Vector.prototype.add = function (vector) {
+        this.x += vector.x;
+        this.y += vector.y;
+    };
+
+    Vector.prototype.invertX = function () {
+        this.x = - this.x;
+    };
+    Vector.prototype.invertY = function () {
+        this.y = - this.y;
+    };
+
+    Vector.prototype.random = function (max) {
+        this.x = (Math.random() * max * 2) - max;
+        this.y = (Math.random() * max * 2) - max;
+    };
+    Vector.prototype.randomPositive = function (max) {
+        this.x = Math.random() * max;
+        this.y = Math.random() * max;
+    };
+
+    function Position(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    Position.prototype = Vector; //Inherit - Position is a type of Vector
+
+    function Ship(name, color, position, direction) {
+        this.name = name;
+        this.color = color;
+        this.position = position;
+        this.vector = direction;
+    }
+
+    Ship.prototype.move = function () {
+        this.position.add(this.vector);
+    };
+
+    /**
+     * A closure is a way of creating a limited scope
+     * similar to public and private properties and methods in Java or C++
+     **/
+
+    function GameFactory() {
+        var shipColors = ['red', 'green', 'blue', 'gold', 'black'];
+        var shipList = [];
+        var shipCount = 100;
+        var limit = 500;
+
+        function start() {
+
+            for (var i = 0; i < shipCount; i++) {
+                var position = new Vector();
+                position.randomPositive(limit);
+                var direction = new Vector();
+                direction.random(2);
+                var color = shipColors[Math.floor(Math.random() * shipColors.length)];
+                shipList.push(new Ship("ship_" + i, color, position, direction));
+                console.log(shipList[i]);
+                var div = document.createElement("div");
+                div.innerHTML = "^";
+                div.setAttribute("id", "ship" + i);
+                div.style.color = shipList[i].color;
+                div.style.position = "absolute";
+                div.style.top = shipList[i].position.y;
+                div.style.left = shipList[i].position.x;
+                document.body.appendChild(div);
+            }
+            loop();
+        }
+
+        function loop() {
+            for (var i = 0; i < shipCount; i++) {
+                shipList[i].move();
+                var div = document.getElementById("ship" + i);
+                if (shipList[i].position.x > window.innerWidth) {
+                    shipList[i].position.x = window.innerWidth;
+                    shipList[i].vector.invertX();
+                }else if (shipList[i].position.x <0 ) {
+                    shipList[i].position.x = 0;
+                    shipList[i].vector.invertX();
+                }
+                if (shipList[i].position.y > window.innerHeight) {
+                    shipList[i].position.y = window.innerHeight;
+                    shipList[i].vector.invertY();
+                }else if (shipList[i].position.y <0 ) {
+                    shipList[i].position.y = 0;
+                    shipList[i].vector.invertY();
+                }
+                div.style.top = shipList[i].position.y;
+                div.style.left = shipList[i].position.x;
+            }
+            requestAnimationFrame(loop);
+
+        }
+
+        //Variables and Functions are made public by explicitly passing the outside the closure here.
+        return {
+            start: start
+        }
+    }
+    gameFactory = new GameFactory();
+    document.addEventListener("DOMContentLoaded", gameFactory.start);
+    console.log(gameFactory);
+
+    /**
+     * Ternary operator zero padding
+     */
+    a = 9;
+    console.log(a > 9 ? a : '0' + a);
+    a = 10;
+    console.log(a > 9 ? a : '0' + a);
+
+    a = '0';
+    console.log(a.length > 1 ? a : '0' + a);
+    a = '11';
+    console.log(a.length > 1 ? a : '0' + a);
+
+</script>
