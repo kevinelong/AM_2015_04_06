@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    var incrementer = 15;
+    var incrementer = 16;
     function call_flash() {
 
         function flash() {
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 countdown_display.classList.remove("flashy");
             }
 
-            if (incrementer > 0) {
+            if (incrementer > 1) {
                 setTimeout(call_flash, 250);
             }
         }

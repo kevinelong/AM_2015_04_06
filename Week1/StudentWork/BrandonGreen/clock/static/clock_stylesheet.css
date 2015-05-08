@@ -7,6 +7,10 @@ body {
     background-size: cover;
 }
 
+body>div {
+    margin-top: 12em;
+}
+
 section {
     font-size: 48pt;
     margin: 3em;
@@ -14,4 +18,11 @@ section {
 
 .flashy {
     background: #FF9900;
+}
+
+#countdown_display {
+    margin-top: 5em;
+    width: 20em;
+    margin-left: 5em;
+    border-radius: 24em;
 }
