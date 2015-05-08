@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", function () {
     var go = document.getElementById("go");
     var pause = document.getElementById("pause");
     var reset = document.getElementById("reset");
+    var engage_audio = document.getElementById("engage_audio");
+    var done_audio = document.getElementById("done_audio");
+    var reset_audio = document.getElementById("reset_audio");
+    var pause_audio = document.getElementById("pause_audio");
     var hours = document.getElementById("hh");
     var minutes = document.getElementById("mm");
     var seconds = document.getElementById("ss");
@@ -93,6 +97,7 @@ document.addEventListener("DOMContentLoaded", function () {
             update_inputs();
         }
         if (COUNTDOWN == 0) {
+            done_audio.play();
             call_flash();
             toggle_button();
             update_inputs();
@@ -110,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     go.addEventListener("click", function (event) {
+        engage_audio.play();
         console.log(event);
         console.log(this);
         COUNTDOWN = ((hours.value * 3600000) + (minutes.value * 60000) + (seconds.value * 1000));
@@ -120,6 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     pause.addEventListener("click", function (event) {
+        pause_audio.play();
         console.log(event);
         console.log(this);
         pause_counter();
@@ -130,6 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     reset.addEventListener("click", function (event) {
+        reset_audio.play();
         console.log(event);
         console.log(this);
         COUNTDOWN = 0;
