@@ -19,25 +19,54 @@ document.addEventListener("DOMContentLoaded", function () {
         var seconds_str = seconds_left.toString();
 
         return "".concat(hours_str, minutes_str, seconds_str);
-}
+    }
 
 
     function update_counter() {
         countdown_display.innerHTML = (convert_time(COUNTDOWN));
-}
+    }
+
+
+    var incrementer = 15;
+    function call_flash() {
+
+        function flash() {
+
+            incrementer--;
+
+            if (incrementer % 2 != 0) {
+                document.body.classList.add("flashy");
+            } else {
+                document.body.classList.remove("flashy");
+            }
+
+            if (incrementer > 0) {
+                setTimeout(call_flash, 250);
+            }
+        }
+
+        flash();
+
+    }
+
 
     var ticker = 0;
     function tick() {
+
         if (COUNTDOWN >= 0) {
             setTimeout(tick, 1000);
             update_counter();
         }
 
+        if (COUNTDOWN == 0) {
+            call_flash();
+        }
+
         COUNTDOWN -= 1000;
-        console.log(COUNTDOWN);
+        console.log("Countdown:", COUNTDOWN);
 
         ticker++;
-        console.log(ticker);
+        console.log("Ticker:", ticker);
 
         var now = new Date();
         console.log(now);
