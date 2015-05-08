@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var hours = document.getElementById("hh");
     var minutes = document.getElementById("mm");
     var seconds = document.getElementById("ss");
+    //var number_inputs = document.getElementsByTagName("input");
 
 
     var COUNTDOWN = 0;
@@ -21,17 +22,28 @@ document.addEventListener("DOMContentLoaded", function () {
     var paused;
 
 
+    function pad(time_unit) {
+        var preppender = "0";
+
+        if (time_unit.length == 1) {
+            return preppender.concat(time_unit);
+        } else {
+            return time_unit;
+        }
+    }
+
+
     function convert_time() {
         var hours_left = Math.floor(((COUNTDOWN / (1000*60*60)) % 24));
         var minutes_left = Math.floor(((COUNTDOWN / (1000*60)) % 60));
         var seconds_left = (COUNTDOWN / 1000) % 60;
-        var hours_str = hours_left.toString().concat(" : ");
-        var minutes_str = minutes_left.toString().concat(" : ");
+        var hours_str = hours_left.toString();
+        var minutes_str = minutes_left.toString();
         var seconds_str = seconds_left.toString();
+        var time_array = [pad(hours_str), pad(minutes_str), pad(seconds_str)];
 
-        return "".concat(hours_str, minutes_str, seconds_str);
+        return time_array.join(" : ");
     }
-
 
     function update_counter() {
         countdown_display.innerHTML = (convert_time(COUNTDOWN));
@@ -43,9 +55,13 @@ document.addEventListener("DOMContentLoaded", function () {
         var minutes_left = Math.floor(((COUNTDOWN / (1000*60)) % 60));
         var seconds_left = (COUNTDOWN / 1000) % 60;
 
-        hours.value = hours_left;
-        minutes.value = minutes_left;
-        seconds.value = seconds_left;
+        var hours_str = hours_left.toString();
+        var minutes_str = minutes_left.toString();
+        var seconds_str = seconds_left.toString();
+
+        hours.value = pad(hours_str);
+        minutes.value = pad(minutes_str);
+        seconds.value = pad(seconds_str);
     }
 
 
@@ -148,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (go.style.display == "none") {
             toggle_button();
         }
-    })
+    });
 
 
 });
