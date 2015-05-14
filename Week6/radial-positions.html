@@ -7,25 +7,33 @@
 <body>
 <script>
     function draw(target, elements) {
-        var h = window.innerHeight;
-        var w = window.innerWidth;
+        target.style.position = "absolute";
+        console.log(target.getBoundingClientRect());
+        var h = target.getBoundingClientRect().height;
+        var w = target.getBoundingClientRect().width;
         var minhw = h < w ? h : w;
-        var r = minhw / 2 * .75;
-        var o = r * .25;
+        var r = minhw / 2 * .9;
+        var o = r * 0.1;
         var elementCount = elements.length;
         for (var index = 0; index < elementCount; index++) {
             var div = document.createElement("div");
             var angle = (index / elementCount) * 360;
+            div.style.textAlign = "center";
+            div.style.margin = "0 auto";
             div.style.position = "absolute";
-            div.style.left = ( r * Math.sin(angle * Math.PI / 180) + r + o ) + 'px';
-            div.style.top = ( -r * Math.cos(angle * Math.PI / 180) + r + o ) + 'px';
-            div.innerHTML = elements[index];
+
+            var left = r * Math.sin(angle * Math.PI / 180) + r + o;
+            var top = -r * Math.cos(angle * Math.PI / 180) + r + o;
             target.appendChild(div);
+            div.innerHTML = elements[index];
+            div.style.left = left - div.getBoundingClientRect().width / 2 + 'px';
+            div.style.top = top - div.getBoundingClientRect().height / 2 + 'px';
         }
     }
-    document.addEventListener("DOMContentLoaded", function(){
-        draw(document.body,[1,2,3,4,5,6])
+    document.addEventListener("DOMContentLoaded", function () {
+        draw(document.getElementById("target"), ["one", 2, 3, 4, 5, 6])
     });
 </script>
+<div id="target" style="width:200px;height:200px; background-color: #000000; color:white;"></div>
 </body>
 </html>
