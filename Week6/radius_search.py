@@ -10,12 +10,7 @@ data = [[-531, 408, 'A'], [-225, 52, 'B'], [-594, 242, 'C'], [-351, 102, 'D'], [
 def filter_by_distance(all_locations, lat, long, radius_limit):
     output_list = []
     for location in all_locations:
-        x_position = location[0]
-        x_difference = x_position - lat
-        y_position = location[1]
-        y_difference = y_position - long
-        distance = sqrt((x_difference ** 2) + (y_difference ** 2))
-        print(distance)
+        distance = sqrt(((location[0] - lat) ** 2) + ((location[1] - long) ** 2))
         if distance < radius_limit:
             output_list.append(location)
     return output_list
