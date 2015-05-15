@@ -7,10 +7,17 @@
 <body>
 <script>
     var now = new Date();
-    document.write(now); //Thu May 14 2015 19:01:08 GMT-0700 (PDT)
-    ts = now.getTime() //1431655268515
-    ts = ts - (now.getTimezoneOffset() * 60 * 1000) //1431630068515
-    out = new Date(ts) //Thu May 14 2015 12:01:08 GMT-0700 (PDT)
+    document.write(now);
+    var ts_source = now.getTime();
+
+    minutes_away_from_GMT = now.getTimezoneOffset();
+    document.write(minutes_away_from_GMT);
+    seconds_in_a_minute = 60;
+    milliseconds_in_a_second = 1000;
+    ts_delta = minutes_away_from_GMT * seconds_in_a_minute * milliseconds_in_a_second;
+    var ts_output = ts_source - ts_delta;
+
+    out = new Date(ts_output);
     document.write("<br>");
     document.write(out);
 </script>
