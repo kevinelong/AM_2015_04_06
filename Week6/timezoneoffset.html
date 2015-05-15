@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var now = new Date();
+    document.write(now); //Thu May 14 2015 19:01:08 GMT-0700 (PDT)
+    ts = now.getTime() //1431655268515
+    ts = ts - (now.getTimezoneOffset() * 60 * 1000) //1431630068515
+    out = new Date(ts) //Thu May 14 2015 12:01:08 GMT-0700 (PDT)
+    document.write("<br>");
+    document.write(out);
+</script>
+</body>
+</html>
