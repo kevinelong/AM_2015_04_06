@@ -69,30 +69,43 @@
             target.appendChild(a);
         }
 
-        function addNoteByCloning(target, subject, main, footer) {
+        function setText(subtarget, values) {
+            var tagNames = Object.keys(values);
+            for (var i = 0; i < tagNames.length; i++) {
+                var tag = tagNames[i];
+                subtarget.getElementsByTagName(tag)[0].innerHTML = values[tag];
+            }
+        }
+
+        function addNoteByCloning(target, values) {
             var original = document.querySelectorAll("#target .template");
             var a = original[0].cloneNode(true);
             a.classList.remove("template");
+
             var article = a.getElementsByTagName("article")[0];
-            article.getElementsByTagName("header")[0].innerHTML = subject;
-            article.getElementsByTagName("main")[0].innerHTML = main;
-            article.getElementsByTagName("footer")[0].innerHTML = footer;
+
+            setText(article, values);
+
+//            article.getElementsByTagName("header")[0].innerHTML = values.subject;
+//            article.getElementsByTagName("main")[0].innerHTML = values.main;
+//            article.getElementsByTagName("footer")[0].innerHTML = values.footer;
+
             target.appendChild(a);
         }
 
         var target = document.getElementById("target");
         for (var i = 1; i <= 24; i++) {
-            addNoteByCloning(target, "subject " + i, "main", "footer");
+            addNoteByCloning(target, {"header": "subject " + i, "main": "main", "footer": "footer"});
         }
     });
 </script>
 <div id="target">
-    <a href="#" class="sticky template" contenteditable="true">
+    <a href="#" class="sticky template"  contenteditable="true">
         <article>
             <header>
                 Subject
             </header>
-            <main contenteditable="true">
+            <main>
                 Main
             </main>
             <footer>
