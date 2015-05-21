@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<style>
+    body {
+        font-family: arial, sans-serif;
+        font-size: 100%;
+        background: #996633;
+        padding: 4em;
+    }
+
+    .sticky {
+        height: 9em;
+        width: 9em;
+        padding: 1em;
+        margin: 2em;
+
+        display: inline-block;
+
+        background: #998877;
+        color: black;
+        text-decoration: none;
+        outline: none;
+        box-shadow: 0 0 1em rgba(0, 0, 0, .5);
+        transform: rotate(-3deg);
+        transition: all 0.3s ease-in-out;
+        position: relative;
+    }
+
+    .sticky:focus {
+        background: #ccaa88;
+        box-shadow: 0 0 2em rgba(0, 0, 0, .2);
+        transform: scale(2) rotate(-720deg);
+        z-index: 5;
+    }
+
+    .sticky header {
+        font-size: 150%;
+    }
+
+    .template {
+        display: none;
+    }
+
+    header, footer, main {
+        position: absolute;
+    }
+
+    header {
+        top: 1em;
+    }
+
+    footer {
+        bottom: 1em;
+    }
+
+    main {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+</style>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        function addNoteFromScratch(target, subject, main, footer) {
+            var a = document.createElement("a");
+            a.innerHTML = '<a href="#" class="sticky" contenteditable="true"><article><header>' +
+            subject + '</header><main>' +
+            main + '</main><footer>' +
+            footer + '</footer></article>';
+            target.appendChild(a);
+        }
+
+        function addNoteByCloning(target, subject, main, footer) {
+            var original = document.querySelectorAll("#target .template");
+            var a = original[0].cloneNode(true);
+            a.classList.remove("template");
+            var article = a.getElementsByTagName("article")[0];
+            article.getElementsByTagName("header")[0].innerHTML = subject;
+            article.getElementsByTagName("main")[0].innerHTML = main;
+            article.getElementsByTagName("footer")[0].innerHTML = footer;
+            target.appendChild(a);
+        }
+
+        var target = document.getElementById("target");
+        for (var i = 1; i <= 24; i++) {
+            addNoteByCloning(target, "subject " + i, "main", "footer");
+        }
+    });
+</script>
+<div id="target">
+    <a href="#" class="sticky template" contenteditable="true">
+        <article>
+            <header>
+                Subject
+            </header>
+            <main contenteditable="true">
+                Main
+            </main>
+            <footer>
+                Footer
+            </footer>
+        </article>
+    </a>
+</div>
