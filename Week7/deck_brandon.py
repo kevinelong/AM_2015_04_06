@@ -70,7 +70,6 @@ def test_shuffle(test_deck):
     loop_test()
 
 
-
 def decorate_cards(deck):
     result = []
     for card in deck:
@@ -79,6 +78,7 @@ def decorate_cards(deck):
         decorated_card = rank + " of " + suit
         result.append(decorated_card)
     return result
+
 
 def numeral_to_string(card_rank):
     numeral_ranks = {
