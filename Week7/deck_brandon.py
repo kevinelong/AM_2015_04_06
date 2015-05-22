@@ -4,6 +4,9 @@
 
 from random import randint
 
+SUIT_INDEX = 0
+RANK_INDEX = 1
+
 
 def make_deck(suits, card_values):
     result = []
@@ -43,11 +46,9 @@ def test_shuffle(test_deck):
     assert len(test_deck) == 52
 
     def hashable_list(deck):
-        suit_index = 0
-        rank_index = 1
         result = []
         for card in deck:
-            result.append(card[suit_index] + card[rank_index])
+            result.append(card[SUIT_INDEX] + card[RANK_INDEX])
         return result
 
     hashable_test = hashable_list(test_deck)
@@ -63,9 +64,36 @@ def test_shuffle(test_deck):
     print (changed_position_count, " cards changed position this shuffle.")
 
 
+def decorate_cards(deck):
+    result = []
+    for card in deck:
+        rank = numeral_to_string(card[RANK_INDEX])
+        suit = card[SUIT_INDEX]
+        decorated_card = rank + " of " + suit
+        result.append(decorated_card)
+    return result
+
+def numeral_to_string(card_rank):
+    numeral_ranks = {
+        '2': 'Two',
+        '3': 'Three',
+        '4': 'Four',
+        '5': 'Five',
+        '6': 'Six',
+        '7': 'Seven',
+        '8': 'Eight',
+        '9': 'Nine',
+        '10': 'Ten',
+    }
+    if card_rank in numeral_ranks.keys():
+        return numeral_ranks[card_rank]
+    else:
+        return card_rank
+
+
 shuffled_deck = shuffle(DECK)
 
 test_shuffle(shuffled_deck)
 
-print (shuffled_deck)
+print (decorate_cards(shuffled_deck))
 
