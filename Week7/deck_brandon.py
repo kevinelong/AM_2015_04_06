@@ -14,7 +14,7 @@ def make_deck(suits, card_values):
 
 
 suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs']
-card_values = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King']
+card_values = ['Ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King']
 DECK = make_deck(suits, card_values)
 
 
@@ -42,15 +42,30 @@ def shuffle(input_list):
 def test_shuffle(test_deck):
     assert len(test_deck) == 52
 
+    def hashable_list(deck):
+        suit_index = 0
+        rank_index = 1
+        result = []
+        for card in deck:
+            result.append(card[suit_index] + card[rank_index])
+        return result
+
+    hashable_test = hashable_list(test_deck)
+    hashable_deck = hashable_list(DECK)
+
+    assert len(set(hashable_test)) == 52
+    assert len(set(hashable_deck)) == 52
+
     changed_position_count = 0
     for x in range(0, 52):
         if test_deck[x] != DECK[x]:
             changed_position_count += 1
-    print changed_position_count, " cards changed position this shuffle."
+    print (changed_position_count, " cards changed position this shuffle.")
 
 
 shuffled_deck = shuffle(DECK)
 
 test_shuffle(shuffled_deck)
-print shuffled_deck
+
+print (shuffled_deck)
 
