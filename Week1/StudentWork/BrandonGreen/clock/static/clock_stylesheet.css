@@ -1,18 +1,24 @@
+@font-face {
+    font-family: LCARS_Font;
+    src: url("lcars_font.ttf") format("truetype");
+}
+
 * {
     text-align: center;
-    font-family: 'PT Sans Narrow', sans-serif;
+    /*font-family: 'PT Sans Narrow', sans-serif;*/
+    font-family: LCARS_Font, serif;
 }
 
 body {
-    background-repeat: no-repeat;
+    /*background-repeat: no-repeat;*/
     background-size: cover;
+    background-color: #000000;
 }
 
 h1 {
     color: #FF9900;
     margin-top: .5em;
     font-size: 400%;
-    margin-left: 5em;
 }
 
 input {
@@ -24,11 +30,10 @@ input {
 }
 
 input:first-of-type {
-    margin-left: 5em;
 }
 
 input[button], h1 {
-    font-family: 'Playfair Display SC', serif;
+    /*font-family: 'Playfair Display SC', serif;*/
 }
 
 body>div {
@@ -40,6 +45,12 @@ span {
     font-size: 4em;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 .flashy {
     background: #FF9900;
 }
@@ -47,6 +58,5 @@ span {
 #countdown_display {
     font-size: 4em;
     margin-top: 5em;
-    margin-left: 5em;
     border-radius: 24em;
 }
