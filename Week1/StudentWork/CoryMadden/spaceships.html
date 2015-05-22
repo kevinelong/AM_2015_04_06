@@ -89,9 +89,7 @@
             for (var i = 0; i < shipCount; i++) {
                 var ship = document.getElementById("ship"+i);
                 shipList[i].move();
-                var lineX = shipList[i].vector.x;
-                var lineY = shipList[i].vector.y;
-                var angle = Math.atan2(lineY, lineX)*(180/Math.PI);
+                var angle = Math.atan2(shipList[i].vector.y, shipList[i].vector.x)*(180/Math.PI);
                 ship.style.transform = "rotate("+(angle+90)+"deg)";
 
                 var div = document.getElementById("ship" + i);
