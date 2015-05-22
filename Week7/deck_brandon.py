@@ -19,8 +19,6 @@ def shuffle(input_list):
             deck = [x for x in deck if x not in result]
             cards_left = (len(deck)-1)
             random_int = randint(0, cards_left)
-        else:
-            random_int = randint(0, cards_left)
 
     return result
 
