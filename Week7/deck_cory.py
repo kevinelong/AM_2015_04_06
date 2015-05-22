@@ -1,5 +1,5 @@
 import random
-
+import deck_brandon
 
 def shuffle(deck, loop):
     i = 0
@@ -14,16 +14,7 @@ def shuffle(deck, loop):
         loop_count += 1
     print(deck)
 
-
-def make_deck(suits, card_values):
-    result = []
-    for suit in suits:
-        for value in card_values:
-            result.append([suit, value])
-    return result
-
-
 if __name__ == '__main__':
     suits = ['Spades', 'Hearts', 'Diamonds', 'Clubs']
     card_values = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King']
-    shuffle(make_deck(suits, card_values), 5)
+    shuffle(deck_brandon.make_deck(suits, card_values), 20)
