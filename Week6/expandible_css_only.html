@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #content1, #content2 {
+            display: none;
+        }
+
+        #content1:target, #content2:target {
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <a href="#content1">
+        Heading One
+    </a>
+
+    <div id="content1">
+        Content One
+    </div>
+</div>
+<div>
+    <a href="#content2">
+        Heading Two
+    </a>
+
+    <div id="content2">
+        Content Two
+    </div>
+</div>
+
+</body>
+</html>

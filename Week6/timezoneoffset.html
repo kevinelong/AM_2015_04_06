@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var now = new Date();
+    document.write(now);
+    var ts_source = now.getTime();
+
+    minutes_away_from_GMT = now.getTimezoneOffset();
+    document.write(minutes_away_from_GMT);
+    seconds_in_a_minute = 60;
+    milliseconds_in_a_second = 1000;
+    ts_delta = minutes_away_from_GMT * seconds_in_a_minute * milliseconds_in_a_second;
+    var ts_output = ts_source - ts_delta;
+
+    out = new Date(ts_output);
+    document.write("<br>");
+    document.write(out);
+</script>
+</body>
+</html>
