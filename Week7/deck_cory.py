@@ -1,5 +1,6 @@
 import random
 
+
 def shuffle(deck, loop):
     i = 0
     loop_count = 0
