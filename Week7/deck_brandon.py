@@ -29,5 +29,9 @@ def make_deck (suits, card_values):
             result.append([suit, value])
     return result
 
-print make_deck(suits, card_values)
+DECK = make_deck(suits, card_values)
+
+print shuffle(DECK)
+
+
 
