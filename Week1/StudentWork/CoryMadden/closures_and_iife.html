@@ -1,4 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://raw.github.com/darsain/motio/master/dist/motio.js"></script>
 <script>
     /**
      * OOP Object Oriented JavaScript
@@ -73,7 +74,7 @@
                 var color = shipColors[Math.floor(Math.random() * shipColors.length)];
                 shipList.push(new Ship("ship_" + i, color, position, direction));
                 var div = document.createElement("div");
-                div.innerHTML = "^";
+                div.innerHTML = '<img src="http://cliparts.co/cliparts/kTM/bGA/kTMbGAezc.svg" width="20px" height="20px">';
                 div.setAttribute("id", "ship" + i);
                 div.style.color = shipList[i].color;
                 div.style.position = "absolute";
