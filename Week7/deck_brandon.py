@@ -1,8 +1,5 @@
-# 52 elements
-
-# e.g. [[hearts, king], [spades, 7], [clubs, jack]...]
-
 from random import randint
+
 
 SUIT_INDEX = 0
 RANK_INDEX = 1
@@ -61,7 +58,17 @@ def test_shuffle(test_deck):
     for x in range(0, 52):
         if test_deck[x] != DECK[x]:
             changed_position_count += 1
-    print (changed_position_count, " cards changed position this shuffle.")
+    print (str(changed_position_count) + " cards changed position this shuffle.")
+
+    def loop_test():
+        loops = 0
+        for x in range(0, 101):
+            shuffle(DECK)
+            loops += 1
+        print ("Loops performed: " + str(loops))
+
+    loop_test()
+
 
 
 def decorate_cards(deck):
@@ -95,5 +102,4 @@ shuffled_deck = shuffle(DECK)
 
 test_shuffle(shuffled_deck)
 
-print (decorate_cards(shuffled_deck))
-
+print ("Shuffled Deck:", decorate_cards(shuffled_deck))
