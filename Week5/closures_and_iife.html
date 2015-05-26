@@ -35,7 +35,7 @@
         this.y = y;
     }
 
-    Position.prototype = Vector; //Inherit - Position is a type of Vector
+    Position.prototype = new Vector; //Inherit - Position is a type of Vector
 
     function Ship(name, color, position, direction) {
         this.name = name;
@@ -54,7 +54,7 @@
      **/
 
     function GameFactory() {
-        var shipColors = ['red', 'green', 'blue', 'gold', 'black'];
+        var shipColors = ['red', 'green', 'blue', 'gold', 'black', "orange"];
         var shipList = [];
         var shipCount = 100;
         var limit = 500;
@@ -62,7 +62,7 @@
         function start() {
 
             for (var i = 0; i < shipCount; i++) {
-                var position = new Vector();
+                var position = new Position();
                 position.randomPositive(limit);
                 var direction = new Vector();
                 direction.random(2);
@@ -85,6 +85,7 @@
             for (var i = 0; i < shipCount; i++) {
                 shipList[i].move();
                 var div = document.getElementById("ship" + i);
+
                 if (shipList[i].position.x > window.innerWidth) {
                     shipList[i].position.x = window.innerWidth;
                     shipList[i].vector.invertX();
@@ -99,10 +100,13 @@
                     shipList[i].position.y = 0;
                     shipList[i].vector.invertY();
                 }
+
                 div.style.top = shipList[i].position.y;
                 div.style.left = shipList[i].position.x;
             }
             requestAnimationFrame(loop);
+//            setTimeout(loop,0)
+//            loop();
 
         }
 
