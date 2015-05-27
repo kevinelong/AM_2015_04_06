@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <style>
+        * {
+            /*border: 1px solid black;*/
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            text-align: center;
+            background-color: #777777;
+            margin: 0;
+            padding: 0;
+            font-family: trebuchet, "trebuchet MS", "trebuchet ms1", sans-serif;
+        }
+
+        header, main, footer {
+            width: 95%;
+        }
+
+        header, footer {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #999999;
+            box-shadow: 0 0 6px 6px rgba(0,0,0,0.2);
+        }
+
+        header {
+            top: 0;
+            width: 95%;
+        }
+
+        footer {
+            bottom: 0;
+        }
+
+        header, main, footer {
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        main {
+            width: 95%;
+            min-height: 100%;
+            background-color: #aaaaaa;
+            margin: 4em auto;
+            padding: 0 auto;
+            text-align: left;
+            box-shadow: 0 0 3px 3px rgba(0,0,0,0.2);
+        }
+
+        header div,
+        footer div {
+            padding: 1em;
+        }
+
+        header div a,
+        footer div a {
+            margin: 0 0.33em;
+        }
+
+        .center {
+            width: 30%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .left, .right {
+            position: absolute;
+            width: 30%;
+            white-space: nowrap;
+        }
+
+        .left {
+            left: 5%;
+            text-align: left;
+        }
+
+        .right {
+            right: 5%;
+            text-align: right;
+        }
+
+        main.left, main.right {
+            background-color: #999999;
+        }
+
+        section, article, aside {
+            padding: 1em;
+            margin: 1em;
+        }
+
+        section {
+            width: 45%;
+            display: inline-block;
+        }
+
+        article {
+            padding-right: 30%;
+            position: relative;
+            background-color: #eeeeee;
+            min-height: 12em;
+        }
+
+        aside {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 30%;
+            background-color: #000000;
+        }
+
+    </style>
+</head>
+<body>
+<main>
+    <h1>
+        Main Heading
+    </h1>
+    <section>
+        <h1>
+            Section Heading
+        </h1>
+        <article>
+            <h1>
+                Article Heading
+            </h1>
+            <aside>
+                <p>Aside</p>
+                <a href="#">link in aside</a>
+            </aside>
+        </article>
+    </section>
+    <section>
+        <h1>
+            Section Heading
+        </h1>
+        <article>
+            <h1>
+                Article Heading
+            </h1>
+            <aside>
+                <p>Aside</p>
+                <a href="#">link in aside</a>
+            </aside>
+        </article>
+    </section>
+    <section>
+        <h1>
+            Section Heading
+        </h1>
+        <article>
+            <h1>
+                Article Heading
+            </h1>
+            <aside>
+                <p>Aside</p>
+                <a href="#">link in aside</a>
+            </aside>
+        </article>
+    </section>
+    <section>
+        <h1>
+            Section Heading
+        </h1>
+        <article>
+            <h1>
+                Article Heading
+            </h1>
+            <aside>
+                <p>Aside</p>
+                <a href="#">link in aside</a>
+            </aside>
+        </article>
+    </section>
+</main>
+<header>
+    <div class="left">
+        Logo
+    </div>
+    <div class="right">
+        <a href="#">Login</a>
+        <a href="#">Help</a>
+    </div>
+    <div class="center title">
+        Title
+    </div>
+</header>
+
+<footer>
+    <div class="left">
+        <a href="#">
+            link
+        </a>
+        <a href="#">
+            link
+        </a>
+    </div>
+    <div class="right">
+        <a href="#">
+            link
+        </a>
+        <a href="#">
+            link
+        </a>
+    </div>
+    <div class="center">
+        &copy; 2000-2015
+    </div>
+</footer>
+</body>
+</html>
