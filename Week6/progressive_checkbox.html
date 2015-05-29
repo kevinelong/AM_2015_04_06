@@ -4,138 +4,75 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
-        body {
-            background-color: #666666;
+        body{
+            font-family: sans-serif;
+        }
+
+        label{
+            vertical-align: bottom;
+            line-height: 3em;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
         }
 
         input[type=checkbox] + span {
             color: #ccc;
-            font-style: italic;
-        }
+            vertical-align: middle;
 
-        input[type=checkbox] + span:before {
-            content: "";
-            display: inline-block;
-            background: url("icon-external.jpg") no-repeat top right;
-            width: 14px;
-            height: 12px;
         }
 
         input[type=checkbox]:checked + span {
-            color: #f00;
-            font-style: normal;
+            color: #f46;
         }
 
         .icon {
-            width: 32px;
-            height: 32px;
+            height: 3em;
             fill: #ccc;
+            vertical-align: middle;
         }
 
         .icon.is-check {
-            fill: #FE4365;
+            fill: #f46;
         }
 
-        .icon.is-outlined {
-            stroke: #FE4365;
-            stroke-width: 2px;
-            fill: transparent;
-        }
-
-        .icon.is-x2 {
-            width: 64px;
-            height: 64px;
-        }
-
-        .icon.is-hoverable:hover {
-            fill: #FE4365;
-            cursor: pointer;
-        }
-
-        .icon.is-activeable:active {
-            transform: scale(1.25);
-            cursor: pointer;
-        }
-
-        .icon.is-pink--onhover:hover {
-            fill: pink;
-        }
-
-        .icon.is-transit {
-            -webkit-transition: all .35s ease-out;
-            -moz-transition: all .35s ease-out;
-            -ms-transition: all .35s ease-out;
-            -o-transition: all .35s ease-out;
-            transition: all .35s ease-out;
-        }
-
-        body {
-            font-family: monospace;
-            color: #0099CC;
-        }
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var cb1 = document.getElementById("cb1");
-            cb1.addEventListener("change", function () {
+            var checkBoxes = document.getElementsByTagName("input");
+            for (var i = 0; i < checkBoxes.length; i++) {
+                var cb = checkBoxes[i];
+                cb.classList.add("heart");
+                var temp = document.createElement("div");
+                temp.innerHTML = '<svg class="icon" viewBox="0 0 18 18"><use xlink:href="#heart-icon"></use></svg>';
+                var icon = temp.children[0];
+                cb.parentElement.insertBefore( icon,  cb);
 
-            });
-//            cb1.style.display = "none";
+                cb.addEventListener("change", function (e) {
+                    console.log(e);
+                    var icon = e.target.parentElement.children[0];
+                    if (e.target.checked) {
+                        icon.classList.add("is-check");
+                    } else {
+                        icon.classList.remove("is-check");
+                    }
+                });
+
+                cb.style.display = "none";
+            }
         });
     </script>
+    <svg display="none">
+        <path id="heart-icon" d="M9,18c-20-17,0-23,0-13C9-4,29,0,9,18z"></path>
+    </svg>
 </head>
 <body>
-<label><input type="checkbox" id="cb1"><span>ZZZ</span></label>
+<form>
+    <label><input type="checkbox" name="cb1"><span>Favorite 1</span></label>
+    <br>
+    <label><input type="checkbox" name="cb2"><span>Favorite 2</span></label>
 
-<!-- SVG SOURCE -->
-<svg height="0" width="0" style="position:absolute;margin-left: -100%;">
-    <path id="heart-icon" d="M16,28.261c0,0-14-7.926-14-17.046c0-9.356,13.159-10.399,14-0.454c1.011-9.938,14-8.903,14,0.454
-	C30,20.335,16,28.261,16,28.261z"/>
-</svg>
-<!-- SVG SOURCE ends-->
-
-
-<h4>Icons:</h4>
-
-<svg class="icon" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-<svg class="icon is-check" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-<svg class="icon is-outlined" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-<svg class="icon is-outlined is-hoverable" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-
-<svg class="icon is-outlined is-hoverable is-transit" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-<svg class="icon is-outlined is-hoverable is-transit is-activeable" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-<div></div>
-
-<svg class="icon is-x2 is-outlined is-hoverable is-transit" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-<svg class="icon is-x2 is-hoverable is-activeable is-transit" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-<svg class="icon is-x2 is-hoverable is-outlined is-pink--onhover" viewBox="0 0 32 32">
-    <use xlink:href="#heart-icon"></use>
-</svg>
-
-
+</form>
 </body>
 </html>
