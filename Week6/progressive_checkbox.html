@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+
+        label{
+            vertical-align: bottom;
+            line-height: 3em;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        input[type=checkbox] + span {
+            color: #ccc;
+            vertical-align: middle;
+
+        }
+
+        input[type=checkbox]:checked + span {
+            color: #f46;
+        }
+
+        .icon {
+            height: 3em;
+            fill: #ccc;
+            vertical-align: middle;
+        }
+
+        .icon.is-check {
+            fill: #f46;
+        }
+
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var checkBoxes = document.getElementsByTagName("input");
+            for (var i = 0; i < checkBoxes.length; i++) {
+                var cb = checkBoxes[i];
+                cb.classList.add("heart");
+                var temp = document.createElement("div");
+                temp.innerHTML = '<svg class="icon" viewBox="0 0 18 18"><use xlink:href="#heart-icon"></use></svg>';
+                var icon = temp.children[0];
+                cb.parentElement.insertBefore( icon,  cb);
+
+                cb.addEventListener("change", function (e) {
+                    console.log(e);
+                    var icon = e.target.parentElement.children[0];
+                    if (e.target.checked) {
+                        icon.classList.add("is-check");
+                    } else {
+                        icon.classList.remove("is-check");
+                    }
+                });
+
+                cb.style.display = "none";
+            }
+        });
+    </script>
+    <svg display="none">
+        <path id="heart-icon" d="M9,18c-20-17,0-23,0-13C9-4,29,0,9,18z"></path>
+    </svg>
+</head>
+<body>
+<form>
+    <label><input type="checkbox" name="cb1"><span>Favorite 1</span></label>
+    <br>
+    <label><input type="checkbox" name="cb2"><span>Favorite 2</span></label>
+
+</form>
+</body>
+</html>
