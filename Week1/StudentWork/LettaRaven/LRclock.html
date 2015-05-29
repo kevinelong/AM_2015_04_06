@@ -3,11 +3,49 @@
 <head lang="en">
     <meta charset="UTF-8">
     <style>
+        h1 {
+            text-align: center;
+            font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+            font-size: 16px;
+            margin-top: 4cm;
+            margin-right: 3cm;
+        }
         body {
             margin-top: 8cm;
             margin-left: 9cm;
-            background: #f8f7ab;
+            background: radial-gradient(#f8f7ab,#f0f861, #f8f590, #39d2c6);
         }
+        input {
+            font-size: 16px;
+            padding: 5px;
+
+        }
+
+        .circle {
+            position: relative;
+            padding-bottom: 25%;
+            border-radius: 75%;
+            background-color: #f8f617; opacity: 0.2;
+        }
+        .circle_grandparent {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .circle_parent {
+            display: table;
+            height: 500%;
+            width: 100%;
+        }
+        .circle_child {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            height: 500%;
+            width: 500%;
+        }
+
     </style>
     <script>
         /* TODO Items in order
@@ -125,7 +163,9 @@
     </script>
 </head>
 <body>
+<h1>This is a timer, baby</h1>
 <div>
+
     <input id="hh" type="number" value="0" min="0" max="99" step="1">
     :
     <input id="mm" type="number" value="1" min="0" max="59" step="1">
@@ -135,6 +175,14 @@
     <input id="go" type="button" value="GO!">
     &nbsp;
     <input id="pause" type="button" value="Pause">
+    <div class="circle">
+        <div class="circle_grandparent">
+            <div class="circle_parent">
+                <div class="circle_child">
+</div>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
