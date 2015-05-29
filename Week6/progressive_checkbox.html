@@ -27,6 +27,9 @@
             color: #f46;
         }
 
+        input[type=checkbox]:checked + span {
+            color: #f46;
+        }
         .icon {
             height: 3em;
             fill: #ccc;
@@ -40,9 +43,11 @@
     </style>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            var checkBoxes = document.getElementsByTagName("input");
+            var checkBoxes = document.querySelectorAll("input[type='checkbox']");
             for (var i = 0; i < checkBoxes.length; i++) {
+
                 var cb = checkBoxes[i];
+
                 cb.classList.add("heart");
                 var temp = document.createElement("div");
                 temp.innerHTML = '<svg class="icon" viewBox="0 0 18 18"><use xlink:href="#heart-icon"></use></svg>';
@@ -72,7 +77,6 @@
     <label><input type="checkbox" name="cb1"><span>Favorite 1</span></label>
     <br>
     <label><input type="checkbox" name="cb2"><span>Favorite 2</span></label>
-
 </form>
 </body>
 </html>
