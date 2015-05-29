@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background-color: #666666;
+        }
+
+        input[type=checkbox] + span {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        input[type=checkbox] + span:before {
+            content: "";
+            display: inline-block;
+            background: url("icon-external.jpg") no-repeat top right;
+            width: 14px;
+            height: 12px;
+        }
+
+        input[type=checkbox]:checked + span {
+            color: #f00;
+            font-style: normal;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            fill: #ccc;
+        }
+
+        .icon.is-check {
+            fill: #FE4365;
+        }
+
+        .icon.is-outlined {
+            stroke: #FE4365;
+            stroke-width: 2px;
+            fill: transparent;
+        }
+
+        .icon.is-x2 {
+            width: 64px;
+            height: 64px;
+        }
+
+        .icon.is-hoverable:hover {
+            fill: #FE4365;
+            cursor: pointer;
+        }
+
+        .icon.is-activeable:active {
+            transform: scale(1.25);
+            cursor: pointer;
+        }
+
+        .icon.is-pink--onhover:hover {
+            fill: pink;
+        }
+
+        .icon.is-transit {
+            -webkit-transition: all .35s ease-out;
+            -moz-transition: all .35s ease-out;
+            -ms-transition: all .35s ease-out;
+            -o-transition: all .35s ease-out;
+            transition: all .35s ease-out;
+        }
+
+        body {
+            font-family: monospace;
+            color: #0099CC;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var cb1 = document.getElementById("cb1");
+            cb1.addEventListener("change", function () {
+
+            });
+//            cb1.style.display = "none";
+        });
+    </script>
+</head>
+<body>
+<label><input type="checkbox" id="cb1"><span>ZZZ</span></label>
+
+<!-- SVG SOURCE -->
+<svg height="0" width="0" style="position:absolute;margin-left: -100%;">
+    <path id="heart-icon" d="M16,28.261c0,0-14-7.926-14-17.046c0-9.356,13.159-10.399,14-0.454c1.011-9.938,14-8.903,14,0.454
+	C30,20.335,16,28.261,16,28.261z"/>
+</svg>
+<!-- SVG SOURCE ends-->
+
+
+<h4>Icons:</h4>
+
+<svg class="icon" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+<svg class="icon is-check" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+<svg class="icon is-outlined" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+<svg class="icon is-outlined is-hoverable" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+
+<svg class="icon is-outlined is-hoverable is-transit" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+<svg class="icon is-outlined is-hoverable is-transit is-activeable" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+<div></div>
+
+<svg class="icon is-x2 is-outlined is-hoverable is-transit" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+<svg class="icon is-x2 is-hoverable is-activeable is-transit" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+<svg class="icon is-x2 is-hoverable is-outlined is-pink--onhover" viewBox="0 0 32 32">
+    <use xlink:href="#heart-icon"></use>
+</svg>
+
+
+</body>
+</html>
