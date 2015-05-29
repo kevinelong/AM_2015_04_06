@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <style>
+        body {
+            margin-top: 8cm;
+            margin-left: 9cm;
+            background: #f8f7ab;
+        }
+    </style>
+    <script>
+        /* TODO Items in order
+         0. Check out the code as is and watch the console
+         1. set internal countdown variable based on user inputs.
+         2. update user inputs while counting down.
+         3. allow the user to pause and resume the countdown by keeping the timer id and using clearTimeout.
+         4. stop countdown when it reaches zero.
+         5. play a sound when timer reaches zero using html5 audio object.
+         */
+
+        document.addEventListener("DOMContentLoaded", function () {
+            var cc_timer = (function () {
+                var ticker = 10000;
+                var now = new Date();
+
+                var go = document.getElementById("go");
+                var pause = document.getElementById("pause");
+
+                var hh = document.getElementById("hh");
+                var mm = document.getElementById("mm");
+                var ss = document.getElementById("ss");
+
+                pause.style.display = "none";
+
+                var timer_id;
+
+                function log(obj) {
+                    console.log(obj);
+//                        body.innerHTML += obj.toString() || "";
+                }
+
+                function show(element) {
+                    element.style.display = "inline-block";
+                }
+
+                function hide(element) {
+                    element.style.display = "none";
+                }
+
+                function tick() {
+                    var oneSecondInMilliseconds = 1000;
+                    timer_id = setTimeout(tick, oneSecondInMilliseconds);
+                    ticker -= oneSecondInMilliseconds;
+                    log(ticker);
+                    now = new Date();
+                    log(now);
+                    if (ticker <= 0) {
+                        stop();
+//                    alarm();
+                        ticker = 0;
+                        go.style.display = "inline-block";
+                        pause.style.display = "none";
+                    }
+                    setInput(ticker);
+                }
+
+                function stop() {
+                    clearTimeout(timer_id);
+                    setInput(ticker)
+                }
+
+                function getInput() {
+                    var ms = 0;
+                    ms += hh.value * 60 * 60 * 1000;
+                    ms += mm.value * 60 * 1000;
+                    ms += ss.value * 1000;
+                    return ms;
+                }
+
+                function setInput(ms) {
+                    log(ms);
+                    var h = Math.floor(ms / (60 * 60 * 1000));
+                    ms -= h * 60 * 60 * 1000;
+                    log(ms);
+                    var m = Math.floor(ms / (60 * 1000));
+                    ms -= m * 60 * 1000;
+                    log(ms);
+                    var s = Math.floor(ms / 1000);
+                    log(h, m, s);
+                    hh.value = h;
+                    mm.value = m;
+                    ss.value = s;
+
+                    log(ms);
+                }
+
+                go.addEventListener("click", function (event) {
+//                    log(event);
+                    log(this);
+                    ticker = getInput();
+                    hide(go);
+                    show(pause);
+                    tick();
+                });
+
+                pause.addEventListener("click", function (event) {
+                    log(event);
+                    log(this);
+                    hide(pause);
+                    show(go);
+                    stop();
+                });
+
+                return {
+                    "ticker": ticker,
+                    "tick": tick
+                }
+        })();
+//            console.log("cc_timer.ticker");
+//            console.log(cc_timer.ticker);
+//            cc_timer.tick()
+        });
+
+    </script>
+</head>
+<body>
+<div>
+    <input id="hh" type="number" value="0" min="0" max="99" step="1">
+    :
+    <input id="mm" type="number" value="1" min="0" max="59" step="1">
+    :
+    <input id="ss" type="number" value="0" min="0" max="59" step="15">
+    &nbsp;
+    <input id="go" type="button" value="GO!">
+    &nbsp;
+    <input id="pause" type="button" value="Pause">
+</div>
+</body>
+</html>
