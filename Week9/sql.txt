@@ -1,0 +1,26 @@
+Read about the following commands:
+
+CREATE TABLE ...;
+
+INSERT INTO ...;
+
+SELECT FROM ...;
+
+UPDATE table SET field_name = 'value' WHERE id = 123;
+
+DELETE FROM table_name WHERE id = 123;
+
+
+HOME WORK:
+
+    1.  Create Two *Related* tables perhaps similar to the django polls app models:
+        https://docs.djangoproject.com/en/1.8/intro/tutorial01/
+
+    2.  INSERT data into both including the foreign key relationships.
+
+    3.  Use JOIN, ON to SELECT from both tables at once. See example file.
+
+    4.  Augment that query to add WHERE, ORDER. Again see example file.
+
+    5.  EXTRA CREDIT: Keep going to Use GROUP BY and HAVING. Not in example but ample resources exist.
+
