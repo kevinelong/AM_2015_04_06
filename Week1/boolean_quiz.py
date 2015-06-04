@@ -58,5 +58,7 @@ def game():
             SCORE += 1
         else:
             print('Incorrect.')
-    print("FINAL SCORE: %d of %d questions" % SCORE, length)
+    print("FINAL SCORE: {0} of {1} questions".format(SCORE, length))
+
+
 game()
