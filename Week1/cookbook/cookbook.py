@@ -1,5 +1,3 @@
-
-
 class Recipe(object):
     def __init__(self, name_of_recipe):
         self.name_of_recipe = name_of_recipe
@@ -7,11 +5,13 @@ class Recipe(object):
         self.steps = StepList()
 
     def render(self):
-        output = []
-        output.append(self.name_of_recipe)
-        output.append(self.ingredients.render())
-        output.append(self.steps.render())
+        output = [
+            self.name_of_recipe,
+            self.ingredients.render(),
+            self.steps.render()
+        ]
         return "\n<br>\n".join(output)
+
 
 class RecipePartList(list):
     def render(self):
@@ -20,11 +20,14 @@ class RecipePartList(list):
             output.append(i.render())
         return "<br>\n".join(output)
 
+
 class IngredientList(RecipePartList):
     pass
 
+
 class StepList(RecipePartList):
     pass
+
 
 class RecipeIngredient(object):
     template = "     -  %s %s of %s"
@@ -39,7 +42,7 @@ class RecipeIngredient(object):
         # output.append(str(self.amount))
         # output.append(self.measure.name)
         # output.append(self.ingredient.name)
-        #return " ".join(output)
+        # return " ".join(output)
         return self.template % (str(self.amount), self.measure.name, self.ingredient.name)
 
 
@@ -82,4 +85,4 @@ cake.ingredients.append(
 )
 cake.steps.append(RecipeStep("Mix ingredients together."))
 
-print cake.render()
+print(cake.render())

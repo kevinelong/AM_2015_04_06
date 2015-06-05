@@ -18,8 +18,8 @@ def characters_two(numbers):
         output.append(chr(n))
     return ", ".join(output)
 
-
-numbers = ascii("Kevin Ernest Long (503) 888-6879 \t\talmost\nthe\nend")
+s = "Kevin Ernest Long (503) 888-6879 \t\talmost\nthe\nend"
+numbers = ascii(s)
 
 original = characters(numbers)  # USE chr
 with_commas = characters_two(numbers)  # USE chr
