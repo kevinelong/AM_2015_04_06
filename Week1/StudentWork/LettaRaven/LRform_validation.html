@@ -15,11 +15,12 @@
 
                 var email = document.getElementById('email');
 
-                if (email.value.length < 1) {
+                if (email.value.length >= 1) {
+                } else {
                     email.classList.add("error");
                     errors.push("Email is a required field");
                     var d = document.createElement("div");
-                    d.innerHTML = "Email is a required field.";
+                    d.innerHTML = ("Email is a required field.");
                 )
 
                     email.parentElement.appendChild(d)
@@ -45,6 +46,7 @@
         });
 
     </script>
+
     <style>
         .error {
             border: 2px solid red;
@@ -78,7 +80,6 @@
         <label for="email">
             Email:
         </label>
-        <br>
         <input name="email" id="email">
         <br>
         <label for="first_name">

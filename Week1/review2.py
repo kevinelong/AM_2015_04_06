@@ -67,6 +67,7 @@ print(chr(base + 2) + chr(base + 3))
 
 print("10. Loop through list of integers")
 result = ""
+
 for character in [65, 66, 13, 10, 67, 68]:
     result = result + chr(character)
 print(result)
