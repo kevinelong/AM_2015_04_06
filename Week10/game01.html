@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<div id="gameArea">
+</div>
+<script>
+    function World(element) {
+        var self = this;
+        this.element = element;
+
+        this.element.setAttribute("style",
+                "overflow:hidden;position:absolute;top:0;bottom:0;left:0;;right:0;"
+        );
+
+        this.currentElement = undefined;
+        this.width = Math.max(element.clientWidth, element.innerWidth || 0);
+        this.height = Math.max(element.clientHeight, element.innerHeight || 0);
+
+        document.addEventListener("keydown", function (e) {
+            var key = e.which;
+            if (key === self.keyCodes.LEFT) {
+                self.currentElement.moveLeft();
+            } else if (key === self.keyCodes.UP) {
+                self.currentElement.moveUp();
+            } else if (key === self.keyCodes.RIGHT) {
+                self.currentElement.moveRight();
+            } else if (key === self.keyCodes.DOWN) {
+                self.currentElement.moveDown();
+            }
+        });
+
+    }
+    World.prototype.keyCodes = {LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40};
+
+
+    World.prototype.addElement = function (sprite) {
+        sprite.world = this;
+        this.element.appendChild(sprite.element);
+        sprite.init(this.element);
+    };
+
+    function Sprite(content) {
+        this.element = document.createElement("div");
+        this.element.style.transition= "all 0.33s ease-in-out";
+        this.element.innerHTML = content;
+    }
+
+    Sprite.prototype.init = function (parentElement) {
+        this.element.style.position = "absolute";
+        this.self = this;
+        this.box = this.element.getBoundingClientRect();
+    };
+
+    Sprite.prototype.centerHorizontal = function () {
+        this.x = Math.floor(this.world.width / 2 - this.box.width / 2);
+    };
+
+    Sprite.prototype.centerVertical = function () {
+        this.y = Math.floor(this.world.height / 2 - this.box.height / 2);
+    };
+
+    Sprite.prototype.center = function () {
+        this.centerHorizontal();
+        this.centerVertical();
+        this.setPosition(this.x, this.y);
+    };
+
+    Sprite.prototype.moveRandom = function () {
+        this.x = Math.floor(Math.random() * this.world.width);
+        this.y = Math.floor(Math.random() * this.world.height);
+        this.updatePosition();
+    };
+
+    Sprite.prototype.setPosition = function (x, y) {
+        this.x = x;
+        this.y = y;
+        this.updatePosition();
+    }
+
+    Sprite.prototype.updatePosition = function () {
+        this.element.style.transform = "translate3d(" + this.x + "px," + this.y + "px,0)";
+    };
+
+    Sprite.prototype.setX = function (x) {
+        this.x = x;
+        this.updatePosition();
+
+    };
+
+    Sprite.prototype.setY = function (y) {
+        this.y = y;
+        this.updatePosition();
+
+    };
+
+    Sprite.prototype.moveRight = function () {
+        this.setX(this.x += this.box.width)
+    };
+    Sprite.prototype.moveLeft = function () {
+        this.setX(this.x -= this.box.width)
+    };
+    Sprite.prototype.moveUp = function () {
+        this.setY(this.y -= this.box.height)
+    };
+    Sprite.prototype.moveDown = function () {
+        this.setY(this.y += this.box.height)
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var gameArea = document.getElementById("gameArea");
+        var world = new World(gameArea);
+        var p = new Sprite("@");
+        world.addElement(p);
+        world.currentElement = p;
+        p.moveRandom();
+    });
+
+</script>
+</html>

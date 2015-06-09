@@ -30,6 +30,10 @@ class Store():
         self.products = []
         self.customers = []
 
+    # convenience method to shorten number of dots in adding items
+    def add(self, product):
+        self.products.append(product)
+
 
 class Buyer():
     def __init__(self, id):
@@ -40,7 +44,7 @@ class Buyer():
 store = Store("amazon")
 
 item = Item("PC Game Programming Explorer", 39.99)
-store.products.append(item)
+store.add(item)
 
 buyer = Buyer("kevin")
 store.customers.append(buyer)
