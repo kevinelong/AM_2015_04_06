@@ -33,6 +33,7 @@ class RecipeIngredient():
         output.append(self.measure)
         output.append(self.ingredient)
         return " ".join(output)
+
 class Step():
     def __init__(self, line):
         self.line = line

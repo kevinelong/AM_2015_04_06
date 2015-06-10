@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-TEMPLATE_DIRS = ('<workspace>/tango_with_django_project/templates/rango',)
+TEMPLATE_DIRS = ('projects/tango_with_django_project/templates/rango',)
 TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
 
 STATIC_PATH = os.path.join(BASE_DIR,'static')

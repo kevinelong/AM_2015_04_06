@@ -1,0 +1,37 @@
+
+function City(options) {
+}
+this.name = options.name || null;
+this.state = options.state || null;
+this.population = options.population || 0;
+}
+
+function CityFactory() {}
+CityFactory.prototype.createCity = function createCity(options) {
+    var parentClass = null;
+
+    parentClass = City;
+
+    if (parentClass === null) {
+        return false;
+    }
+    
+    if (parentClass.name === null) {
+        return false;
+    }
+    
+    return new parentClass( options );
+
+    //example usage
+var myCityFactory = new CityFactory();
+var city = myCityFactory.createCity( {
+    name: 'Portland',
+    state: 'OR',
+    population: 583776 } );
+        
+    )    
+    }
+
+//outputs: true
+console.log( city instanceof City);
+console.log( city );

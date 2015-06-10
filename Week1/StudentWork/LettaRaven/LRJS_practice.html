@@ -1,0 +1,64 @@
+<!--<DOCTYPE html>-->
+    <!--<html>-->
+    <!--<body>-->
+    <!--<script type="text/javascript"> for (i=0;i<5;++)-->
+    <!--{}-->
+    <!--</script>-->
+    <!--<p>Hi</p>-->
+    <!--<p>This is an example of the execution of the for loop</p>-->
+    <!--</body>-->
+    <!--</html>-->
+
+<!--<!DOCTYPE html>-->
+        <!--<html>-->
+<!--<head>-->
+    <!--<title> Java Script in a nutshell</title>-->
+    <!--<h1> Functions in Javascript </h1>-->
+    <!--<p> Click on "Click Here" to execute the code in the function </p>-->
+    <!--<script type="text/javascript">-->
+        <!--function CodeGuild()-->
+        <!--{var x = prompt("Hey", "");-->
+        <!--alert("Welcome to CodeGuild," + x); }-->
+    <!--</script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<a href="javascript:CodeGuild()">Click Here</a>-->
+<!--</body>-->
+<!--</html>-->
+
+<!--<!DOCTYPE html>-->
+        <!--<html>-->
+<!--<body>-->
+<!--<script>-->
+    <!--var animal=new Object();-->
+    <!--animal.species="Dog";-->
+    <!--animal.nickname="Monkey";-->
+    <!--animal.age=12;-->
+    <!--animal.eyecolor="brown";-->
+    <!--document.write(animal.nickname + " is a dog that has " + animal.eyecolor + " eyes.");-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+<html>
+<head>
+    <script type="text/javascript">
+        function rate(cost){
+            this.sellingPrice = cost;}
+        function prose(name, company) {
+            this.name= name;
+            this.company = company;
+            this.rate = rate;
+        }
+    </script>
+</head>
+<body>
+<script type="text/javascript">
+    var y = new prose("Think Python", "O'Reilly Publishing");
+    y.rate(44.99);
+    document.write("The name of the book is " + y.name + "<br>");
+    document.write("The name of the publishing company is : " + y.company + "<br>");
+    document.write("The cost of the book is $" + y.sellingPrice+ "<br>");
+</script>
+</body>
+</html>
