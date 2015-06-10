@@ -8,9 +8,9 @@
 <script src="js/game03/game.js"></script>
 <script>
     function Ship(symbol) {
-        Player.call(symbol);
+        Player.call(this, symbol);
     }
-    Ship.prototype = Object.create(Player);
+    Ship.prototype = Object.create(Player.prototype);
 
     document.addEventListener("DOMContentLoaded", function () {
         var gameArea = document.getElementById("gameArea");
