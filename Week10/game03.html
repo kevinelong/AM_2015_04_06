@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<div id="gameArea">
+</div>
+<script src="js/game02/world.js"></script>
+<script src="js/game02/sprite.js"></script>
+<script src="js/game03/player.js"></script>
+<script src="js/game03/game.js"></script>
+<script>
+    function Ship(symbol) {
+        Player.call(symbol);
+    }
+    Ship.prototype = Object.create(Player);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var gameArea = document.getElementById("gameArea");
+        var game = new Game(gameArea);
+        game.addPlayer(new Ship("@"));
+        game.addPlayer(new Ship("O"));
+    });
+</script>
+</html>

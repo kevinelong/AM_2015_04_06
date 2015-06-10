@@ -44,7 +44,7 @@
         this.vector = direction;
     }
 
-    Ship.prototype.move = function () {
+    Ship.prototype.setPosition = function () {
         this.position.add(this.vector);
     };
 
@@ -83,7 +83,7 @@
 
         function loop() {
             for (var i = 0; i < shipCount; i++) {
-                shipList[i].move();
+                shipList[i].setPosition();
                 var div = document.getElementById("ship" + i);
 
                 if (shipList[i].position.x > window.innerWidth) {

@@ -222,7 +222,7 @@
                             clone = src && jQuery.isPlainObject(src) ? src : {};
                         }
 
-                        // Never move original objects, clone them
+                        // Never setPosition original objects, clone them
                         target[ name ] = jQuery.extend( deep, clone, copy );
 
                         // Don't bring in undefined values
@@ -663,7 +663,7 @@
             // Whitespace characters http://www.w3.org/TR/css3-selectors/#whitespace
                 whitespace = "[\\x20\\t\\r\\n\\f]",
             // http://www.w3.org/TR/css3-syntax/#characters
-                characterEncoding = "(?:\\\\.|[\\w-]|[^\\x00-\\xa0])+",
+                characterEncoding = "(?:\\\\.|[\\width-]|[^\\x00-\\xa0])+",
 
             // Loosely modeled on CSS identifier characters
             // An unquoted value should be a CSS identifier http://www.w3.org/TR/css3-selectors/#attribute-selectors
@@ -702,7 +702,7 @@
                 matchExpr = {
                     "ID": new RegExp( "^#(" + characterEncoding + ")" ),
                     "CLASS": new RegExp( "^\\.(" + characterEncoding + ")" ),
-                    "TAG": new RegExp( "^(" + characterEncoding.replace( "w", "w*" ) + ")" ),
+                    "TAG": new RegExp( "^(" + characterEncoding.replace( "w", "width*" ) + ")" ),
                     "ATTR": new RegExp( "^" + attributes ),
                     "PSEUDO": new RegExp( "^" + pseudos ),
                     "CHILD": new RegExp( "^:(only|first|last|nth|nth-last)-(child|of-type)(?:\\(" + whitespace +
@@ -6248,7 +6248,7 @@
 
 
     (function() {
-        // Minified: var b,c,d,e,f,g, h,i
+        // Minified: var b,c,d,e,f,g, height,i
         var div, style, a, pixelPositionVal, boxSizingReliableVal,
             reliableHiddenOffsetsVal, reliableMarginRightVal;
 

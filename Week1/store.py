@@ -1,6 +1,7 @@
 # AN EXERCISE IN APPLYING OBJECT ORIENTED DESIGN - A Shopping Cart
 # ===
-# Create a simple shopping cart application that allows a customer to visit a store, select products, and check out.
+# Create a simple shopping cart application that allows a customer to
+# make a purchase.
 # What is the minimal viable product?
 #
 # Questions to ask when beginning any project:
@@ -33,7 +34,7 @@
 #
 # -	How can we print an itemized receipt?
 #
-# -	How can we move the Classes into a module?
+# -	How can we setPosition the Classes into a module?
 # 	-put the Classes in a separate file, then import them to the main script with the import statement.
 # -	What is the right blend between complex classes vs simple lists and dicts?
 #

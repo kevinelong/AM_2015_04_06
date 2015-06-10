@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<div id="gameArea">
+</div>
+<script src="js/game02/world.js"></script>
+<script src="js/game02/sprite.js"></script>
+<script>
+
+    function Player(symbol) {
+        Sprite.call(this, symbol);
+    }
+    Player.prototype = Object.create(Sprite.prototype);
+
+    function Game(gameArea) {
+        this.players = [];
+        World.call(this, gameArea);
+    }
+    Game.prototype = Object.create(World.prototype);
+
+    Game.prototype.addPlayer = function (player) {
+        this.players.push(player);
+        this.addElement(player);
+        this.currentElement = player;
+        player.moveRandom();
+    };
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var gameArea = document.getElementById("gameArea");
+        var game = new Game(gameArea);
+        game.addPlayer(new Player("@"));
+        game.addPlayer(new Player("O"));
+    });
+</script>
+</html>

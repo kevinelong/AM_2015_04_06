@@ -49,7 +49,7 @@
         this.vector = direction;
     }
 
-    Ship.prototype.move = function () {
+    Ship.prototype.setPosition = function () {
         this.position.add(this.vector);
     };
 
@@ -88,7 +88,7 @@
         function loop() {
             for (var i = 0; i < shipCount; i++) {
                 var ship = document.getElementById("ship"+i);
-                shipList[i].move();
+                shipList[i].setPosition();
                 var angle = Math.atan2(shipList[i].vector.y, shipList[i].vector.x)*(180/Math.PI);
                 ship.style.transform = "rotate("+(angle+90)+"deg)";
 

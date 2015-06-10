@@ -60,7 +60,7 @@ style = """
 </style>
 """
 
-f = open("positions.html", "w")
+f = open("positions.html", "width")
 f.write(style)
 f.write('<div id="box" style="width:{0}px;height:{0}px;">\n'.format(square_size))
 for item in data:

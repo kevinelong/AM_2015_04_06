@@ -85,5 +85,5 @@ app.controller.routes = {
 
 request_path = "/gameplay/"
 html_output = app.controller.route(request_path)
-with open("output.html", "w") as f:
+with open("output.html", "width") as f:
     f.write(html_output)

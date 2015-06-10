@@ -105,7 +105,7 @@ print(buyer.cart.total())
 #
 # -	How can we print an itemized receipt?
 #
-# -	How can we move the Classes into a module?
+# -	How can we setPosition the Classes into a module?
 # 	-put the Classes in a separate file, then import them to the main script with the import statement.
 # -	What is the right blend between complex classes vs simple lists and dicts?
 #

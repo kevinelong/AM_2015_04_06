@@ -75,7 +75,7 @@ app.controller.routes = {
 request_path = "/scores/"
 print(app.controller.route(request_path))
 
-f = open("output.html", "w")
+f = open("output.html", "width")
 f.write(app.controller.route("/note/"))
 f.close()
 

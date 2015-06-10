@@ -6,9 +6,7 @@
     function World(element) {
         var self = this;
         this.element = element;
-        this.element.setAttribute("style",
-                "overflow:hidden;position:absolute;top:0;bottom:0;left:0;;right:0;"
-        );
+        this.fillParentElement();
         this.currentElement = undefined;
         this.width = Math.max(element.clientWidth, element.innerWidth || 0);
         this.height = Math.max(element.clientHeight, element.innerHeight || 0);
@@ -26,6 +24,11 @@
             }
         });
     }
+    World.prototype.fillParentElement = function () {
+        this.element.setAttribute("style",
+                "overflow:hidden;position:absolute;top:0;bottom:0;left:0;right:0;"
+        );
+    };
     World.prototype.keyCodes = {LEFT: 37, UP: 38, RIGHT: 39, DOWN: 40};
     World.prototype.addElement = function (sprite) {
         sprite.world = this;
@@ -35,7 +38,7 @@
 
     function Sprite(content) {
         this.element = document.createElement("div");
-        this.element.style.transition= "all 0.33s ease-in-out";
+        this.element.style.transition = "all 0.33s ease-in-out";
         this.element.innerHTML = content;
     }
 
@@ -55,7 +58,7 @@
         this.x = x;
         this.y = y;
         this.updatePosition();
-    }
+    };
 
     Sprite.prototype.updatePosition = function () {
         this.element.style.transform = "translate3d(" + this.x + "px," + this.y + "px,0)";

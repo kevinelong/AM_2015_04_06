@@ -83,7 +83,7 @@ app.controller.routes = {
 
 request_path = '/home/'
 
-f = open('page.html', 'w')
+f = open('page.html', 'width')
 f.write(app.controller.route(request_path))
 f.close()
 
