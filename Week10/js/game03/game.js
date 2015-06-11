@@ -6,7 +6,8 @@ Game.prototype = Object.create(World.prototype);
 
 Game.prototype.addPlayer = function (player) {
     this.players.push(player);
+    this.moveRandom(player);
     this.addElement(player);
+    player.updatePosition();
     this.currentElement = player;
-    player.moveRandom();
 };

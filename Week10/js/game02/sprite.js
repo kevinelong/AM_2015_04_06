@@ -7,13 +7,7 @@ function Sprite(content) {
 Sprite.prototype.init = function (parentElement) {
     this.element.style.position = "absolute";
     this.self = this;
-    this.box = this.element.getBoundingClientRect();
-};
-
-Sprite.prototype.moveRandom = function () {
-    this.x = Math.floor(Math.random() * this.world.width);
-    this.y = Math.floor(Math.random() * this.world.height);
-    this.updatePosition();
+    this.parentElement = parentElement;
 };
 
 Sprite.prototype.setPosition = function (x, y) {
@@ -23,6 +17,7 @@ Sprite.prototype.setPosition = function (x, y) {
 };
 
 Sprite.prototype.updatePosition = function () {
+    this.box = this.element.getBoundingClientRect();
     this.element.style.transform = "translate3d(" + this.x + "px," + this.y + "px,0)";
 };
 
