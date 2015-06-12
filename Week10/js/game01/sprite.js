@@ -1,6 +1,6 @@
 function Sprite(content) {
     this.element = document.createElement("div");
-    this.element.style.transition = "all 0.33s ease-in-out";
+    //this.element.style.transition = "all 0.33s ease-in-out";
     this.element.innerHTML = content;
 }
 
