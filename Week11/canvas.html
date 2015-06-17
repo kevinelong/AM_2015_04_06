@@ -1,0 +1,33 @@
+<canvas id="canvas" width="250" height="250" style="border: 1px solid #000000">
+    No canvas for you!
+</canvas>
+<script>
+        var data=[];
+        var quantity = 12;
+        for(var d=0;d<quantity;d++){
+            var value= Math.random() * 20;
+            data.push(value)
+        }
+//    var data = [1, 2, 15, 19, 16, 13, 11, 17, 22, 20, 22, 25];
+    function ready() {
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.strokeStyle = "rgb(200,0,0)";
+        ctx.lineWidth = 2;
+        var height = 250;
+        var y_scale = 10;
+        for (var i = 0; i < data.length; i++) {
+            if (i == 0) {
+                ctx.moveTo(0, height - data[i] * y_scale);
+            } else {
+                var step = 23;
+                var x = i * step;
+                var y = height - data[i] * y_scale;
+                ctx.lineTo(x, y);
+            }
+        }
+        ctx.stroke();
+
+    }
+    document.addEventListener("DOMContentLoaded", ready);
+</script>
