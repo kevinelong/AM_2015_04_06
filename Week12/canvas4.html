@@ -50,7 +50,7 @@
     var world = {
         "FRICTION": .8,
         "GRAVITY": 0.3
-    }
+    };
     function mainLoop() {
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -71,8 +71,6 @@
 
             if (creature.line.to.x < 0 && creature.line.to.y < 0) {
             } else {
-
-
                 if (creature.line.to.x < 0) {
                     creature.line.to.x = 0;
                     creature.vector.x = -(creature.vector.x * world.FRICTION);
@@ -93,13 +91,8 @@
                     creature.vector.x = creature.vector.x * world.FRICTION;
                 }
             }
-
-
             creature.vector.y -= world.GRAVITY;
-
         }
         window.requestAnimationFrame(mainLoop);
     }
-
-
 </script>
