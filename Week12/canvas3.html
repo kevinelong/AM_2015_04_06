@@ -1,0 +1,79 @@
+<canvas id="canvas"></canvas>
+<style>
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
+<script>
+
+    //Init
+    canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx = canvas.getContext("2d");
+    window.requestAnimationFrame(mainLoop);
+
+    var line_list = [];
+    var quantity = 90;
+
+    for (var i = 0; i < quantity; i++) {
+        var x1 = 0;
+        var y1 = 0;
+        var x2 = Math.random() * canvas.width;
+        var y2 = Math.random() * canvas.height;
+        var vx = Math.random() * 12;
+        var vy = Math.random() * 12;
+        line_list.push([x1, y1, x2, y2, vx, vy]);
+    }
+    VECTOR_Y = 5;
+    FRICTION = .9;
+    GRAVITY = 0.2;
+    function mainLoop() {
+
+//        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < quantity; i++) {
+            var line = line_list[i];
+            line[0] = line[2];
+            line[1] = line[3];
+            line[2] += line[4];
+            line[3] += line[VECTOR_Y];
+            ctx.beginPath();
+            ctx.moveTo(line[0], canvas.height - line[1]);
+            ctx.lineTo(line[2], canvas.height - line[3]);
+            ctx.stroke();
+
+
+            if (line[2] < 0) {
+                line[2] = 0;
+                line[4] = -(line[4] * FRICTION);
+                line[VECTOR_Y] = line[VECTOR_Y] * FRICTION;
+            } else if (line[2] > canvas.width) {
+                line[2] = canvas.width;
+                line[4] = -(line[4] * FRICTION);
+                line[VECTOR_Y] = line[VECTOR_Y] * FRICTION;
+            }
+
+            if (line[3] < 0) {
+                line[3] = 0;
+                line[VECTOR_Y] = -(line[VECTOR_Y] * FRICTION);
+                line[4] = line[4] * FRICTION;
+            } else if (line[3] > canvas.height) {
+                line[3] = canvas.height;
+                line[VECTOR_Y] = -(line[VECTOR_Y] * FRICTION);
+                line[4] = line[4] * FRICTION;
+            }
+            line[VECTOR_Y] -= GRAVITY;
+
+        }
+        window.requestAnimationFrame(mainLoop);
+    }
+
+
+</script>
