@@ -12,7 +12,7 @@ def best_split(A):
         b = sum(A[i:])
 
         d = abs(b - a)
-        print(i, a, b, d)
+
         if i == 0:
             best = d
         elif d < best:

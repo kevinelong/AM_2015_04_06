@@ -12,6 +12,20 @@
 </style>
 <script>
 
+    function Point(x, y) {
+        this.x = x;
+        this.y = y;
+    }
+    function Line(p1, p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+    }
+    function Group(group){
+        this.group = group;
+    }
+
+
+
     function getIndex(x, y) {
         return (x + y * canvasData.width) * 4;
     }
@@ -38,9 +52,9 @@
             blue = canvasData.data[i + 2];
             alpha = canvasData.data[i + 3];
 
-            red = red > 128 ? red-1 : red+1;
-            green = green > 128 ? green-1 : green+1;
-            blue = blue > 128 ? blue-1 : blue+1;
+            red = red > 128 ? red - 1 : red + 1;
+            green = green > 128 ? green - 1 : green + 1;
+            blue = blue > 128 ? blue - 1 : blue + 1;
 
             canvasData.data[i] = red;
             canvasData.data[i + 1] = green;
@@ -58,7 +72,7 @@
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvasData = ctx.createImageData(canvas.width, canvas.height);
-\
+
     window.requestAnimationFrame(randomize);
 
 
