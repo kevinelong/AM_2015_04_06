@@ -4,9 +4,10 @@ function Game(gameArea) {
 }
 Game.prototype = Object.create(World.prototype);
 
-Game.prototype.addPlayer = function (player) {
+Game.prototype.addSprite = function (player) {
     this.players.push(player);
+    this.moveRandom(player);
     this.addElement(player);
+    player.updatePosition();
     this.currentElement = player;
-    player.moveRandom();
 };

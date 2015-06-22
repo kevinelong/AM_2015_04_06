@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<div id="gameArea">
+</div>
+<script src="js/game01/world.js"></script>
+<script src="js/game01/sprite.js"></script>
+<script src="js/game02/game.js"></script>
+<script src="js/game03/ship.js"></script>
+<script src="js/game03/arena.js"></script>
+<script src="js/game04/hyper_arena.js"></script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var gameArea = document.getElementById("gameArea");
+        var arena = new HyperArena(gameArea);
+        for(var i=0;i<6;i++){
+            arena.addSprite(new Ship("!"));
+        }
+        arena.addSprite(new Ship("@"));
+        arena.gameLoop();
+    });
+</script>
+</html>
