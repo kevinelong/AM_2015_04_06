@@ -1,0 +1,105 @@
+<canvas id="canvas"></canvas>
+<style>
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
+<script>
+
+    //Init
+    canvas = document.getElementById("canvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    ctx = canvas.getContext("2d");
+    window.requestAnimationFrame(mainLoop);
+
+    var creature_list = [];
+    var quantity = 90;
+
+    var Point = function () {
+        this.x = 0;
+        this.y = 0;
+    };
+    var Vector = function () {
+        Point.call(this)
+    };
+    Vector.prototype = Object.create(Point.prototype);
+
+    var Line = function () {
+        this.from = new Point();
+        this.to = new Point();
+    };
+    var Creature = function () {
+        this.line = new Line();
+        this.vector = new Vector();
+        this.line.from.x = Math.random() * canvas.width;
+        this.vector.x = (Math.random() - 0.5) * 50;
+        this.vector.y = (Math.random() - 0.5) * 50;
+    };
+
+    for (var i = 0; i < quantity; i++) {
+        var c = new Creature();
+        creature_list.push(c);
+    }
+    var world = {
+        "FRICTION": .8,
+        "GRAVITY": 0.3
+    }
+    function mainLoop() {
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < quantity; i++) {
+            var creature = creature_list[i];
+
+            creature.line.from.x = creature.line.to.x;
+            creature.line.from.y = creature.line.to.y;
+
+            creature.line.to.x += creature.vector.x;
+            creature.line.to.y += creature.vector.y;
+
+            ctx.beginPath();
+            ctx.moveTo(creature.line.from.x, canvas.height - creature.line.from.y);
+            ctx.lineTo(creature.line.to.x, canvas.height - creature.line.to.y);
+            ctx.stroke();
+
+            if (creature.line.to.x < 0 && creature.line.to.y < 0) {
+            } else {
+
+
+                if (creature.line.to.x < 0) {
+                    creature.line.to.x = 0;
+                    creature.vector.x = -(creature.vector.x * world.FRICTION);
+                    creature.vector.y = creature.vector.y * world.FRICTION;
+                } else if (creature.line.to.x > canvas.width) {
+                    creature.line.to.x = canvas.width;
+                    creature.vector.x = -(creature.vector.x * world.FRICTION);
+                    creature.vector.y = creature.vector.y * world.FRICTION;
+                }
+
+                if (creature.line.to.y < 0) {
+                    creature.line.to.y = 0;
+                    creature.vector.y = -(creature.vector.y * world.FRICTION);
+                    creature.vector.x = creature.vector.x * world.FRICTION;
+                } else if (creature.line.to.y > canvas.height) {
+                    creature.line.to.y = canvas.height;
+                    creature.vector.y = -(creature.vector.y * world.FRICTION);
+                    creature.vector.x = creature.vector.x * world.FRICTION;
+                }
+            }
+
+
+            creature.vector.y -= world.GRAVITY;
+
+        }
+        window.requestAnimationFrame(mainLoop);
+    }
+
+
+</script>
