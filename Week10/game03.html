@@ -2,21 +2,21 @@
 <html>
 <div id="gameArea">
 </div>
-<script src="js/game01/world.js"></script>
-<script src="js/game01/sprite.js"></script>
-<script src="js/game02/game.js"></script>
-<script src="js/game03/ship.js"></script>
-<script src="js/game03/arena.js"></script>
+<script src="js/game02/world.js"></script>
+<script src="js/game02/sprite.js"></script>
+<script src="js/game03/player.js"></script>
+<script src="js/game03/game.js"></script>
 <script>
+    function Ship(symbol) {
+        Player.call(symbol);
+    }
+    Ship.prototype = Object.create(Player);
 
     document.addEventListener("DOMContentLoaded", function () {
         var gameArea = document.getElementById("gameArea");
-        var arena = new Arena(gameArea);
-        for(var i=0;i<6;i++){
-            arena.addSprite(new Ship("!"));
-        }
-        arena.addSprite(new Ship("@"));
-        arena.gameLoop();
+        var game = new Game(gameArea);
+        game.addPlayer(new Ship("@"));
+        game.addPlayer(new Ship("O"));
     });
 
 </script>
