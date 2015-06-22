@@ -16,15 +16,15 @@ HyperArena.prototype.applyTunnel = function (sprite) {
     var x = sprite_rect.left;
     var y = sprite_rect.top;
 
-    if (x < 0 - sprite_rect.width) {
+    if (x <= 0 - sprite_rect.width) {
         x = world_rect.width - 1;
-    } else if (x > world_rect.width) {
+    } else if (x >= world_rect.width) {
         x = 0 - sprite_rect.width;
     }
 
-    if (y < 0 - sprite_rect.height) {
+    if (y <= 0 - sprite_rect.height) {
         y = world_rect.height - 1;
-    } else if (y > world_rect.height) {
+    } else if (y >= world_rect.height) {
         y = 0 - sprite_rect.height;
     }
     sprite.x = x;

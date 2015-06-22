@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<div id="gameArea">
+</div>
+<script src="js/game01/world.js"></script>
+<script src="js/game01/sprite.js"></script>
+<script src="js/game02/game.js"></script>
+<script src="js/game03/ship.js"></script>
+<script src="js/game03/arena.js"></script>
+<script src="js/game04/hyper_arena.js"></script>
+<script src="js/game05/momentum.js"></script>
+<script src="js/game05/heavy_ship.js"></script>
+<script>
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var gameArea = document.getElementById("gameArea");
+        var arena = new Space(gameArea);
+        for(var i=0;i<6;i++){
+            var enemy = new EnemyShip("!");
+            enemy.mx = Math.random()*4-2;
+            enemy.my = Math.random()*4-2;
+            arena.addSprite(enemy);
+        }
+        arena.addSprite(new HeavyShip("@"));
+        arena.gameLoop();
+    });
+
+</script>
+</html>
