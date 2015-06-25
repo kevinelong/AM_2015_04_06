@@ -10,19 +10,14 @@
 
     function update_from_hash() {
         var color = window.location.hash.split("#")[1];
-        var div_list = document.querySelectorAll("div");
+        var div_list = document.querySelectorAll("div.color");
         for (var i = 0; i < div_list.length; i++) {
             var div = div_list[i];
-            console.log(div);
-            if (div.classList.contains('color')) {
-                if (div.id == color) {
-                    div.style.display = "inline-block";
-                } else {
-                    div.style.display = "none";
-                }
-
+            if (div.id == color) {
+                div.style.display = "inline-block";
+            } else {
+                div.style.display = "none";
             }
-
         }
     }
     var color_list = ["red", "green", "blue"];
@@ -34,7 +29,10 @@
         html += '<input onchange="selection_changed(event)" ' +
                 'type="radio" name="color" ' +
                 'value="' + color + '">' +
-                '<div class="color" id="' + color + '" style="display:none;background-color: ' + color + ';">' +
+                '<div class="color" id="' +
+                color +
+                '" style="display:none;background-color: ' +
+                color + ';">' +
                 color +
                 '</div>';
     }
