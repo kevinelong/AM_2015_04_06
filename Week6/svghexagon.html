@@ -32,9 +32,12 @@
 </svg>
 <script>
     var ns = "http://www.w3.org/2000/svg";
-    var polygon = document.getElementsByTagNameNS(ns, "polygon")[0];
-    var points = polygon.getAttribute("points");
-    console.log(points);
+    var polygon_list = document.getElementsByTagNameNS(ns, "polygon");
+    for(var i=0;i<polygon_list.length;i++){
+        var polygon = polygon_list[i];
+        var points = polygon.getAttribute("points");
+        console.log(points);
+    }
 </script>
 </body>
 </html>
