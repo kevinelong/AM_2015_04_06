@@ -1,0 +1,43 @@
+<div id="content">
+</div>
+<script>
+    function selection_changed(e) {
+        var color = e.target.value;
+        console.log(color);
+        window.location.hash = color;
+        update_from_hash();
+    }
+
+    function update_from_hash() {
+        var color = window.location.hash.split("#")[1];
+        var div_list = document.querySelectorAll("div");
+        for (var i = 0; i < div_list.length; i++) {
+            var div = div_list[i];
+            console.log(div);
+            if (div.classList.contains('color')) {
+                if (div.id == color) {
+                    div.style.display = "inline-block";
+                } else {
+                    div.style.display = "none";
+                }
+
+            }
+
+        }
+    }
+    var color_list = ["red", "green", "blue"];
+    var content = document.getElementById("content");
+    var html = '';
+
+    for (var i = 0; i < color_list.length; i++) {
+        var color = color_list[i];
+        html += '<input onchange="selection_changed(event)" ' +
+                'type="radio" name="color" ' +
+                'value="' + color + '">' +
+                '<div class="color" id="' + color + '" style="display:none;background-color: ' + color + ';">' +
+                color +
+                '</div>';
+    }
+    content.innerHTML = html;
+    update_from_hash();
+</script>
