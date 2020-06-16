@@ -33,11 +33,11 @@ function EnemyShip(symbol) {
     HeavyShip.call(this, symbol);
     this.mx = 0;
     this.my = 0;
-    this.element.style.border = "1px solid red"
+    this.element.style.border = "1px solid green"
 }
 EnemyShip.prototype = Object.create(HeavyShip.prototype);
 
 EnemyShip.prototype.collided = function (other) {
     HeavyShip.prototype.collided.call(this, other);
-    this.element.style.backgroundColor = "red";
+    this.element.style.backgroundColor = "green";
 };
